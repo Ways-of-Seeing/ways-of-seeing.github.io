@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" width="900" height="220">
+  <!--
+    Lockup horizontal. O fundo e explicito de proposito: a versao anterior era
+    transparente e o texto branco sumia sobre qualquer superficie clara.
+    A tipografia usa pilha de fontes do sistema; para uso externo prefira o PNG.
+  -->
+  <rect width="900" height="220" rx="24" fill="#FFFFFF"/>
+
+  <g transform="translate(24, 24) scale(0.33203125)">
+    <rect width="512" height="512" rx="112" fill="#0A0C11"/>
+    <rect x="2" y="2" width="508" height="508" rx="110" fill="none" stroke="#252D3C" stroke-width="4"/>
+    <path d="M 40 256 C 126 78, 386 78, 472 256 C 386 434, 126 434, 40 256 Z"
+          fill="none" stroke="#F8FAFC" stroke-width="26" stroke-linejoin="round" stroke-linecap="round"/>
+    <g stroke-linejoin="round" stroke-width="18">
+      <polygon points="256,182 330,219 256,256 182,219" fill="#2DE1F7" stroke="#2DE1F7"/>
+      <polygon points="182,219 256,256 256,330 182,293" fill="#FB923C" stroke="#FB923C"/>
+      <polygon points="256,256 330,219 330,293 256,330" fill="#F1F5F9" stroke="#F1F5F9"/>
+    </g>
+  </g>
+
+  <g transform="translate(224, 0)" font-family="'Plus Jakarta Sans','Helvetica Neue',Helvetica,Arial,sans-serif">
+    <text x="0" y="102" font-size="54" font-weight="800" letter-spacing="-1.6" fill="#0B1220">Ways of Seeing</text>
+    <text x="2" y="140" font-size="15" font-weight="600" letter-spacing="4.2" fill="#5A6B80">INDEPENDENT GAMES, TOOLS &amp; ARTIFACTS</text>
+    <rect x="2" y="160" width="300" height="3" rx="1.5" fill="#06B6D4" opacity="0.85"/>
+    <rect x="302" y="160" width="86" height="3" rx="1.5" fill="#D97706"/>
+  </g>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" width="1280" height="480">
+  <defs>
+    <linearGradient id="bBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1119"/><stop offset="55%" stop-color="#090C12"/><stop offset="100%" stop-color="#0A0F18"/>
+    </linearGradient>
+    <radialGradient id="bGlow" cx="26%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#0AA5C4" stop-opacity="0.20"/>
+      <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bTop" x1="0%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#5CE1F5"/><stop offset="100%" stop-color="#0AA5C4"/>
+    </linearGradient>
+    <linearGradient id="bLeft" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" stop-color="#FCC53D"/><stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="bRight" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#B9C4D4"/>
+    </linearGradient>
+    <pattern id="bGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#1B2331" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="480" fill="url(#bBg)"/>
+  <rect width="1280" height="480" fill="url(#bGrid)" opacity="0.55"/>
+  <rect width="1280" height="480" fill="url(#bGlow)"/>
+
+  <!-- Marca -->
+  <g transform="translate(112, 112) scale(0.5)">
+    <path d="M 40 256 C 126 78, 386 78, 472 256 C 386 434, 126 434, 40 256 Z"
+          fill="none" stroke="#F8FAFC" stroke-width="26" stroke-linejoin="round" stroke-linecap="round"/>
+    <g stroke-linejoin="round" stroke-width="18">
+      <polygon points="256,182 330,219 256,256 182,219" fill="#2DE1F7" stroke="#2DE1F7"/>
+      <polygon points="182,219 256,256 256,330 182,293" fill="#FB923C" stroke="#FB923C"/>
+      <polygon points="256,256 330,219 330,293 256,330" fill="#F1F5F9" stroke="#F1F5F9"/>
+    </g>
+  </g>
+
+  <g transform="translate(452, 0)" font-family="'Plus Jakarta Sans','Helvetica Neue',Helvetica,Arial,sans-serif">
+    <text x="0" y="228" font-size="76" font-weight="800" letter-spacing="-2.4" fill="#F8FAFC">Ways of Seeing</text>
+    <text x="3" y="278" font-size="19" font-weight="600" letter-spacing="5" fill="#8FA0B5">INDEPENDENT GAMES, TOOLS &amp; ARTIFACTS</text>
+    <rect x="3" y="306" width="340" height="3" rx="1.5" fill="#06B6D4" opacity="0.85"/>
+    <rect x="343" y="306" width="96" height="3" rx="1.5" fill="#F59E0B"/>
+    <text x="3" y="348" font-size="19" font-weight="600" letter-spacing="0.5" fill="#F59E0B"
+          font-family="'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace">ways-of-seeing.github.io</text>
+  </g>
+
+  <!-- marcas de enquadramento nos cantos -->
+  <g stroke="#243044" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M 48 88 L 48 48 L 88 48"/>
+    <path d="M 1192 48 L 1232 48 L 1232 88"/>
+    <path d="M 1232 392 L 1232 432 L 1192 432"/>
+    <path d="M 88 432 L 48 432 L 48 392"/>
+  </g>
+</svg>
