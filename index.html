@@ -381,9 +381,9 @@
       box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
     }
 
-    /* Capa do card: identidade visual de cada projeto */
+    /* Capa do card: identidade visual e galeria de cada projeto */
     .card-cover {
-      height: 124px;
+      height: 160px;
       margin: -28px -28px 22px;
       position: relative;
       overflow: hidden;
@@ -391,6 +391,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
     .card-cover-img {
       position: absolute;
@@ -400,19 +401,156 @@
       object-fit: cover;
       object-position: center;
       transition: transform 0.3s ease, filter 0.3s ease;
-      filter: brightness(0.82) contrast(1.05);
+      filter: brightness(0.85) contrast(1.05);
     }
     .card:hover .card-cover-img {
-      transform: scale(1.06);
-      filter: brightness(0.98) contrast(1.08);
+      transform: scale(1.05);
+      filter: brightness(1) contrast(1.05);
     }
     .card-cover::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(6, 9, 20, 0.2) 0%, var(--bg-card) 100%);
+      background: linear-gradient(180deg, rgba(6, 9, 20, 0.15) 0%, rgba(6, 9, 20, 0.35) 60%, var(--bg-card) 100%);
       pointer-events: none;
     }
+    .gallery-dots {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      z-index: 10;
+      display: flex;
+      gap: 6px;
+      background: rgba(6, 9, 20, 0.82);
+      padding: 5px 9px;
+      border-radius: 99px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .g-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.2s ease;
+    }
+    .g-dot:hover {
+      background: var(--phosphor);
+      transform: scale(1.25);
+    }
+    .g-dot.active {
+      background: var(--phosphor);
+      transform: scale(1.3);
+      box-shadow: 0 0 6px var(--phosphor);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(6, 9, 20, 0.94);
+      backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 1040px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-highlight);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85);
+      display: flex;
+      flex-direction: column;
+    }
+    .lightbox-image {
+      width: 100%;
+      max-height: 74vh;
+      object-fit: contain;
+      background: #060914;
+      display: block;
+    }
+    .lightbox-meta {
+      padding: 18px 24px;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .lightbox-meta h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .lightbox-meta p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(6, 9, 20, 0.85);
+      color: #fff;
+      border: 1px solid var(--border-subtle);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s;
+    }
+    .lightbox-close:hover {
+      background: var(--ultraviolet);
+      border-color: var(--ultraviolet);
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      background: rgba(6, 9, 20, 0.75);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s;
+    }
+    .lightbox-nav:hover {
+      background: var(--phosphor);
+      border-color: var(--phosphor);
+      color: #060914;
+    }
+    .lb-prev { left: 16px; }
+    .lb-next { right: 16px; }
     .cover-tag {
       position: relative;
       z-index: 1;
@@ -776,7 +914,7 @@
           <p class="section-subtitle">Obras publicadas e ferramentas em desenvolvimento contínuo.</p>
         </div>
         <div class="filter-tabs">
-          <button class="tab-btn active" onclick="filterCards('all', this)">Todos (10)</button>
+          <button class="tab-btn active" onclick="filterCards('all', this)">Todos (7)</button>
           <button class="tab-btn" onclick="filterCards('ready', this)">🟢 Prontos / Estáveis</button>
           <button class="tab-btn" onclick="filterCards('dev', this)">🟡 Em Desenvolvimento</button>
           <button class="tab-btn" onclick="filterCards('game', this)">🎮 Jogos</button>
@@ -786,10 +924,17 @@
 
       <div class="cards-grid" id="cardsGrid">
 
+        <!-- 1. Escape From Leonida -->
         <div class="card" data-category="game" data-status="dev">
-          <div class="card-cover cv-leonida">
-            <img src="assets/showcase/escape-from-leonida.png" alt="Escape From Leonida" class="card-cover-img" />
+          <div class="card-cover cv-leonida" onclick="openLightbox('leonida', currentIndices['leonida'] || 0)" title="Clique para ampliar galeria (4 fotos)">
+            <img id="img-leonida" src="assets/gallery/leonida-1-menu.png" alt="Escape From Leonida" class="card-cover-img" />
             <span class="cover-tag">Leonida</span>
+            <div class="gallery-dots" onclick="event.stopPropagation()">
+              <button class="g-dot active" onclick="setCardImage('leonida', 0, this)" title="Menu"></button>
+              <button class="g-dot" onclick="setCardImage('leonida', 1, this)" title="Gameplay"></button>
+              <button class="g-dot" onclick="setCardImage('leonida', 2, this)" title="Jogador"></button>
+              <button class="g-dot" onclick="setCardImage('leonida', 3, this)" title="Mobile HUD"></button>
+            </div>
           </div>
           <div class="card-top">
             <div class="card-meta">
@@ -801,14 +946,21 @@
           </div>
           <div class="card-footer">
             <span class="status-indicator status-dev"><span class="status-dot"></span> Em desenvolvimento</span>
-            <span style="font-size: 13px; color: var(--text-muted);">6 fases • repo na org</span>
+            <span style="font-size: 13px; color: var(--text-muted);">6 fases • 4 fotos</span>
           </div>
         </div>
 
+        <!-- 2. Kush Drop -->
         <div class="card" data-category="game" data-status="ready">
-          <div class="card-cover cv-kush">
-            <img src="assets/showcase/kush-drop.png" alt="Kush Drop" class="card-cover-img" />
+          <div class="card-cover cv-kush" onclick="openLightbox('kush', currentIndices['kush'] || 0)" title="Clique para ampliar galeria (4 fotos)">
+            <img id="img-kush" src="assets/gallery/kush-1-menu.png" alt="Kush Drop" class="card-cover-img" />
             <span class="cover-tag">Kush Drop</span>
+            <div class="gallery-dots" onclick="event.stopPropagation()">
+              <button class="g-dot active" onclick="setCardImage('kush', 0, this)" title="Menu"></button>
+              <button class="g-dot" onclick="setCardImage('kush', 1, this)" title="Gameplay"></button>
+              <button class="g-dot" onclick="setCardImage('kush', 2, this)" title="Jogador"></button>
+              <button class="g-dot" onclick="setCardImage('kush', 3, this)" title="Arena"></button>
+            </div>
           </div>
           <div class="card-top">
             <div class="card-meta">
@@ -820,14 +972,21 @@
           </div>
           <div class="card-footer">
             <span class="status-indicator status-ready"><span class="status-dot"></span> Jogável</span>
-            <span style="font-size: 13px; color: var(--text-muted);">33 troféus</span>
+            <span style="font-size: 13px; color: var(--text-muted);">33 troféus • 4 fotos</span>
           </div>
         </div>
 
+        <!-- 3. Crente Quiz -->
         <div class="card" data-category="game" data-status="ready">
-          <div class="card-cover cv-quiz">
-            <img src="assets/showcase/crente-quiz.png" alt="Crente Quiz" class="card-cover-img" />
+          <div class="card-cover cv-quiz" onclick="openLightbox('crente', currentIndices['crente'] || 0)" title="Clique para ampliar galeria (4 fotos)">
+            <img id="img-crente" src="assets/gallery/crente-1-menu.png" alt="Crente Quiz" class="card-cover-img" />
             <span class="cover-tag">Quiz</span>
+            <div class="gallery-dots" onclick="event.stopPropagation()">
+              <button class="g-dot active" onclick="setCardImage('crente', 0, this)" title="Menu"></button>
+              <button class="g-dot" onclick="setCardImage('crente', 1, this)" title="Perguntas"></button>
+              <button class="g-dot" onclick="setCardImage('crente', 2, this)" title="Jogador"></button>
+              <button class="g-dot" onclick="setCardImage('crente', 3, this)" title="Feedback"></button>
+            </div>
           </div>
           <div class="card-top">
             <div class="card-meta">
@@ -839,14 +998,21 @@
           </div>
           <div class="card-footer">
             <span class="status-indicator status-ready"><span class="status-dot"></span> Jogável</span>
-            <span style="font-size: 13px; color: var(--text-muted);">200 questões</span>
+            <span style="font-size: 13px; color: var(--text-muted);">200 questões • 4 fotos</span>
           </div>
         </div>
 
+        <!-- 4. 170 Créditos -->
         <div class="card" data-category="game" data-status="dev">
-          <div class="card-cover cv-creditos">
-            <img src="assets/showcase/170-creditos.png" alt="170 Créditos" class="card-cover-img" />
+          <div class="card-cover cv-creditos" onclick="openLightbox('creditos', currentIndices['creditos'] || 0)" title="Clique para ampliar galeria (4 fotos)">
+            <img id="img-creditos" src="assets/gallery/creditos-1-menu.png" alt="170 Créditos" class="card-cover-img" />
             <span class="cover-tag">GB RPG</span>
+            <div class="gallery-dots" onclick="event.stopPropagation()">
+              <button class="g-dot active" onclick="setCardImage('creditos', 0, this)" title="Menu GB"></button>
+              <button class="g-dot" onclick="setCardImage('creditos', 1, this)" title="Exploração"></button>
+              <button class="g-dot" onclick="setCardImage('creditos', 2, this)" title="Jogador"></button>
+              <button class="g-dot" onclick="setCardImage('creditos', 3, this)" title="Batalhas"></button>
+            </div>
           </div>
           <div class="card-top">
             <div class="card-meta">
@@ -858,65 +1024,21 @@
           </div>
           <div class="card-footer">
             <span class="status-indicator status-dev"><span class="status-dot"></span> Em desenvolvimento</span>
-            <span style="font-size: 13px; color: var(--text-muted);">Protótipo jogável</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Protótipo • 4 fotos</span>
           </div>
         </div>
 
-        <div class="card" data-category="app" data-status="lab">
-          <div class="card-cover cv-aquario">
-            <img src="assets/showcase/aquario-llm.png" alt="Aquário de LLMs" class="card-cover-img" />
-            <span class="cover-tag">Aquário</span>
-          </div>
-          <div class="card-top">
-            <div class="card-meta">
-              <span class="card-badge badge-app">Simulação</span>
-              <span class="card-platforms">Web / Workers AI</span>
-            </div>
-            <h3 class="card-title">Aquário de LLMs</h3>
-            <p class="card-description">Ecossistema de micro-modelos de linguagem autônomos: cada peixe decide o que fazer por conta própria. Roda local em modo simulado ou conectado ao Cloudflare Workers AI.</p>
-          </div>
-          <div class="card-footer">
-            <span class="status-indicator status-lab"><span class="status-dot"></span> Laboratório</span>
-            <span style="font-size: 13px; color: var(--text-muted);">P&D / Experimento</span>
-          </div>
-        </div>
-
-        <div class="card" data-category="tool" data-status="ready">
-          <div class="card-cover cv-sdk"><span class="cover-tag">SDK</span></div>
-          <div class="card-top">
-            <div class="card-meta">
-              <span class="card-badge badge-tool">Ferramenta</span>
-              <span class="card-platforms">JS / GDScript</span>
-            </div>
-            <h3 class="card-title">Ways of Seeing SDK</h3>
-            <p class="card-description">Biblioteca ultraleve de telemetria e placar local, compartilhada entre os jogos Web e Godot. Sem serviços externos e sem rastreadores de terceiros.</p>
-          </div>
-          <div class="card-footer">
-            <span class="status-indicator status-ready"><span class="status-dot"></span> Integrado</span>
-            <span style="font-size: 13px; color: var(--text-muted);">Produção</span>
-          </div>
-        </div>
-
-        <div class="card" data-category="tool" data-status="ready">
-          <div class="card-cover cv-dash"><span class="cover-tag">Dashboard</span></div>
-          <div class="card-top">
-            <div class="card-meta">
-              <span class="card-badge badge-tool">Ferramenta</span>
-              <span class="card-platforms">Node.js (local)</span>
-            </div>
-            <h3 class="card-title">Publisher Dashboard</h3>
-            <p class="card-description">Ambiente local de execução, métricas e scaffolding. Publica em múltiplos destinos — Web, macOS, itch.io e Godot — a partir de um único comando.</p>
-          </div>
-          <div class="card-footer">
-            <span class="status-indicator status-ready"><span class="status-dot"></span> Ferramenta interna</span>
-            <span style="font-size: 13px; color: var(--text-muted);">Proprietária</span>
-          </div>
-        </div>
-
+        <!-- 5. MOSH MOSH MOSH -->
         <div class="card" data-category="tool,app" data-status="dev">
-          <div class="card-cover cv-mosh">
-            <img src="assets/showcase/moshmoshmosh.png" alt="MOSH MOSH MOSH" class="card-cover-img" />
+          <div class="card-cover cv-mosh" onclick="openLightbox('mosh', currentIndices['mosh'] || 0)" title="Clique para ampliar galeria (4 fotos)">
+            <img id="img-mosh" src="assets/gallery/mosh-1-app.png" alt="MOSH MOSH MOSH" class="card-cover-img" />
             <span class="cover-tag">Glitch Lab</span>
+            <div class="gallery-dots" onclick="event.stopPropagation()">
+              <button class="g-dot active" onclick="setCardImage('mosh', 0, this)" title="App"></button>
+              <button class="g-dot" onclick="setCardImage('mosh', 1, this)" title="Estúdio"></button>
+              <button class="g-dot" onclick="setCardImage('mosh', 2, this)" title="Artista"></button>
+              <button class="g-dot" onclick="setCardImage('mosh', 3, this)" title="Glitch"></button>
+            </div>
           </div>
           <div class="card-top">
             <div class="card-meta">
@@ -928,14 +1050,21 @@
           </div>
           <div class="card-footer">
             <span class="status-indicator status-dev"><span class="status-dot"></span> Em desenvolvimento</span>
-            <span style="font-size: 13px; color: var(--text-muted);">Rust Core</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Rust Core • 4 fotos</span>
           </div>
         </div>
 
+        <!-- 6. picote -->
         <div class="card" data-category="tool,app" data-status="ready">
-          <div class="card-cover cv-picote">
-            <img src="assets/showcase/picote.jpg" alt="picote" class="card-cover-img" />
+          <div class="card-cover cv-picote" onclick="openLightbox('picote', currentIndices['picote'] || 0)" title="Clique para ampliar galeria (4 fotos)">
+            <img id="img-picote" src="assets/gallery/picote-1-full.jpg" alt="picote" class="card-cover-img" />
             <span class="cover-tag">MPC Video</span>
+            <div class="gallery-dots" onclick="event.stopPropagation()">
+              <button class="g-dot active" onclick="setCardImage('picote', 0, this)" title="Visão Geral"></button>
+              <button class="g-dot" onclick="setCardImage('picote', 1, this)" title="Pads MPC"></button>
+              <button class="g-dot" onclick="setCardImage('picote', 2, this)" title="Passos 808"></button>
+              <button class="g-dot" onclick="setCardImage('picote', 3, this)" title="Produtor"></button>
+            </div>
           </div>
           <div class="card-top">
             <div class="card-meta">
@@ -947,14 +1076,21 @@
           </div>
           <div class="card-footer">
             <span class="status-indicator status-ready"><span class="status-dot"></span> Estável</span>
-            <span style="font-size: 13px; color: var(--text-muted);">Ferramenta interna</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Vídeo Sampler • 4 fotos</span>
           </div>
         </div>
 
+        <!-- 7. DIY-dj -->
         <div class="card" data-category="tool,app" data-status="dev">
-          <div class="card-cover cv-diydj">
-            <img src="assets/showcase/diy-dj.png" alt="DIY-dj" class="card-cover-img" />
+          <div class="card-cover cv-diydj" onclick="openLightbox('diydj', currentIndices['diydj'] || 0)" title="Clique para ampliar galeria (4 fotos)">
+            <img id="img-diydj" src="assets/gallery/diydj-1-pro.png" alt="DIY-dj" class="card-cover-img" />
             <span class="cover-tag">Live DJ</span>
+            <div class="gallery-dots" onclick="event.stopPropagation()">
+              <button class="g-dot active" onclick="setCardImage('diydj', 0, this)" title="Console"></button>
+              <button class="g-dot" onclick="setCardImage('diydj', 1, this)" title="Decks"></button>
+              <button class="g-dot" onclick="setCardImage('diydj', 2, this)" title="Mixer"></button>
+              <button class="g-dot" onclick="setCardImage('diydj', 3, this)" title="Stems"></button>
+            </div>
           </div>
           <div class="card-top">
             <div class="card-meta">
@@ -966,7 +1102,7 @@
           </div>
           <div class="card-footer">
             <span class="status-indicator status-dev"><span class="status-dot"></span> Em desenvolvimento</span>
-            <span style="font-size: 13px; color: var(--text-muted);">Rust Audio</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Rust Audio • 4 fotos</span>
           </div>
         </div>
 
@@ -1005,6 +1141,23 @@
       </div>
     </div>
   </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()" title="Fechar (Esc)">&times;</button>
+      <button class="lightbox-nav lb-prev" onclick="stepLightbox(-1)" title="Anterior (←)">&#8249;</button>
+      <button class="lightbox-nav lb-next" onclick="stepLightbox(1)" title="Próxima (→)">&#8250;</button>
+      <img id="lightboxImg" class="lightbox-image" src="" alt="Screenshot ampliada" />
+      <div class="lightbox-meta">
+        <div>
+          <h4 id="lightboxTitle">Título</h4>
+          <p id="lightboxDesc" style="color: var(--text-secondary); font-size: 13px; margin-top: 4px; font-family: inherit;">Descrição</p>
+        </div>
+        <p id="lightboxCounter">1 / 4</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -1066,6 +1219,127 @@
         card.style.display = mostrar ? 'flex' : 'none';
       });
     }
+
+    // Galerias com 4 screenshots e detalhes para cada app
+    const galleries = {
+      leonida: [
+        { src: 'assets/gallery/leonida-1-menu.png', title: 'Escape From Leonida — Menu Principal', desc: 'Interface de seleção de fases, áudio e modo arcade com Jason e Lucia.' },
+        { src: 'assets/gallery/leonida-2-gameplay.jpg', title: 'Escape From Leonida — Fuga em Alta Velocidade', desc: 'Gameplay pseudo-3D com curvas dinâmicas, desvio de tráfego e perseguição.' },
+        { src: 'assets/gallery/leonida-3-player.jpg', title: 'Escape From Leonida — Jogador em Partida', desc: 'Controle imersivo e ágil com resposta imediata e feedback de colisão.' },
+        { src: 'assets/gallery/leonida-4-mobile.png', title: 'Escape From Leonida — HUD e Corrida Urbana', desc: 'Dashboard retrô com velocímetro digital, tempo restante e pontuação.' }
+      ],
+      kush: [
+        { src: 'assets/gallery/kush-1-menu.png', title: 'Kush Drop — Menu & Visual Kawaii', desc: 'Menu temático com suporte a múltiplos idiomas e áudio chill.' },
+        { src: 'assets/gallery/kush-2-gameplay.jpg', title: 'Kush Drop — Física 2D e Fusão de Peças', desc: 'Combinação progressiva de sementes e buds com gravidade realista.' },
+        { src: 'assets/gallery/kush-3-player.jpg', title: 'Kush Drop — Jogador em Partida Mobile', desc: 'Jogabilidade tátil no estilo Suika otimizada para smartphones e navegadores.' },
+        { src: 'assets/gallery/kush-4-mobile.png', title: 'Kush Drop — Arena & Sistema de Pontuação', desc: 'Arena de jogo com pontuação contínua, troféus e detecção de topo.' }
+      ],
+      crente: [
+        { src: 'assets/gallery/crente-1-menu.png', title: 'Crente Quiz — Interface de Abertura', desc: 'Design clean com seleção de temas bíblicos e acesso a recordes.' },
+        { src: 'assets/gallery/crente-2-gameplay.jpg', title: 'Crente Quiz — Rodada de Perguntas', desc: 'Timer por pergunta, bônus de velocidade e 200 questões de Gênesis ao Apocalipse.' },
+        { src: 'assets/gallery/crente-3-player.jpg', title: 'Crente Quiz — Jogadora em Dispositivo Móvel', desc: 'Interface responsiva para partidas individuais ou em grupo.' },
+        { src: 'assets/gallery/crente-4-mobile.png', title: 'Crente Quiz — Painel de Respostas e Feedback', desc: 'Validação instantânea com referências bíblicas e pontuação cumulativa.' }
+      ],
+      creditos: [
+        { src: 'assets/gallery/creditos-1-menu.png', title: '170 Créditos — Tela Inicial Game Boy', desc: 'Paleta verde 4-tons autêntica de 1989 e zero dependências externas.' },
+        { src: 'assets/gallery/creditos-2-gameplay.jpg', title: '170 Créditos — Exploração do Campus', desc: 'Navegação por grid 2D, coleta de Saberes e interação com estudantes.' },
+        { src: 'assets/gallery/creditos-3-player.jpg', title: '170 Créditos — Jogador no Console Portátil', desc: 'Experiência nostálgica de RPG de bolso em qualquer dispositivo.' },
+        { src: 'assets/gallery/creditos-4-mobile.png', title: '170 Créditos — Batalha por Turnos', desc: 'Combates temáticos contra prazos acadêmicos, seminários e provas.' }
+      ],
+      mosh: [
+        { src: 'assets/gallery/mosh-1-app.png', title: 'MOSH MOSH MOSH — Interface Profissional', desc: 'Estação de trabalho Flutter com controles de compressão e I/P/B frames.' },
+        { src: 'assets/gallery/mosh-2-workstation.jpg', title: 'MOSH MOSH MOSH — Estúdio de Produção de Vídeo', desc: 'Ambiente de edição audiovisual com playback em tempo real e timeline.' },
+        { src: 'assets/gallery/mosh-3-artist.jpg', title: 'MOSH MOSH MOSH — Artista Audiovisual em Ação', desc: 'Destruição estética de imagem e manipulação de glitch art ao vivo.' },
+        { src: 'assets/gallery/mosh-4-glitch.jpg', title: 'MOSH MOSH MOSH — Renderização de Datamosh', desc: 'Exportação com descarte cirúrgico de keyframes e vetores de movimento em Rust.' }
+      ],
+      picote: [
+        { src: 'assets/gallery/picote-1-full.jpg', title: 'picote — Sampler de Vídeo MPC + TR-808', desc: 'Console audiovisual com pads táteis e sequenciador por passos.' },
+        { src: 'assets/gallery/picote-2-mpc.jpg', title: 'picote — Grade de Pads e Disparo Tátil', desc: 'Disparo instantâneo de loops de vídeo e cortes de áudio via MIDI e teclado.' },
+        { src: 'assets/gallery/picote-3-808.jpg', title: 'picote — Sequenciador Rítmico de 16 Steps', desc: 'Sincronização milimétrica de compassos musicais com cortes visuais.' },
+        { src: 'assets/gallery/picote-4-producer.jpg', title: 'picote — Produtor Musical no Setup de Estúdio', desc: 'Performance tátil e integração direta entre áudio, vídeo e ritmo.' }
+      ],
+      diydj: [
+        { src: 'assets/gallery/diydj-1-pro.png', title: 'DIY-dj — Console de Performance ao Vivo', desc: 'Instrumento minimalista e autônomo para discotecagem e live performance.' },
+        { src: 'assets/gallery/diydj-2-decks.png', title: 'DIY-dj — Decks Duplos e Controle de Pitch', desc: 'Transição precisa de faixas e manipulação de formas de onda sem latência.' },
+        { src: 'assets/gallery/diydj-3-mixer.png', title: 'DIY-dj — Mixer com EQ e Filtros', desc: 'Processamento puro em Rust nativo para resposta imediata de áudio.' },
+        { src: 'assets/gallery/diydj-4-stems.png', title: 'DIY-dj — Isolamento de Stems e Loops', desc: 'Controle de camadas sonoras com cortes de graves, vocais e elementos rítmicos.' }
+      ]
+    };
+
+    const currentIndices = {
+      leonida: 0,
+      kush: 0,
+      crente: 0,
+      creditos: 0,
+      mosh: 0,
+      picote: 0,
+      diydj: 0
+    };
+
+    function setCardImage(appKey, index, dotBtn) {
+      currentIndices[appKey] = index;
+      const imgEl = document.getElementById('img-' + appKey);
+      if (imgEl && galleries[appKey] && galleries[appKey][index]) {
+        imgEl.src = galleries[appKey][index].src;
+      }
+      if (dotBtn && dotBtn.parentElement) {
+        dotBtn.parentElement.querySelectorAll('.g-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+        });
+      }
+    }
+
+    let activeLbApp = null;
+    let activeLbIndex = 0;
+
+    function openLightbox(appKey, index) {
+      if (!galleries[appKey]) return;
+      activeLbApp = appKey;
+      activeLbIndex = index || 0;
+      updateLightboxContent();
+      document.getElementById('lightboxModal').classList.add('active');
+    }
+
+    function closeLightbox(e) {
+      if (e && e.target && e.target.closest('.lightbox-content') && !e.target.classList.contains('lightbox-close')) {
+        return;
+      }
+      document.getElementById('lightboxModal').classList.remove('active');
+      activeLbApp = null;
+    }
+
+    function stepLightbox(delta) {
+      if (!activeLbApp || !galleries[activeLbApp]) return;
+      const total = galleries[activeLbApp].length;
+      activeLbIndex = (activeLbIndex + delta + total) % total;
+      updateLightboxContent();
+      const cardCover = document.querySelector(`.cv-${activeLbApp}`);
+      if (cardCover) {
+        const dots = cardCover.querySelectorAll('.g-dot');
+        if (dots[activeLbIndex]) {
+          setCardImage(activeLbApp, activeLbIndex, dots[activeLbIndex]);
+        }
+      }
+    }
+
+    function updateLightboxContent() {
+      if (!activeLbApp || !galleries[activeLbApp]) return;
+      const item = galleries[activeLbApp][activeLbIndex];
+      const total = galleries[activeLbApp].length;
+      document.getElementById('lightboxImg').src = item.src;
+      document.getElementById('lightboxTitle').textContent = item.title;
+      document.getElementById('lightboxDesc').textContent = item.desc;
+      document.getElementById('lightboxCounter').textContent = `${activeLbIndex + 1} / ${total}`;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (modal && modal.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') stepLightbox(-1);
+        if (e.key === 'ArrowRight') stepLightbox(1);
+      }
+    });
   </script>
 </body>
 </html>
