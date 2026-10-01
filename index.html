@@ -381,9 +381,9 @@
       box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
     }
 
-    /* Capa do card: identidade visual de cada projeto, sem depender de imagem */
+    /* Capa do card: identidade visual de cada projeto */
     .card-cover {
-      height: 104px;
+      height: 124px;
       margin: -28px -28px 22px;
       position: relative;
       overflow: hidden;
@@ -392,11 +392,26 @@
       align-items: center;
       justify-content: center;
     }
+    .card-cover-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: brightness(0.82) contrast(1.05);
+    }
+    .card:hover .card-cover-img {
+      transform: scale(1.06);
+      filter: brightness(0.98) contrast(1.08);
+    }
     .card-cover::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 40%, var(--bg-card) 100%);
+      background: linear-gradient(180deg, rgba(6, 9, 20, 0.2) 0%, var(--bg-card) 100%);
+      pointer-events: none;
     }
     .cover-tag {
       position: relative;
@@ -752,7 +767,10 @@
         </div>
 
         <div class="card" data-category="game">
-          <div class="card-cover cv-kush"><span class="cover-tag">Kush Drop</span></div>
+          <div class="card-cover cv-kush">
+            <img src="assets/showcase/kush-drop.png" alt="Kush Drop" class="card-cover-img" />
+            <span class="cover-tag">Kush Drop</span>
+          </div>
           <div class="card-top">
             <div class="card-meta">
               <span class="card-badge badge-game">Puzzle Físico</span>
@@ -848,13 +866,16 @@
         </div>
 
         <div class="card" data-category="tool,app">
-          <div class="card-cover cv-mosh"><span class="cover-tag">Glitch Lab</span></div>
+          <div class="card-cover cv-mosh">
+            <img src="assets/showcase/moshmoshmosh.png" alt="MOSH MOSH MOSH" class="card-cover-img" />
+            <span class="cover-tag">Glitch Lab</span>
+          </div>
           <div class="card-top">
             <div class="card-meta">
               <span class="card-badge badge-tool">Audio &amp; Video Lab</span>
               <span class="card-platforms">Flutter + Rust</span>
             </div>
-            <h3 class="card-title">MOSHMOSHMOSH</h3>
+            <h3 class="card-title">MOSH MOSH MOSH</h3>
             <p class="card-description">Editor profissional de datamosh e destruição estética de vídeo. Manipulação em tempo real de frames I/P/B, interface reativa em Flutter e motor de processamento nativo em Rust.</p>
           </div>
           <div class="card-footer">
@@ -864,7 +885,10 @@
         </div>
 
         <div class="card" data-category="tool,app">
-          <div class="card-cover cv-picote"><span class="cover-tag">MPC Video</span></div>
+          <div class="card-cover cv-picote">
+            <img src="assets/showcase/picote.jpg" alt="picote" class="card-cover-img" />
+            <span class="cover-tag">MPC Video</span>
+          </div>
           <div class="card-top">
             <div class="card-meta">
               <span class="card-badge badge-tool">Vídeo Sampler</span>
@@ -880,7 +904,10 @@
         </div>
 
         <div class="card" data-category="tool,app">
-          <div class="card-cover cv-diydj"><span class="cover-tag">Live DJ</span></div>
+          <div class="card-cover cv-diydj">
+            <img src="assets/showcase/diy-dj.png" alt="DIY-dj" class="card-cover-img" />
+            <span class="cover-tag">Live DJ</span>
+          </div>
           <div class="card-top">
             <div class="card-meta">
               <span class="card-badge badge-tool">Live Performance</span>
