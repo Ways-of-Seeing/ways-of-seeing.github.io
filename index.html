@@ -363,15 +363,15 @@
       transition: background 0.3s;
     }
 
-    .card[data-category="game"]:hover::before {
+    .card[data-category*="game"]:hover::before {
       background: linear-gradient(90deg, var(--amber), transparent);
     }
 
-    .card[data-category="app"]:hover::before {
+    .card[data-category*="app"]:hover::before {
       background: linear-gradient(90deg, var(--ultraviolet), transparent);
     }
 
-    .card[data-category="tool"]:hover::before {
+    .card[data-category*="tool"]:hover::before {
       background: linear-gradient(90deg, var(--phosphor), transparent);
     }
 
@@ -534,6 +534,40 @@
 
     .card-action:hover {
       color: var(--ultraviolet-text);
+    }
+
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      letter-spacing: 0.02em;
+    }
+    .status-indicator.status-ready { color: var(--phosphor); }
+    .status-indicator.status-ready .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--phosphor);
+      box-shadow: 0 0 8px rgba(216, 255, 71, 0.6);
+    }
+    .status-indicator.status-dev { color: #feca57; }
+    .status-indicator.status-dev .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #feca57;
+      box-shadow: 0 0 8px rgba(254, 202, 87, 0.6);
+    }
+    .status-indicator.status-lab { color: var(--ultraviolet-text); }
+    .status-indicator.status-lab .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ultraviolet-text);
+      box-shadow: 0 0 8px rgba(154, 143, 255, 0.6);
     }
 
     /* Manifesto Section */
@@ -742,16 +776,21 @@
           <p class="section-subtitle">Obras publicadas e ferramentas em desenvolvimento contínuo.</p>
         </div>
         <div class="filter-tabs">
-          <button class="tab-btn active" onclick="filterCards('all', this)">Todos</button>
-          <button class="tab-btn" onclick="filterCards('game', this)">Jogos</button>
-          <button class="tab-btn" onclick="filterCards('app,tool', this)">Apps e Ferramentas</button>
+          <button class="tab-btn active" onclick="filterCards('all', this)">Todos (10)</button>
+          <button class="tab-btn" onclick="filterCards('ready', this)">🟢 Prontos / Estáveis</button>
+          <button class="tab-btn" onclick="filterCards('dev', this)">🟡 Em Desenvolvimento</button>
+          <button class="tab-btn" onclick="filterCards('game', this)">🎮 Jogos</button>
+          <button class="tab-btn" onclick="filterCards('app,tool', this)">🎛️ Ferramentas</button>
         </div>
       </div>
 
       <div class="cards-grid" id="cardsGrid">
 
-        <div class="card" data-category="game">
-          <div class="card-cover cv-leonida"><span class="cover-tag">Leonida</span></div>
+        <div class="card" data-category="game" data-status="dev">
+          <div class="card-cover cv-leonida">
+            <img src="assets/showcase/escape-from-leonida.png" alt="Escape From Leonida" class="card-cover-img" />
+            <span class="cover-tag">Leonida</span>
+          </div>
           <div class="card-top">
             <div class="card-meta">
               <span class="card-badge badge-game">Arcade Racer</span>
@@ -761,12 +800,12 @@
             <p class="card-description">Racer pseudo-3D no espírito de OutRun com clima de Vice City. Jason e Lucia fugindo da polícia em seis fases independentes com tempo-limite, bônus e recordes, além de menu, pause, volume e trilha sonora própria.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: #feca57; font-weight: 600;">Em desenvolvimento</span>
-            <span style="font-size: 13px; color: var(--text-muted);">6 fases • repo privado na org</span>
+            <span class="status-indicator status-dev"><span class="status-dot"></span> Em desenvolvimento</span>
+            <span style="font-size: 13px; color: var(--text-muted);">6 fases • repo na org</span>
           </div>
         </div>
 
-        <div class="card" data-category="game">
+        <div class="card" data-category="game" data-status="ready">
           <div class="card-cover cv-kush">
             <img src="assets/showcase/kush-drop.png" alt="Kush Drop" class="card-cover-img" />
             <span class="cover-tag">Kush Drop</span>
@@ -780,13 +819,16 @@
             <p class="card-description">Puzzle de fusão no estilo Suika com física 2D, sistema de troféus e arte kawaii. Três idiomas, recorde local e progressão por evolução das peças.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">Jogável</span>
+            <span class="status-indicator status-ready"><span class="status-dot"></span> Jogável</span>
             <span style="font-size: 13px; color: var(--text-muted);">33 troféus</span>
           </div>
         </div>
 
-        <div class="card" data-category="game">
-          <div class="card-cover cv-quiz"><span class="cover-tag">Quiz</span></div>
+        <div class="card" data-category="game" data-status="ready">
+          <div class="card-cover cv-quiz">
+            <img src="assets/showcase/crente-quiz.png" alt="Crente Quiz" class="card-cover-img" />
+            <span class="cover-tag">Quiz</span>
+          </div>
           <div class="card-top">
             <div class="card-meta">
               <span class="card-badge badge-game">Quiz</span>
@@ -796,13 +838,16 @@
             <p class="card-description">Quiz bíblico com 200 questões de Antigo e Novo Testamento, tempo por pergunta e bônus por velocidade. Mesma base rodando na Web e em Godot.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">Jogável</span>
+            <span class="status-indicator status-ready"><span class="status-dot"></span> Jogável</span>
             <span style="font-size: 13px; color: var(--text-muted);">200 questões</span>
           </div>
         </div>
 
-        <div class="card" data-category="game">
-          <div class="card-cover cv-creditos"><span class="cover-tag">GB RPG</span></div>
+        <div class="card" data-category="game" data-status="dev">
+          <div class="card-cover cv-creditos">
+            <img src="assets/showcase/170-creditos.png" alt="170 Créditos" class="card-cover-img" />
+            <span class="cover-tag">GB RPG</span>
+          </div>
           <div class="card-top">
             <div class="card-meta">
               <span class="card-badge badge-game">RPG de Bolso</span>
@@ -812,13 +857,16 @@
             <p class="card-description">RPG de campus na estética Game Boy: navegação por grid, captura de Saberes e batalhas por turnos. Paleta de quatro tons e zero dependências externas.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--amber); font-weight: 600;">Em desenvolvimento</span>
+            <span class="status-indicator status-dev"><span class="status-dot"></span> Em desenvolvimento</span>
             <span style="font-size: 13px; color: var(--text-muted);">Protótipo jogável</span>
           </div>
         </div>
 
-        <div class="card" data-category="app">
-          <div class="card-cover cv-aquario"><span class="cover-tag">Aquário</span></div>
+        <div class="card" data-category="app" data-status="lab">
+          <div class="card-cover cv-aquario">
+            <img src="assets/showcase/aquario-llm.png" alt="Aquário de LLMs" class="card-cover-img" />
+            <span class="cover-tag">Aquário</span>
+          </div>
           <div class="card-top">
             <div class="card-meta">
               <span class="card-badge badge-app">Simulação</span>
@@ -828,12 +876,12 @@
             <p class="card-description">Ecossistema de micro-modelos de linguagem autônomos: cada peixe decide o que fazer por conta própria. Roda local em modo simulado ou conectado ao Cloudflare Workers AI.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--ultraviolet-text); font-weight: 600;">Experimento</span>
-            <span style="font-size: 13px; color: var(--text-muted);">Laboratório</span>
+            <span class="status-indicator status-lab"><span class="status-dot"></span> Laboratório</span>
+            <span style="font-size: 13px; color: var(--text-muted);">P&D / Experimento</span>
           </div>
         </div>
 
-        <div class="card" data-category="tool">
+        <div class="card" data-category="tool" data-status="ready">
           <div class="card-cover cv-sdk"><span class="cover-tag">SDK</span></div>
           <div class="card-top">
             <div class="card-meta">
@@ -844,12 +892,12 @@
             <p class="card-description">Biblioteca ultraleve de telemetria e placar local, compartilhada entre os jogos Web e Godot. Sem serviços externos e sem rastreadores de terceiros.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">SDK autoral</span>
-            <span style="font-size: 13px; color: var(--text-muted);">Uso interno</span>
+            <span class="status-indicator status-ready"><span class="status-dot"></span> Integrado</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Produção</span>
           </div>
         </div>
 
-        <div class="card" data-category="tool">
+        <div class="card" data-category="tool" data-status="ready">
           <div class="card-cover cv-dash"><span class="cover-tag">Dashboard</span></div>
           <div class="card-top">
             <div class="card-meta">
@@ -860,12 +908,12 @@
             <p class="card-description">Ambiente local de execução, métricas e scaffolding. Publica em múltiplos destinos — Web, macOS, itch.io e Godot — a partir de um único comando.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">Ferramenta interna</span>
+            <span class="status-indicator status-ready"><span class="status-dot"></span> Ferramenta interna</span>
             <span style="font-size: 13px; color: var(--text-muted);">Proprietária</span>
           </div>
         </div>
 
-        <div class="card" data-category="tool,app">
+        <div class="card" data-category="tool,app" data-status="dev">
           <div class="card-cover cv-mosh">
             <img src="assets/showcase/moshmoshmosh.png" alt="MOSH MOSH MOSH" class="card-cover-img" />
             <span class="cover-tag">Glitch Lab</span>
@@ -879,12 +927,12 @@
             <p class="card-description">Editor profissional de datamosh e destruição estética de vídeo. Manipulação em tempo real de frames I/P/B, interface reativa em Flutter e motor de processamento nativo em Rust.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--ultraviolet-text); font-weight: 600;">Em desenvolvimento</span>
+            <span class="status-indicator status-dev"><span class="status-dot"></span> Em desenvolvimento</span>
             <span style="font-size: 13px; color: var(--text-muted);">Rust Core</span>
           </div>
         </div>
 
-        <div class="card" data-category="tool,app">
+        <div class="card" data-category="tool,app" data-status="ready">
           <div class="card-cover cv-picote">
             <img src="assets/showcase/picote.jpg" alt="picote" class="card-cover-img" />
             <span class="cover-tag">MPC Video</span>
@@ -898,12 +946,12 @@
             <p class="card-description">Sampler de vídeo tátil no espírito clássico das MPCs com sequenciador rítmico estilo TR-808. Disparo de loops, cortes sonoros e performance audiovisual com controle por teclado e pads.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">Estável</span>
-            <span style="font-size: 13px; color: var(--text-muted);">Uso interno</span>
+            <span class="status-indicator status-ready"><span class="status-dot"></span> Estável</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Ferramenta interna</span>
           </div>
         </div>
 
-        <div class="card" data-category="tool,app">
+        <div class="card" data-category="tool,app" data-status="dev">
           <div class="card-cover cv-diydj">
             <img src="assets/showcase/diy-dj.png" alt="DIY-dj" class="card-cover-img" />
             <span class="cover-tag">Live DJ</span>
@@ -917,7 +965,7 @@
             <p class="card-description">Console sonoro autônomo e instrumento minimalista para discotecagem e manipulação de beats. Arquitetura de baixíssima latência para live coding e sets analógico-digitais.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--amber); font-weight: 600;">Em desenvolvimento</span>
+            <span class="status-indicator status-dev"><span class="status-dot"></span> Em desenvolvimento</span>
             <span style="font-size: 13px; color: var(--text-muted);">Rust Audio</span>
           </div>
         </div>
@@ -993,15 +1041,28 @@
   </footer>
 
   <script>
-    // aceita mais de uma categoria por aba: "Apps e Ferramentas" precisa mostrar
-    // tanto os cards 'app' quanto os 'tool'
-    function filterCards(category, btn) {
+    // Filtra por categoria ou status (pronto vs dev)
+    function filterCards(filter, btn) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const aceitas = String(category).split(',');
+      const aceitas = String(filter).split(',').map(s => s.trim());
       document.querySelectorAll('.card').forEach(card => {
-        const mostrar = category === 'all' || aceitas.includes(card.getAttribute('data-category'));
+        const catStr = card.getAttribute('data-category') || '';
+        const statusStr = card.getAttribute('data-status') || '';
+        const cardCats = catStr.split(',').map(s => s.trim());
+
+        let mostrar = false;
+        if (filter === 'all') {
+          mostrar = true;
+        } else if (filter === 'ready') {
+          mostrar = statusStr === 'ready';
+        } else if (filter === 'dev') {
+          mostrar = statusStr === 'dev' || statusStr === 'lab';
+        } else {
+          mostrar = cardCats.some(c => aceitas.includes(c));
+        }
+
         card.style.display = mostrar ? 'flex' : 'none';
       });
     }
