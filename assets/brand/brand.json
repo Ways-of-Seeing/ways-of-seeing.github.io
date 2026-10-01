@@ -58,7 +58,11 @@
         "cover-art": "cover-art-only.svg",
         "intro-html": "game-intro.html",
         "intro-gif": "game-intro-orbit.gif",
-        "intro-mp4": "game-intro-orbit.mp4"
+        "intro-mp4": "game-intro-orbit.mp4",
+        "studio-intro": "studio-intro.html",
+        "master-transparent": "master-orbital-mark-transparent.png",
+        "org-banner": "org-banner.png",
+        "github-banner": "github-org-banner.svg"
       },
       "changed": []
     },
