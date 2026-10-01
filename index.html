@@ -32,7 +32,7 @@
   <!-- Typography: Space Grotesk + Plus Jakarta Sans + Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -42,18 +42,18 @@
       --bg-card-subtle: #F5F5F3;
       --bg-pill: #F0F0EE;
       
-      --border-hairline: rgba(0, 0, 0, 0.08);
-      --border-medium: rgba(0, 0, 0, 0.15);
-      --border-dark: #111111;
+      --border-hairline: rgba(0, 0, 0, 0.11);
+      --border-medium: rgba(0, 0, 0, 0.22);
+      --border-dark: #000000;
       
-      --text-main: #0E0E10;
-      --text-secondary: #48484E;
-      --text-muted: #82828C;
-      --text-dim: #A6A6B0;
+      --text-main: #000000;
+      --text-secondary: #1F1F24;
+      --text-muted: #52525C;
+      --text-dim: #767682;
       
       --accent-ultraviolet: #5E46FF;
       --accent-volt: #99CC00;
-      --accent-emerald: #10B981;
+      --accent-emerald: #059669;
       --accent-amber: #D97706;
       
       --font-display: 'Space Grotesk', -apple-system, sans-serif;
@@ -77,6 +77,7 @@
       background-color: var(--bg-page);
       color: var(--text-main);
       font-family: var(--font-body);
+      font-weight: 500;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -106,6 +107,7 @@
       background: var(--bg-alt);
       font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -194,7 +196,7 @@
 
     .brand-name {
       font-family: var(--font-display);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 19px;
       letter-spacing: -0.02em;
       line-height: 1.1;
@@ -204,6 +206,7 @@
     .brand-descriptor {
       font-family: var(--font-mono);
       font-size: 10px;
+      font-weight: 700;
       letter-spacing: 0.12em;
       color: var(--text-muted);
       text-transform: uppercase;
@@ -219,6 +222,7 @@
     .nav-link {
       font-family: var(--font-mono);
       font-size: 12px;
+      font-weight: 700;
       letter-spacing: 0.05em;
       color: var(--text-secondary);
       text-decoration: none;
@@ -235,6 +239,7 @@
     .nav-index {
       color: var(--text-dim);
       font-size: 10px;
+      font-weight: 700;
     }
 
     .btn-intro-launch {
@@ -255,7 +260,7 @@
     }
 
     .btn-intro-launch:hover {
-      background: #333333;
+      background: #222222;
       transform: translateY(-1px);
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
     }
@@ -276,6 +281,7 @@
       gap: 10px;
       font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -313,13 +319,13 @@
       font-size: clamp(17px, 1.7vw, 21px);
       color: var(--text-secondary);
       line-height: 1.6;
-      font-weight: 400;
+      font-weight: 500;
       max-width: 760px;
     }
 
     .hero-standfirst strong {
       color: var(--text-main);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .hero-stats-strip {
@@ -346,6 +352,7 @@
     .stat-label {
       font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -382,9 +389,10 @@
     .ticker-item {
       font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--text-secondary);
+      color: var(--text-main);
       display: inline-flex;
       align-items: center;
       gap: 24px;
@@ -392,8 +400,9 @@
     }
 
     .ticker-bullet {
-      color: var(--text-dim);
+      color: var(--accent-ultraviolet);
       font-size: 12px;
+      font-weight: 800;
     }
 
     @keyframes tickerRoll {
@@ -420,6 +429,7 @@
     .section-eyebrow {
       font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -429,7 +439,7 @@
     .section-heading {
       font-family: var(--font-display);
       font-size: clamp(26px, 3.2vw, 40px);
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.1;
       color: var(--text-main);
@@ -439,7 +449,7 @@
     .filter-pills {
       display: inline-flex;
       background: var(--bg-alt);
-      border: 1px solid var(--border-hairline);
+      border: 1px solid var(--border-medium);
       padding: 4px;
       border-radius: var(--radius-pill);
       gap: 4px;
@@ -452,6 +462,7 @@
       color: var(--text-secondary);
       font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.04em;
       padding: 7px 16px;
       border-radius: var(--radius-pill);
@@ -646,16 +657,16 @@
     }
 
     .hud-zoom-hint {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.14);
       border-radius: var(--radius-pill);
       padding: 5px 12px;
       font-family: var(--font-mono);
       font-size: 10px;
       letter-spacing: 0.06em;
       color: var(--text-main);
-      font-weight: 600;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -685,6 +696,7 @@
       margin-bottom: 10px;
       font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -693,7 +705,7 @@
     .card-title {
       font-family: var(--font-display);
       font-size: 24px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text-main);
       margin-bottom: 12px;
@@ -703,6 +715,7 @@
     .card-desc {
       font-size: 15px;
       color: var(--text-secondary);
+      font-weight: 500;
       line-height: 1.6;
       margin-bottom: 24px;
     }
@@ -725,16 +738,17 @@
     .spec-label {
       font-family: var(--font-mono);
       font-size: 10px;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text-dim);
+      color: var(--text-muted);
       margin-bottom: 3px;
     }
 
     .spec-val {
       font-family: var(--font-body);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-main);
     }
 
@@ -831,6 +845,7 @@
     .quote-author {
       font-family: var(--font-mono);
       font-size: 12px;
+      font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -848,7 +863,7 @@
     .manifesto-quote {
       font-family: var(--font-display);
       font-size: clamp(30px, 4vw, 54px);
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1.14;
       letter-spacing: -0.03em;
       color: var(--text-main);
@@ -888,7 +903,7 @@
     .pillar-title {
       font-family: var(--font-display);
       font-size: 20px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 10px;
       color: var(--text-main);
@@ -897,6 +912,7 @@
     .pillar-desc {
       color: var(--text-secondary);
       font-size: 14px;
+      font-weight: 500;
       line-height: 1.6;
     }
 
@@ -940,13 +956,14 @@
     .banner-title {
       font-family: var(--font-display);
       font-size: clamp(26px, 3.2vw, 38px);
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.03em;
       color: var(--text-main);
     }
 
     .banner-desc {
       font-size: 15px;
+      font-weight: 500;
       color: var(--text-secondary);
       line-height: 1.6;
     }
@@ -976,7 +993,7 @@
     }
 
     .btn-dark:hover {
-      background: #333333;
+      background: #222222;
       transform: translateY(-2px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
@@ -986,11 +1003,11 @@
       align-items: center;
       gap: 8px;
       background: var(--bg-alt);
-      border: 1px solid var(--border-hairline);
+      border: 1px solid var(--border-medium);
       color: var(--text-main);
       font-family: var(--font-mono);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 13px 24px;
       border-radius: var(--radius-pill);
       text-decoration: none;
@@ -1036,6 +1053,7 @@
     .footer-col h5 {
       font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -1051,6 +1069,7 @@
 
     .footer-col a {
       color: var(--text-secondary);
+      font-weight: 600;
       text-decoration: none;
       font-size: 14px;
       transition: color 0.2s;
@@ -1067,6 +1086,7 @@
       align-items: center;
       font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 700;
       color: var(--text-muted);
       flex-wrap: wrap;
       gap: 16px;
@@ -1225,13 +1245,14 @@
     .lb-title {
       font-family: var(--font-display);
       font-size: 19px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--text-main);
       margin-bottom: 4px;
     }
 
     .lb-desc {
       font-size: 14px;
+      font-weight: 500;
       color: var(--text-secondary);
       line-height: 1.5;
     }

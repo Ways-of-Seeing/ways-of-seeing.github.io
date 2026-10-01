@@ -1,8 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#0A0C11"/>
-  <g stroke-linejoin="round" stroke-width="3">
-    <polygon points="32,11 53,23 32,35 11,23" fill="#2DE1F7" stroke="#2DE1F7"/>
-    <polygon points="11,23 32,35 32,55 11,43" fill="#FB923C" stroke="#FB923C"/>
-    <polygon points="32,35 53,23 53,43 32,55" fill="#F1F5F9" stroke="#F1F5F9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="favEyeOrbit" x1="16%" y1="55%" x2="86%" y2="45%">
+      <stop offset="0" stop-color="#5E46FF"/>
+      <stop offset="45%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#99CC00"/>
+    </linearGradient>
+  </defs>
+  <path d="M116 512C280 292 744 292 908 512 744 732 280 732 116 512Z" fill="none" stroke="url(#favEyeOrbit)" stroke-width="56" stroke-linecap="round"/>
+  <path d="M504 392C625 366 701 443 680 555 661 657 559 700 476 650" fill="none" stroke="#111111" stroke-width="40" stroke-linecap="round"/>
+  <g stroke="#FFFFFF" stroke-width="16" stroke-linejoin="round">
+    <path d="M512 430 614 485 512 542 410 485Z" fill="#111111"/>
+    <path d="M410 485 512 542 512 654 410 596Z" fill="#5E46FF"/>
+    <path d="M512 542 614 485 614 596 512 654Z" fill="#99CC00"/>
   </g>
 </svg>
