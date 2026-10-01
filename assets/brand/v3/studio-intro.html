@@ -6,15 +6,15 @@
   <title>Ways of Seeing — Studio Intro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Space+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-ink: #060914;
       --ultraviolet: #6957FF;
       --phosphor: #D8FF47;
       --lunar: #EDEAE2;
-      --muted: #726E8C;
-      --border-hud: rgba(255, 255, 255, 0.08);
+      --muted: #8E8A9F;
+      --border-hud: rgba(255, 255, 255, 0.12);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,10 +41,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 50% 48%, rgba(22, 19, 52, 0.75) 0%, rgba(10, 13, 28, 0.95) 50%, #060914 80%);
+      background: radial-gradient(circle at 50% 48%, rgba(26, 20, 60, 0.65) 0%, rgba(10, 13, 28, 0.95) 55%, #060914 85%);
     }
 
-    /* Subtle Technical Framing Marks */
+    /* Framing Marks */
     .hud-frame {
       position: absolute;
       inset: 32px;
@@ -65,45 +65,44 @@
     .c-bl { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
     .c-br { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
 
-    /* Logo Mark Presentation */
+    /* Logo Mark Wrap */
     .mark-wrap {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: min(64vw, 560px);
+      width: min(56vw, 440px);
       aspect-ratio: 1 / 1;
     }
 
     /* Ambient Ethereal Glow */
     .mark-glow {
       position: absolute;
-      inset: 15%;
+      inset: 10%;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(105, 87, 255, 0.22) 0%, rgba(216, 255, 71, 0.08) 45%, transparent 70%);
-      filter: blur(28px);
+      background: radial-gradient(circle, rgba(105, 87, 255, 0.32) 0%, rgba(216, 255, 71, 0.12) 45%, transparent 70%);
+      filter: blur(36px);
       opacity: 0;
       transform: scale(0.85);
-      animation: glowBloom 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: glowBloom 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       pointer-events: none;
     }
 
-    /* The Authentic Master Artwork */
-    .master-mark {
+    /* Pure Vector SVG Logo - No raster lag, no white background flash */
+    .master-mark-svg {
       position: relative;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      display: block;
       opacity: 0;
       transform: scale(0.88);
-      filter: blur(14px) brightness(0.8);
-      animation: arrive 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      filter: drop-shadow(0 0 24px rgba(105, 87, 255, 0.25)) drop-shadow(0 0 48px rgba(216, 255, 71, 0.12));
+      filter: drop-shadow(0 0 24px rgba(105, 87, 255, 0.35)) drop-shadow(0 0 48px rgba(216, 255, 71, 0.15));
+      animation: arrive 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     /* Studio Typographic Lockup */
     .caption {
-      margin-top: -12px;
+      margin-top: 24px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -118,19 +117,19 @@
       color: #EDEAE2;
       opacity: 0;
       transform: translateY(10px);
-      animation: captionIn 1.0s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: captionIn 1.0s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
     }
 
     .subtitle {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Space Mono', monospace;
       font-size: clamp(10px, 1.1vw, 12px);
-      font-weight: 600;
-      letter-spacing: 0.26em;
+      font-weight: 500;
+      letter-spacing: 0.24em;
       color: var(--muted);
       opacity: 0;
       transform: translateY(6px);
-      animation: captionIn 0.9s 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: captionIn 0.9s 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     /* Controls */
@@ -145,22 +144,22 @@
     }
 
     .btn-ctl {
-      background: rgba(17, 21, 42, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 6px;
+      background: rgba(17, 21, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
       color: var(--lunar);
-      padding: 6px 14px;
-      font-family: 'JetBrains Mono', monospace;
+      padding: 7px 16px;
+      font-family: 'Space Mono', monospace;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.08em;
       cursor: pointer;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
       transition: all 0.2s ease;
     }
 
     .btn-ctl:hover {
-      background: rgba(105, 87, 255, 0.25);
+      background: rgba(105, 87, 255, 0.35);
       border-color: var(--phosphor);
       color: var(--phosphor);
     }
@@ -169,12 +168,12 @@
     @keyframes arrive {
       0% {
         opacity: 0;
-        transform: scale(0.86);
-        filter: blur(14px) brightness(0.7);
+        transform: scale(0.84);
+        filter: blur(10px) brightness(0.7);
       }
-      55% {
+      60% {
         opacity: 1;
-        filter: blur(0px) brightness(1.05);
+        filter: blur(0px) brightness(1.08);
       }
       100% {
         opacity: 1;
@@ -186,11 +185,11 @@
     @keyframes glowBloom {
       0% {
         opacity: 0;
-        transform: scale(0.7);
+        transform: scale(0.75);
       }
       60% {
         opacity: 0.9;
-        transform: scale(1.04);
+        transform: scale(1.05);
       }
       100% {
         opacity: 0.75;
@@ -228,7 +227,22 @@
 
     <div class="mark-wrap">
       <div class="mark-glow"></div>
-      <img class="master-mark" src="master-orbital-mark.png" alt="Ways of Seeing">
+      <svg class="master-mark-svg" viewBox="0 0 1024 1024" role="img" aria-label="Ways of Seeing">
+        <defs>
+          <linearGradient id="intro-orbit-grad" x1="16%" y1="55%" x2="86%" y2="45%">
+            <stop offset="0%" stop-color="#6957FF"/>
+            <stop offset="45%" stop-color="#EDEAE2"/>
+            <stop offset="100%" stop-color="#D8FF47"/>
+          </linearGradient>
+        </defs>
+        <path d="M116 512C280 292 744 292 908 512 744 732 280 732 116 512Z" fill="none" stroke="url(#intro-orbit-grad)" stroke-width="36" stroke-linecap="round"/>
+        <path d="M504 392C625 366 701 443 680 555 661 657 559 700 476 650" fill="none" stroke="#EDEAE2" stroke-width="28" stroke-linecap="round"/>
+        <g stroke="#060914" stroke-width="16" stroke-linejoin="round">
+          <path d="M512 430 614 485 512 542 410 485Z" fill="#EDEAE2"/>
+          <path d="M410 485 512 542 512 654 410 596Z" fill="#6957FF"/>
+          <path d="M512 542 614 485 614 596 512 654Z" fill="#D8FF47"/>
+        </g>
+      </svg>
     </div>
 
     <div class="caption">
