@@ -6,68 +6,42 @@ Landing page e portal da publisher **Ways of Seeing**.
 
 ---
 
-## Identidade visual
+## Identidade Visual (v3 Orbital)
 
-A marca é um olho geométrico com um cubo isométrico no lugar da pupila. As três
-faces do cubo representam as três frentes do estúdio:
+A marca é um **olho cósmico orbital** com um cubo isométrico no lugar da pupila e uma espiral de diafragma óptico interno, sintetizando o nome *Ways of Seeing* (os modos de ver, observar e projetar universos digitais).
 
-| Face | Cor | Frente |
+| Face / Elemento | Cor / Hex | Papel no Estúdio |
 | :--- | :--- | :--- |
-| Topo | Ciano `#2DE1F7` | Ferramentas e SDK |
-| Esquerda | Âmbar `#FB923C` | Jogos |
-| Direita | Gelo `#F1F5F9` | Labs e experimentos |
+| **Fundo Cósmico** | Obsidian Ink `#060914` | Vácuo e tela profunda de contraste |
+| **Topo do Cubo** | Lunar `#EDEAE2` | Arquitetura, clareza e reflexão conceitual |
+| **Esquerda do Cubo** | Ultraviolet `#6957FF` | Ferramentas, tecnologia central e motores em Rust |
+| **Direita do Cubo** | Phosphor `#D8FF47` | Jogos, interatividade e dinamismo de tela |
 
-As faces são **chapadas, sem gradiente e sem contorno escuro entre elas**. O
-chanfro vem de `stroke` da mesma cor do preenchimento com `stroke-linejoin:
-round`. Gradiente e contorno escuro eram o que fundia as três faces numa mancha
-só abaixo de 48px.
+O contorno orbital externo conecta o Ultravioleta ao Fósforo através de um gradiente linear (`#6957FF` → `#EDEAE2` → `#D8FF47`), mantendo um brilho luminescente consistente tanto em vetores quanto em composições cinematográficas.
 
-### Qual arquivo usar
+### Arquivos Principais (v3)
 
-O logo tem versões por faixa de tamanho. Usar a errada é o que fazia a marca
-virar borrão em ícone pequeno.
+Os arquivos mestres vivem em `assets/brand/v3/` e são sincronizados para `pages/assets/brand/v3/`:
 
-| Arquivo | Quando usar |
-| :--- | :--- |
-| `logo.svg` | Marca principal, **64px ou mais**. Tem placa de fundo e marcas de enquadramento. |
-| `logo-compact.svg` | **24–64px**. Traço mais grosso e sem enfeites, para aguentar redução. |
-| `logo-mark.svg` | Sobre fundo colorido. Sem placa; o contorno usa `currentColor`. |
-| `favicon.svg` | **24px ou menos**. Só o cubo — abaixo desse tamanho o olho não sobrevive. |
-| `logo-horizontal.svg` | Lockup para fundo escuro. Tem fundo próprio. |
-| `logo-horizontal-light.svg` | Lockup para fundo claro, com texto escuro. |
-
-> O lockup **precisa** de fundo explícito. A primeira versão saiu transparente e
-> o texto branco desaparecia sobre qualquer superfície clara.
-
-### PNGs prontos
-
-| Arquivo | Tamanho | Uso |
+| Arquivo | Formato | Quando usar |
 | :--- | :--- | :--- |
-| `avatar.png` | 512×512 | Avatar da organização no GitHub, itch.io |
-| `logo-1024.png` | 1024×1024 | Master em alta, lojas e imprensa |
-| `logo-compact-256.png` | 256×256 | Ícone médio |
-| `apple-touch-icon.png` | 180×180 | Atalho em iOS |
-| `favicon-32.png` | 32×32 | Fallback de favicon |
-| `logo-horizontal.png` | 1800×440 | Lockup sobre fundo escuro |
-| `logo-horizontal-light.png` | 1800×440 | Lockup sobre fundo claro |
-| `org-banner.png` | 1280×480 | Banner do perfil da organização e preview social |
-
-### Regenerando os PNGs
-
-Os PNGs saem dos SVGs. **Não use `qlmanage`**: ele renderiza tudo dentro de um
-quadrado e distorce qualquer arte que não seja quadrada — foi assim que o banner
-anterior virou 1280×1280 com a arte cortada no meio.
-
-Para regerar, rasterize com largura e altura explícitas (por exemplo, abrindo o
-SVG num canvas do navegador com `drawImage(img, 0, 0, largura, altura)`).
+| `master-orbital-mark.png` | PNG (1254×1254) | Arte texturizada cinematográfica para capas e aberturas sobre fundo escuro. |
+| `master-orbital-mark-transparent.png` | PNG (1254×1254) | Versão com transparência alfa para composições, overlays e vídeos. |
+| `logo-mark.svg` | SVG | Marca orbital vetorial pura, escalável e perfeita para ícones médios e grandes. |
+| `logo-lockup-dark.svg` | SVG | Lockup completo com logotipo e tipografia para fundos escuros. |
+| `logo-lockup-light.svg` | SVG | Lockup completo para superfícies claras. |
+| `github-org-banner.svg` | SVG (1280×480) | Banner vetorial oficial para o perfil do GitHub. |
+| `org-banner.png` | PNG (1280×480) | Banner rasterizado de alta fidelidade para o perfil da organização e OpenGraph. |
+| `studio-intro.html` | HTML5/Canvas/Audio | Animação cinematográfica de abertura a 60fps com starfield e áudio procedural. |
+| `cover-lettered.svg` | SVG (1600×900) | Capa em 16:9 com letreiro e grid para imprensa e lojas. |
+| `cover-art-only.svg` | SVG (1600×900) | Capa limpa sem texto. |
 
 ---
 
 ## Publicando
 
-```sh
+```bash
 npm run deploy:pages
 ```
 
-O script sincroniza `assets/brand/` para `pages/assets/brand/` e envia o
-conteúdo de `pages/` para o repositório `ways-of-seeing.github.io`.
+O script sincroniza `assets/brand/` para `pages/assets/brand/` e envia o conteúdo de `pages/` para o repositório `ways-of-seeing.github.io`.

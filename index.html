@@ -36,22 +36,23 @@
   
   <style>
     :root {
-      --bg-deep: #07090C;
-      --bg-surface: #0E1217;
-      --bg-card: #141822;
-      --bg-card-hover: #1A202E;
-      --border-subtle: #222938;
-      --border-highlight: #334155;
+      --bg-deep: #060914;
+      --bg-surface: #0B0F1E;
+      --bg-card: #11152A;
+      --bg-card-hover: #181D38;
+      --border-subtle: #252A4A;
+      --border-highlight: #3A4070;
       
-      --text-primary: #F8FAFC;
-      --text-secondary: #94A3B8;
-      --text-muted: #64748B;
+      --text-primary: #EDEAE2;
+      --text-secondary: #ADA9BC;
+      --text-muted: #726E8C;
       
       --amber: #F59E0B;
       --amber-glow: rgba(245, 158, 11, 0.15);
-      --cyan: #06B6D4;
-      --cyan-glow: rgba(6, 182, 212, 0.15);
-      --emerald: #10B981;
+      --ultraviolet: #6957FF;
+      --ultraviolet-text: #9A8FFF;
+      --ultraviolet-glow: rgba(105, 87, 255, 0.18);
+      --phosphor: #D8FF47;
       
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -76,7 +77,7 @@
       transform: translateX(-50%);
       width: 900px;
       height: 500px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, rgba(245, 158, 11, 0.04) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(105, 87, 255, 0.10) 0%, rgba(216, 255, 71, 0.04) 50%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
@@ -97,7 +98,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(7, 9, 12, 0.85);
+      background: rgba(6, 9, 20, 0.85);
     }
     
     .nav-inner {
@@ -166,7 +167,7 @@
     }
 
     .btn-github:hover {
-      border-color: var(--cyan);
+      border-color: var(--ultraviolet-text);
       background: var(--bg-card-hover);
     }
 
@@ -181,10 +182,10 @@
       align-items: center;
       gap: 8px;
       padding: 6px 16px;
-      background: rgba(6, 182, 212, 0.08);
-      border: 1px solid rgba(6, 182, 212, 0.25);
+      background: rgba(105, 87, 255, 0.10);
+      border: 1px solid rgba(105, 87, 255, 0.35);
       border-radius: 999px;
-      color: var(--cyan);
+      color: var(--ultraviolet-text);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -195,9 +196,9 @@
     .hero-badge-dot {
       width: 7px;
       height: 7px;
-      background: var(--cyan);
+      background: var(--ultraviolet);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--cyan);
+      box-shadow: 0 0 8px var(--ultraviolet);
     }
 
     .hero h1 {
@@ -209,7 +210,7 @@
     }
 
     .hero h1 span.gradient {
-      background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
+      background: linear-gradient(135deg, #EDEAE2 30%, #A9A1E0 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -235,8 +236,8 @@
       align-items: center;
       gap: 8px;
       padding: 12px 26px;
-      background: #F8FAFC;
-      color: #07090C;
+      background: #EDEAE2;
+      color: #060914;
       font-weight: 700;
       font-size: 15px;
       border-radius: 10px;
@@ -245,7 +246,7 @@
     }
 
     .btn-primary:hover {
-      background: #E2E8F0;
+      background: #FFFFFF;
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
     }
@@ -367,11 +368,11 @@
     }
 
     .card[data-category="app"]:hover::before {
-      background: linear-gradient(90deg, var(--cyan), transparent);
+      background: linear-gradient(90deg, var(--ultraviolet), transparent);
     }
 
     .card[data-category="tool"]:hover::before {
-      background: linear-gradient(90deg, var(--emerald), transparent);
+      background: linear-gradient(90deg, var(--phosphor), transparent);
     }
 
     .card:hover {
@@ -423,8 +424,17 @@
     .cv-aquario { background:
       radial-gradient(ellipse at 50% 0%, #38bdf8 0%, transparent 60%),
       linear-gradient(180deg, #0b2545 0%, #12395f 60%, #c2a878 100%); }
-    .cv-sdk { background: linear-gradient(140deg, #0b1220 0%, #0f2b33 60%, #06b6d4 160%); }
-    .cv-dash { background: linear-gradient(140deg, #0b1220 0%, #1f2937 55%, #10b981 165%); }
+    .cv-sdk { background: linear-gradient(140deg, #0b1220 0%, #1a1650 60%, #6957FF 160%); }
+    .cv-dash { background: linear-gradient(140deg, #0b1220 0%, #1f2937 55%, #D8FF47 165%); }
+    .cv-mosh { background:
+      radial-gradient(ellipse at 40% 40%, #ff007f 0%, transparent 60%),
+      linear-gradient(135deg, #120024 0%, #400060 50%, #00f0ff 130%); }
+    .cv-picote { background:
+      radial-gradient(circle at 60% 30%, #ff5500 0%, transparent 55%),
+      linear-gradient(140deg, #18181b 0%, #27272a 60%, #e11d48 130%); }
+    .cv-diydj { background:
+      radial-gradient(circle at 30% 70%, #d8ff47 0%, transparent 55%),
+      linear-gradient(140deg, #09090b 0%, #1e1b4b 60%, #6957ff 140%); }
 
     .card-top {
       margin-bottom: 20px;
@@ -457,15 +467,15 @@
     }
 
     .badge-app {
-      background: var(--cyan-glow);
-      color: var(--cyan);
-      border: 1px solid rgba(6, 182, 212, 0.3);
+      background: var(--ultraviolet-glow);
+      color: var(--ultraviolet-text);
+      border: 1px solid rgba(105, 87, 255, 0.35);
     }
 
     .badge-tool {
-      background: rgba(16, 185, 129, 0.12);
-      color: var(--emerald);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      background: rgba(216, 255, 71, 0.10);
+      color: var(--phosphor);
+      border: 1px solid rgba(216, 255, 71, 0.30);
     }
 
     .card-platforms {
@@ -508,7 +518,7 @@
     }
 
     .card-action:hover {
-      color: var(--cyan);
+      color: var(--ultraviolet-text);
     }
 
     /* Manifesto Section */
@@ -657,15 +667,21 @@
   <header>
     <div class="container nav-inner">
       <a href="#" class="brand-logo">
-        <svg viewBox="0 0 512 512" role="img" aria-label="Ways of Seeing">
-          <rect width="512" height="512" rx="112" fill="#0A0C11" stroke="#252D3C" stroke-width="8"/>
-          <path d="M 40 256 C 126 78, 386 78, 472 256 C 386 434, 126 434, 40 256 Z" fill="none" stroke="#F8FAFC" stroke-width="26" stroke-linejoin="round" stroke-linecap="round"/>
-          <g stroke-linejoin="round" stroke-width="18">
-            <polygon points="256,182 330,219 256,256 182,219" fill="#2DE1F7" stroke="#2DE1F7"/>
-            <polygon points="182,219 256,256 256,330 182,293" fill="#FB923C" stroke="#FB923C"/>
-            <polygon points="256,256 330,219 330,293 256,330" fill="#F1F5F9" stroke="#F1F5F9"/>
-          </g>
-        </svg>
+        <svg viewBox="0 0 1024 1024" role="img" aria-label="Ways of Seeing">
+  
+  <defs>
+    <linearGradient id="wosMarca-orbit" x1="16%" y1="55%" x2="86%" y2="45%">
+      <stop offset="0" stop-color="#6957FF"/><stop offset=".45" stop-color="#EDEAE2"/><stop offset="1" stop-color="#D8FF47"/>
+    </linearGradient>
+  </defs>
+  <path d="M116 512C280 292 744 292 908 512 744 732 280 732 116 512Z" fill="none" stroke="url(#wosMarca-orbit)" stroke-width="38" stroke-linecap="round"/>
+  <path d="M504 392C625 366 701 443 680 555 661 657 559 700 476 650" fill="none" stroke="#EDEAE2" stroke-width="30" stroke-linecap="round"/>
+  <g stroke="#060914" stroke-width="18" stroke-linejoin="round">
+    <path d="M512 430 614 485 512 542 410 485Z" fill="#EDEAE2"/>
+    <path d="M410 485 512 542 512 654 410 596Z" fill="#6957FF"/>
+    <path d="M512 542 614 485 614 596 512 654Z" fill="#D8FF47"/>
+  </g>
+</svg>
         <span class="brand-name">Ways of Seeing</span>
       </a>
 
@@ -697,6 +713,7 @@
       <div class="hero-actions">
         <a href="#catalogo" class="btn-primary">Explorar Projetos</a>
         <a href="#manifesto" class="btn-secondary">Sobre a Publisher</a>
+        <a href="assets/brand/v3/studio-intro.html" target="_blank" class="btn-secondary" style="border-color: var(--phosphor); color: var(--phosphor);">▶ Assistir Abertura v3</a>
       </div>
     </div>
   </section>
@@ -745,7 +762,7 @@
             <p class="card-description">Puzzle de fusão no estilo Suika com física 2D, sistema de troféus e arte kawaii. Três idiomas, recorde local e progressão por evolução das peças.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--emerald); font-weight: 600;">Jogável</span>
+            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">Jogável</span>
             <span style="font-size: 13px; color: var(--text-muted);">33 troféus</span>
           </div>
         </div>
@@ -761,7 +778,7 @@
             <p class="card-description">Quiz bíblico com 200 questões de Antigo e Novo Testamento, tempo por pergunta e bônus por velocidade. Mesma base rodando na Web e em Godot.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--emerald); font-weight: 600;">Jogável</span>
+            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">Jogável</span>
             <span style="font-size: 13px; color: var(--text-muted);">200 questões</span>
           </div>
         </div>
@@ -793,7 +810,7 @@
             <p class="card-description">Ecossistema de micro-modelos de linguagem autônomos: cada peixe decide o que fazer por conta própria. Roda local em modo simulado ou conectado ao Cloudflare Workers AI.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--cyan); font-weight: 600;">Experimento</span>
+            <span style="font-size: 12px; color: var(--ultraviolet-text); font-weight: 600;">Experimento</span>
             <span style="font-size: 13px; color: var(--text-muted);">Laboratório</span>
           </div>
         </div>
@@ -809,7 +826,7 @@
             <p class="card-description">Biblioteca ultraleve de telemetria e placar local, compartilhada entre os jogos Web e Godot. Sem serviços externos e sem rastreadores de terceiros.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--emerald); font-weight: 600;">SDK autoral</span>
+            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">SDK autoral</span>
             <span style="font-size: 13px; color: var(--text-muted);">Uso interno</span>
           </div>
         </div>
@@ -825,8 +842,56 @@
             <p class="card-description">Ambiente local de execução, métricas e scaffolding. Publica em múltiplos destinos — Web, macOS, itch.io e Godot — a partir de um único comando.</p>
           </div>
           <div class="card-footer">
-            <span style="font-size: 12px; color: var(--emerald); font-weight: 600;">Ferramenta interna</span>
+            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">Ferramenta interna</span>
             <span style="font-size: 13px; color: var(--text-muted);">Proprietária</span>
+          </div>
+        </div>
+
+        <div class="card" data-category="tool,app">
+          <div class="card-cover cv-mosh"><span class="cover-tag">Glitch Lab</span></div>
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="card-badge badge-tool">Audio &amp; Video Lab</span>
+              <span class="card-platforms">Flutter + Rust</span>
+            </div>
+            <h3 class="card-title">MOSHMOSHMOSH</h3>
+            <p class="card-description">Editor profissional de datamosh e destruição estética de vídeo. Manipulação em tempo real de frames I/P/B, interface reativa em Flutter e motor de processamento nativo em Rust.</p>
+          </div>
+          <div class="card-footer">
+            <span style="font-size: 12px; color: var(--ultraviolet-text); font-weight: 600;">Em desenvolvimento</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Rust Core</span>
+          </div>
+        </div>
+
+        <div class="card" data-category="tool,app">
+          <div class="card-cover cv-picote"><span class="cover-tag">MPC Video</span></div>
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="card-badge badge-tool">Vídeo Sampler</span>
+              <span class="card-platforms">Electron / Web Audio</span>
+            </div>
+            <h3 class="card-title">picote</h3>
+            <p class="card-description">Sampler de vídeo tátil no espírito clássico das MPCs com sequenciador rítmico estilo TR-808. Disparo de loops, cortes sonoros e performance audiovisual com controle por teclado e pads.</p>
+          </div>
+          <div class="card-footer">
+            <span style="font-size: 12px; color: var(--phosphor); font-weight: 600;">Estável</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Uso interno</span>
+          </div>
+        </div>
+
+        <div class="card" data-category="tool,app">
+          <div class="card-cover cv-diydj"><span class="cover-tag">Live DJ</span></div>
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="card-badge badge-tool">Live Performance</span>
+              <span class="card-platforms">Rust Nativo</span>
+            </div>
+            <h3 class="card-title">DIY-dj</h3>
+            <p class="card-description">Console sonoro autônomo e instrumento minimalista para discotecagem e manipulação de beats. Arquitetura de baixíssima latência para live coding e sets analógico-digitais.</p>
+          </div>
+          <div class="card-footer">
+            <span style="font-size: 12px; color: var(--amber); font-weight: 600;">Em desenvolvimento</span>
+            <span style="font-size: 13px; color: var(--text-muted);">Rust Audio</span>
           </div>
         </div>
 
@@ -871,15 +936,21 @@
     <div class="container">
       <div class="footer-inner">
         <a href="#" class="footer-brand">
-          <svg viewBox="0 0 512 512">
-            <rect width="512" height="512" rx="112" fill="#0A0C11" stroke="#252D3C" stroke-width="10"/>
-            <path d="M 40 256 C 126 78, 386 78, 472 256 C 386 434, 126 434, 40 256 Z" fill="none" stroke="#F8FAFC" stroke-width="26" stroke-linejoin="round" stroke-linecap="round"/>
-            <g stroke-linejoin="round" stroke-width="18">
-              <polygon points="256,182 330,219 256,256 182,219" fill="#2DE1F7" stroke="#2DE1F7"/>
-              <polygon points="182,219 256,256 256,330 182,293" fill="#FB923C" stroke="#FB923C"/>
-              <polygon points="256,256 330,219 330,293 256,330" fill="#F1F5F9" stroke="#F1F5F9"/>
-            </g>
-          </svg>
+          <svg aria-label="Ways of Seeing" role="img" viewBox="0 0 1024 1024">
+  
+  <defs>
+    <linearGradient id="wosMarca-orbit-rodape" x1="16%" y1="55%" x2="86%" y2="45%">
+      <stop offset="0" stop-color="#6957FF"/><stop offset=".45" stop-color="#EDEAE2"/><stop offset="1" stop-color="#D8FF47"/>
+    </linearGradient>
+  </defs>
+  <path d="M116 512C280 292 744 292 908 512 744 732 280 732 116 512Z" fill="none" stroke="url(#wosMarca-orbit-rodape)" stroke-width="38" stroke-linecap="round"/>
+  <path d="M504 392C625 366 701 443 680 555 661 657 559 700 476 650" fill="none" stroke="#EDEAE2" stroke-width="30" stroke-linecap="round"/>
+  <g stroke="#060914" stroke-width="18" stroke-linejoin="round">
+    <path d="M512 430 614 485 512 542 410 485Z" fill="#EDEAE2"/>
+    <path d="M410 485 512 542 512 654 410 596Z" fill="#6957FF"/>
+    <path d="M512 542 614 485 614 596 512 654Z" fill="#D8FF47"/>
+  </g>
+</svg>
           Ways of Seeing
         </a>
         <ul class="footer-links">

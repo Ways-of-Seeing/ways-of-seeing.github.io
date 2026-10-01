@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title">
+  <title id="title">Ways of Seeing — orbital mark</title>
+  <defs>
+    <linearGradient id="orbit" x1="16%" y1="55%" x2="86%" y2="45%">
+      <stop offset="0" stop-color="#6957FF"/><stop offset=".45" stop-color="#EDEAE2"/><stop offset="1" stop-color="#D8FF47"/>
+    </linearGradient>
+  </defs>
+  <path d="M116 512C280 292 744 292 908 512 744 732 280 732 116 512Z" fill="none" stroke="url(#orbit)" stroke-width="38" stroke-linecap="round"/>
+  <path d="M504 392C625 366 701 443 680 555 661 657 559 700 476 650" fill="none" stroke="#EDEAE2" stroke-width="30" stroke-linecap="round"/>
+  <g stroke="#060914" stroke-width="18" stroke-linejoin="round">
+    <path d="M512 430 614 485 512 542 410 485Z" fill="#EDEAE2"/>
+    <path d="M410 485 512 542 512 654 410 596Z" fill="#6957FF"/>
+    <path d="M512 542 614 485 614 596 512 654Z" fill="#D8FF47"/>
+  </g>
+</svg>

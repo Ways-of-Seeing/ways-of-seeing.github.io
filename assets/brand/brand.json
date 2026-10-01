@@ -1,0 +1,90 @@
+{
+  "current": "v3",
+  "slots": [
+    { "id": "mark", "name": "Marca orbital", "kind": "svg", "role": "Marca colorida sem nome, para tamanhos médios e grandes. É ela que vai embutida nas intros." },
+    { "id": "master", "name": "Marca cinematográfica", "kind": "png", "role": "Arte texturizada, para capas e aberturas." },
+    { "id": "lockup-dark", "name": "Logo com nome — fundo escuro", "kind": "svg", "role": "Marca e nome juntos, sobre superfícies escuras." },
+    { "id": "lockup-light", "name": "Logo com nome — fundo claro", "kind": "svg", "role": "Marca e nome juntos, sobre superfícies claras." },
+    { "id": "mono-ink", "name": "Monocromática — tinta", "kind": "svg", "role": "Uma cor escura, para impressão e contextos restritos." },
+    { "id": "mono-paper", "name": "Monocromática — papel", "kind": "svg", "role": "Uma cor clara, para fundos escuros restritos." },
+    { "id": "favicon-source", "name": "Favicon — fonte", "kind": "png", "role": "Original de onde saem os favicons." },
+    { "id": "favicon-16", "name": "Favicon 16", "kind": "png", "role": "Aba do navegador." },
+    { "id": "favicon-32", "name": "Favicon 32", "kind": "png", "role": "Aba do navegador em tela densa." },
+    { "id": "favicon-64", "name": "Favicon 64", "kind": "png", "role": "Atalhos e listas." },
+    { "id": "favicon-192", "name": "Favicon 192", "kind": "png", "role": "Ícone de PWA." },
+    { "id": "favicon-512", "name": "Favicon 512", "kind": "png", "role": "Ícone de PWA grande e splash." },
+    { "id": "apple-touch", "name": "Ícone de toque (Apple)", "kind": "png", "role": "Atalho na tela inicial do iPhone." },
+    { "id": "cover-lettered", "name": "Capa com letreiro", "kind": "svg", "role": "Capa de página e de publicação, com o nome." },
+    { "id": "cover-art", "name": "Capa só com arte", "kind": "svg", "role": "Capa sem texto, para quem sobrepõe o próprio título." },
+    { "id": "intro-html", "name": "Intro de referência", "kind": "html", "role": "O movimento da abertura, em HTML." },
+    { "id": "intro-gif", "name": "Intro em GIF", "kind": "gif", "role": "A abertura para onde não roda vídeo." },
+    { "id": "intro-mp4", "name": "Intro em vídeo", "kind": "mp4", "role": "A abertura para vídeos e trailers." },
+    { "id": "favicon-svg", "name": "Favicon vetorial", "kind": "svg", "role": "Favicon em SVG." },
+    { "id": "logo-full", "name": "Logo completo", "kind": "svg", "role": "Logo principal da identidade antiga." },
+    { "id": "logo-compact", "name": "Logo compacto", "kind": "svg", "role": "Logo reduzido da identidade antiga." },
+    { "id": "logo-compact-256", "name": "Logo compacto (PNG)", "kind": "png", "role": "Logo reduzido em bitmap." },
+    { "id": "lockup-dark-png", "name": "Logo com nome (PNG) — escuro", "kind": "png", "role": "Lockup em bitmap para fundos escuros." },
+    { "id": "lockup-light-png", "name": "Logo com nome (PNG) — claro", "kind": "png", "role": "Lockup em bitmap para fundos claros." },
+    { "id": "avatar", "name": "Avatar", "kind": "png", "role": "Foto de perfil das contas do estúdio." },
+    { "id": "org-banner", "name": "Banner da organização", "kind": "png", "role": "Banner das redes e do GitHub." },
+    { "id": "github-banner", "name": "Banner do GitHub", "kind": "svg", "role": "Banner vetorial do perfil no GitHub." }
+  ],
+  "versions": [
+    {
+      "id": "v3",
+      "status": "approved",
+      "dir": "assets/brand/v3",
+      "palette": [
+        { "name": "ink", "hex": "#060914" },
+        { "name": "ultraviolet", "hex": "#6957FF" },
+        { "name": "phosphor", "hex": "#D8FF47" },
+        { "name": "lunar", "hex": "#EDEAE2" }
+      ],
+      "files": {
+        "mark": "logo-mark.svg",
+        "master": "master-orbital-mark.png",
+        "lockup-dark": "logo-lockup-dark.svg",
+        "lockup-light": "logo-lockup-light.svg",
+        "mono-ink": "logo-monochrome-ink.svg",
+        "mono-paper": "logo-monochrome-paper.svg",
+        "favicon-source": "favicon-source.png",
+        "favicon-16": "favicon-16.png",
+        "favicon-32": "favicon-32.png",
+        "favicon-64": "favicon-64.png",
+        "favicon-192": "favicon-192.png",
+        "favicon-512": "favicon-512.png",
+        "apple-touch": "apple-touch-icon.png",
+        "cover-lettered": "cover-lettered.svg",
+        "cover-art": "cover-art-only.svg",
+        "intro-html": "game-intro.html",
+        "intro-gif": "game-intro-orbit.gif",
+        "intro-mp4": "game-intro-orbit.mp4"
+      },
+      "changed": []
+    },
+    {
+      "id": "v2",
+      "status": "retired",
+      "dir": "assets/brand",
+      "palette": [],
+      "files": {
+        "mark": "logo-mark.svg",
+        "master": "logo-1024.png",
+        "lockup-dark": "logo-horizontal.svg",
+        "lockup-light": "logo-horizontal-light.svg",
+        "lockup-dark-png": "logo-horizontal.png",
+        "lockup-light-png": "logo-horizontal-light.png",
+        "favicon-svg": "favicon.svg",
+        "favicon-32": "favicon-32.png",
+        "apple-touch": "apple-touch-icon.png",
+        "logo-full": "logo.svg",
+        "logo-compact": "logo-compact.svg",
+        "logo-compact-256": "logo-compact-256.png",
+        "avatar": "avatar.png",
+        "org-banner": "org-banner.png",
+        "github-banner": "github-org-banner.svg"
+      },
+      "changed": []
+    }
+  ]
+}
