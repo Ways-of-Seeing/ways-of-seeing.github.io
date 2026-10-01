@@ -13,8 +13,8 @@
       --ultraviolet: #6957FF;
       --phosphor: #D8FF47;
       --lunar: #EDEAE2;
-      --lunar-text: #F4F2EA;
       --muted: #726E8C;
+      --border-hud: rgba(255, 255, 255, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,188 +23,117 @@
       width: 100%;
       height: 100%;
       background: var(--bg-ink);
-      color: var(--lunar-text);
+      color: var(--lunar);
       overflow: hidden;
       font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Cosmic Background & Starfield */
-    #spaceCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
+    /* Ambient Cosmic Vignette */
+    .viewport {
+      position: relative;
       width: 100vw;
       height: 100vh;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .vignette {
-      position: fixed;
-      inset: 0;
-      z-index: 2;
-      background: radial-gradient(circle at center, rgba(22, 19, 52, 0.45) 0%, rgba(6, 9, 20, 0.95) 70%, #060914 100%);
-      pointer-events: none;
-    }
-
-    /* Main Stage */
-    .stage {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      background: radial-gradient(circle at 50% 48%, rgba(22, 19, 52, 0.75) 0%, rgba(10, 13, 28, 0.95) 50%, #060914 80%);
     }
 
-    .mark-container {
+    /* Subtle Technical Framing Marks */
+    .hud-frame {
+      position: absolute;
+      inset: 32px;
+      pointer-events: none;
+      opacity: 0;
+      animation: frameIn 1.2s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .corner {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-color: var(--border-hud);
+      border-style: solid;
+    }
+    .c-tl { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
+    .c-tr { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
+    .c-bl { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
+    .c-br { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+
+    /* Logo Mark Presentation */
+    .mark-wrap {
       position: relative;
-      width: min(76vw, 680px);
-      aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: min(64vw, 560px);
+      aspect-ratio: 1 / 1;
     }
 
-    /* SVG Vector Animation Layers */
-    .intro-svg {
+    /* Ambient Ethereal Glow */
+    .mark-glow {
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-      z-index: 12;
-    }
-
-    /* Outer Eye Path Laser Draw */
-    .eye-path {
-      stroke-dasharray: 2100;
-      stroke-dashoffset: 2100;
-      animation: drawEye 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      filter: drop-shadow(0 0 14px rgba(105, 87, 255, 0.65)) drop-shadow(0 0 28px rgba(216, 255, 71, 0.35));
-    }
-
-    /* Inner Aperture Spiral */
-    .spiral-path {
-      stroke-dasharray: 850;
-      stroke-dashoffset: 850;
-      transform-origin: 512px 512px;
-      animation: drawSpiral 1.4s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-                 spinSpiral 2.2s 0.6s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
-      filter: drop-shadow(0 0 10px rgba(237, 234, 226, 0.5));
-    }
-
-    /* Isometric Studio Cube Faces */
-    .cube-top {
+      inset: 15%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(105, 87, 255, 0.22) 0%, rgba(216, 255, 71, 0.08) 45%, transparent 70%);
+      filter: blur(28px);
       opacity: 0;
-      transform-origin: 512px 485px;
-      transform: translateY(-24px) scale(0.85);
-      animation: cubePop 0.8s 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-      filter: drop-shadow(0 0 12px rgba(237, 234, 226, 0.6));
+      transform: scale(0.85);
+      animation: glowBloom 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      pointer-events: none;
     }
 
-    .cube-left {
-      opacity: 0;
-      transform-origin: 461px 542px;
-      transform: translateX(-24px) scale(0.85);
-      animation: cubePop 0.8s 1.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-      filter: drop-shadow(0 0 16px rgba(105, 87, 255, 0.7));
-    }
-
-    .cube-right {
-      opacity: 0;
-      transform-origin: 563px 542px;
-      transform: translateX(24px) scale(0.85);
-      animation: cubePop 0.8s 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-      filter: drop-shadow(0 0 16px rgba(216, 255, 71, 0.7));
-    }
-
-    /* Master Textured Overlay (Smooth Organic Blend) */
-    .master-texture {
-      position: absolute;
-      inset: 0;
+    /* The Authentic Master Artwork */
+    .master-mark {
+      position: relative;
       width: 100%;
       height: 100%;
       object-fit: contain;
       opacity: 0;
-      transform: scale(0.96);
-      filter: blur(8px);
-      z-index: 15;
-      pointer-events: none;
-      animation: masterReveal 1.2s 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      mix-blend-mode: screen;
-    }
-
-    /* Lens Flare Cosmic Burst */
-    .flare {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      width: 320px;
-      height: 320px;
-      background: radial-gradient(circle, rgba(237, 234, 226, 0.95) 0%, rgba(216, 255, 71, 0.45) 25%, rgba(105, 87, 255, 0.25) 50%, transparent 75%);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 20;
-      opacity: 0;
-      animation: flareBurst 0.9s 1.95s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+      transform: scale(0.88);
+      filter: blur(14px) brightness(0.8);
+      animation: arrive 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      filter: drop-shadow(0 0 24px rgba(105, 87, 255, 0.25)) drop-shadow(0 0 48px rgba(216, 255, 71, 0.12));
     }
 
     /* Studio Typographic Lockup */
-    .caption-box {
-      margin-top: -30px;
+    .caption {
+      margin-top: -12px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-      z-index: 25;
+      gap: 10px;
     }
 
-    .studio-title {
-      font-size: clamp(22px, 3.2vw, 44px);
+    .title {
+      font-size: clamp(22px, 3.2vw, 36px);
       font-weight: 800;
-      letter-spacing: 0.12em;
-      color: var(--lunar-text);
+      letter-spacing: 0.32em;
+      color: #EDEAE2;
       opacity: 0;
-      transform: translateY(18px);
-      animation: titleReveal 1.2s 2.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      text-shadow: 0 0 24px rgba(237, 234, 226, 0.35);
+      transform: translateY(10px);
+      animation: captionIn 1.0s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
     }
 
-    .studio-sub {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    .subtitle {
       font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(10px, 1.1vw, 13px);
+      font-size: clamp(10px, 1.1vw, 12px);
       font-weight: 600;
-      letter-spacing: 0.38em;
+      letter-spacing: 0.26em;
       color: var(--muted);
       opacity: 0;
-      transform: translateY(12px);
-      animation: subReveal 1.0s 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transform: translateY(6px);
+      animation: captionIn 0.9s 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .sub-bar-left {
-      width: 32px;
-      height: 2px;
-      background: var(--ultraviolet);
-      border-radius: 1px;
-    }
-
-    .sub-bar-right {
-      width: 32px;
-      height: 2px;
-      background: var(--phosphor);
-      border-radius: 1px;
-    }
-
-    /* UI Controls Header Bar */
+    /* Controls */
     .controls {
       position: fixed;
       top: 24px;
@@ -212,14 +141,14 @@
       z-index: 50;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .btn-ctl {
-      background: rgba(17, 21, 42, 0.65);
-      border: 1px solid rgba(105, 87, 255, 0.35);
+      background: rgba(17, 21, 42, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 6px;
-      color: var(--lunar-text);
+      color: var(--lunar);
       padding: 6px 14px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
@@ -234,229 +163,84 @@
       background: rgba(105, 87, 255, 0.25);
       border-color: var(--phosphor);
       color: var(--phosphor);
-      transform: translateY(-1px);
     }
 
     /* Keyframes */
-    @keyframes drawEye {
-      0% {
-        stroke-dashoffset: 2100;
-        opacity: 0.2;
-      }
-      40% {
-        opacity: 1;
-      }
-      100% {
-        stroke-dashoffset: 0;
-        opacity: 1;
-      }
-    }
-
-    @keyframes drawSpiral {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    @keyframes spinSpiral {
-      0% {
-        transform: rotate(-45deg) scale(0.85);
-      }
-      100% {
-        transform: rotate(0deg) scale(1);
-      }
-    }
-
-    @keyframes cubePop {
+    @keyframes arrive {
       0% {
         opacity: 0;
-        transform: translateY(12px) scale(0.7);
+        transform: scale(0.86);
+        filter: blur(14px) brightness(0.7);
+      }
+      55% {
+        opacity: 1;
+        filter: blur(0px) brightness(1.05);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1.0);
+      }
+    }
+
+    @keyframes glowBloom {
+      0% {
+        opacity: 0;
+        transform: scale(0.7);
       }
       60% {
-        opacity: 1;
-        transform: translateY(-2px) scale(1.05);
+        opacity: 0.9;
+        transform: scale(1.04);
       }
       100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes flareBurst {
-      0% {
-        transform: translate(-50%, -50%) scale(0.1);
-        opacity: 0;
-      }
-      40% {
-        transform: translate(-50%, -50%) scale(1.6);
-        opacity: 0.95;
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(2.4);
-        opacity: 0;
-      }
-    }
-
-    @keyframes masterReveal {
-      0% {
-        opacity: 0;
-        transform: scale(0.96);
-        filter: blur(8px);
-      }
-      100% {
-        opacity: 0.92;
+        opacity: 0.75;
         transform: scale(1);
-        filter: blur(0);
       }
     }
 
-    @keyframes titleReveal {
-      0% {
-        opacity: 0;
-        letter-spacing: 0.12em;
-        transform: translateY(18px);
-      }
-      100% {
+    @keyframes captionIn {
+      to {
         opacity: 1;
-        letter-spacing: 0.44em;
         transform: translateY(0);
       }
     }
 
-    @keyframes subReveal {
-      0% {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      100% {
-        opacity: 0.85;
-        transform: translateY(0);
+    @keyframes frameIn {
+      to {
+        opacity: 0.75;
       }
     }
   </style>
 </head>
 <body>
-  <canvas id="spaceCanvas"></canvas>
-  <div class="vignette"></div>
+  <div class="viewport">
+    <div class="hud-frame">
+      <span class="corner c-tl"></span>
+      <span class="corner c-tr"></span>
+      <span class="corner c-bl"></span>
+      <span class="corner c-br"></span>
+    </div>
 
-  <div class="controls">
-    <button id="soundToggle" class="btn-ctl" aria-label="Toggle sound">AUDIO: ON</button>
-    <button id="replayBtn" class="btn-ctl" aria-label="Replay animation">REPLAY ↺</button>
+    <div class="controls">
+      <button id="soundToggle" class="btn-ctl" aria-label="Alternar som">SOM: DESLIGADO</button>
+      <button id="replayBtn" class="btn-ctl" aria-label="Repetir abertura">REPLAY ↺</button>
+    </div>
+
+    <div class="mark-wrap">
+      <div class="mark-glow"></div>
+      <img class="master-mark" src="master-orbital-mark.png" alt="Ways of Seeing">
+    </div>
+
+    <div class="caption">
+      <h1 class="title">WAYS OF SEEING</h1>
+      <p class="subtitle">INDEPENDENT GAMES · TOOLS · DIGITAL ARTIFACTS</p>
+    </div>
   </div>
 
-  <main class="stage">
-    <div class="mark-container">
-      <div class="flare"></div>
-
-      <!-- Vector Light Animation -->
-      <svg class="intro-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="orbitGrad" x1="16%" y1="55%" x2="86%" y2="45%">
-            <stop offset="0%" stop-color="#6957FF"/>
-            <stop offset="48%" stop-color="#EDEAE2"/>
-            <stop offset="100%" stop-color="#D8FF47"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Outer Eye Path -->
-        <path class="eye-path" d="M116 512C280 292 744 292 908 512 744 732 280 732 116 512Z" 
-              fill="none" stroke="url(#orbitGrad)" stroke-width="38" stroke-linecap="round"/>
-
-        <!-- Optical Aperture Spiral -->
-        <path class="spiral-path" d="M504 392C625 366 701 443 680 555 661 657 559 700 476 650" 
-              fill="none" stroke="#EDEAE2" stroke-width="30" stroke-linecap="round"/>
-
-        <!-- Isometric Studio Cube -->
-        <g stroke="#060914" stroke-width="18" stroke-linejoin="round">
-          <!-- Top (Lunar) -->
-          <path class="cube-top" d="M512 430 614 485 512 542 410 485Z" fill="#EDEAE2"/>
-          <!-- Left (Ultraviolet) -->
-          <path class="cube-left" d="M410 485 512 542 512 654 410 596Z" fill="#6957FF"/>
-          <!-- Right (Phosphor) -->
-          <path class="cube-right" d="M512 542 614 485 614 596 512 654Z" fill="#D8FF47"/>
-        </g>
-      </svg>
-
-      <!-- Master Textured Artwork -->
-      <img class="master-texture" src="master-orbital-mark.png" alt="Ways of Seeing Orbital Mark">
-    </div>
-
-    <div class="caption-box">
-      <h1 class="studio-title">WAYS OF SEEING</h1>
-      <div class="studio-sub">
-        <span class="sub-bar-left"></span>
-        <span>INDEPENDENT GAMES · TOOLS · DIGITAL ARTIFACTS</span>
-        <span class="sub-bar-right"></span>
-      </div>
-    </div>
-  </main>
-
   <script>
-    // Starfield Particle Simulation
-    const canvas = document.getElementById('spaceCanvas');
-    const ctx = canvas.getContext('2d');
-    let stars = [];
-    const STAR_COUNT = 90;
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth * window.devicePixelRatio;
-      canvas.height = window.innerHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    }
-
-    function initStars() {
-      stars = [];
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      for (let i = 0; i < STAR_COUNT; i++) {
-        stars.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          radius: Math.random() * 1.4 + 0.3,
-          alpha: Math.random() * 0.7 + 0.2,
-          speed: Math.random() * 0.25 + 0.05,
-          color: Math.random() > 0.6 ? '#6957FF' : (Math.random() > 0.4 ? '#D8FF47' : '#EDEAE2'),
-          pulse: Math.random() * Math.PI * 2
-        });
-      }
-    }
-
-    function drawStars() {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      ctx.clearRect(0, 0, w, h);
-
-      for (let star of stars) {
-        star.pulse += 0.03;
-        const currentAlpha = star.alpha * (0.7 + 0.3 * Math.sin(star.pulse));
-        ctx.fillStyle = star.color;
-        ctx.globalAlpha = currentAlpha;
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        star.y -= star.speed;
-        if (star.y < 0) {
-          star.y = h;
-          star.x = Math.random() * w;
-        }
-      }
-      ctx.globalAlpha = 1.0;
-      requestAnimationFrame(drawStars);
-    }
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      initStars();
-    });
-
-    resizeCanvas();
-    initStars();
-    drawStars();
-
-    // Procedural Web Audio Synthesis
+    // Sintese Sonora Calorosa e Harmonica (Inspirada em logos cinematograficos)
     let audioCtx = null;
-    let soundEnabled = true;
+    let soundEnabled = false;
 
     function initAudio() {
       if (!audioCtx) {
@@ -467,78 +251,81 @@
       }
     }
 
-    function playStudioSound() {
+    function playWarmIntroChord() {
       if (!soundEnabled || !audioCtx) return;
       const now = audioCtx.currentTime;
 
-      // 1. Sub-bass Drone
+      // 1. Sub Bass Aveludado (48Hz)
       const subOsc = audioCtx.createOscillator();
       const subGain = audioCtx.createGain();
+      const subFilter = audioCtx.createBiquadFilter();
+
+      subFilter.type = 'lowpass';
+      subFilter.frequency.setValueAtTime(140, now);
+
       subOsc.type = 'sine';
-      subOsc.frequency.setValueAtTime(55, now);
-      subOsc.frequency.exponentialRampToValueAtTime(110, now + 1.8);
-      subOsc.frequency.exponentialRampToValueAtTime(73.42, now + 3.2);
+      subOsc.frequency.setValueAtTime(48, now);
 
       subGain.gain.setValueAtTime(0.001, now);
-      subGain.gain.linearRampToValueAtTime(0.22, now + 1.2);
-      subGain.gain.exponentialRampToValueAtTime(0.0001, now + 3.8);
+      subGain.gain.exponentialRampToValueAtTime(0.24, now + 0.12);
+      subGain.gain.exponentialRampToValueAtTime(0.0001, now + 2.0);
 
-      subOsc.connect(subGain);
+      subOsc.connect(subFilter);
+      subFilter.connect(subGain);
       subGain.connect(audioCtx.destination);
       subOsc.start(now);
-      subOsc.stop(now + 3.8);
+      subOsc.stop(now + 2.1);
 
-      // 2. Crystal Chime Chord at Convergence (t = 1.9s)
-      const frequencies = [440, 554.37, 659.25, 880]; // A Major Crystal
-      frequencies.forEach((freq, idx) => {
-        const chimeOsc = audioCtx.createOscillator();
-        const chimeGain = audioCtx.createGain();
-        chimeOsc.type = 'triangle';
-        chimeOsc.frequency.setValueAtTime(freq, now + 1.95 + idx * 0.04);
+      // 2. Acorde Suave Analógico (A Major 9th caloroso)
+      const frequencies = [220.00, 277.18, 329.63, 415.30, 493.88];
+      const masterPadGain = audioCtx.createGain();
+      const padFilter = audioCtx.createBiquadFilter();
 
-        chimeGain.gain.setValueAtTime(0.001, now + 1.95);
-        chimeGain.gain.linearRampToValueAtTime(0.08 / (idx + 1), now + 2.05);
-        chimeGain.gain.exponentialRampToValueAtTime(0.0001, now + 3.6);
+      padFilter.type = 'lowpass';
+      padFilter.frequency.setValueAtTime(450, now);
+      padFilter.frequency.exponentialRampToValueAtTime(950, now + 0.6);
+      padFilter.frequency.exponentialRampToValueAtTime(250, now + 2.4);
 
-        chimeOsc.connect(chimeGain);
-        chimeGain.connect(audioCtx.destination);
-        chimeOsc.start(now + 1.95);
-        chimeOsc.stop(now + 3.6);
+      masterPadGain.gain.setValueAtTime(0.001, now);
+      masterPadGain.gain.linearRampToValueAtTime(0.06, now + 0.4);
+      masterPadGain.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
+
+      padFilter.connect(masterPadGain);
+      masterPadGain.connect(audioCtx.destination);
+
+      frequencies.forEach(freq => {
+        const osc = audioCtx.createOscillator();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now);
+        osc.connect(padFilter);
+        osc.start(now + 0.05);
+        osc.stop(now + 2.5);
       });
     }
 
-    // Controls
     const soundToggle = document.getElementById('soundToggle');
     const replayBtn = document.getElementById('replayBtn');
 
     soundToggle.addEventListener('click', () => {
       initAudio();
       soundEnabled = !soundEnabled;
-      soundToggle.textContent = soundEnabled ? 'AUDIO: ON' : 'AUDIO: OFF';
+      soundToggle.textContent = soundEnabled ? 'SOM: LIGADO' : 'SOM: DESLIGADO';
+      if (soundEnabled) playWarmIntroChord();
     });
 
     replayBtn.addEventListener('click', () => {
       initAudio();
-      if (soundEnabled) playStudioSound();
+      if (soundEnabled) playWarmIntroChord();
 
-      // Reset and trigger CSS animations
-      const mark = document.querySelector('.mark-container');
-      const caption = document.querySelector('.caption-box');
-      
+      const mark = document.querySelector('.mark-wrap');
+      const caption = document.querySelector('.caption');
+
       const newMark = mark.cloneNode(true);
       const newCaption = caption.cloneNode(true);
 
       mark.parentNode.replaceChild(newMark, mark);
       caption.parentNode.replaceChild(newCaption, caption);
     });
-
-    // Auto-trigger sound on first user gesture
-    window.addEventListener('pointerdown', () => {
-      if (!audioCtx) {
-        initAudio();
-        playStudioSound();
-      }
-    }, { once: true });
   </script>
 </body>
 </html>
