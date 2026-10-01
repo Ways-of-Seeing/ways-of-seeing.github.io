@@ -29,7 +29,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
   
-  <!-- Typography (Clean, Modern, Editorial: Space Grotesk + Plus Jakarta Sans + Space Mono) -->
+  <!-- Typography: Space Grotesk + Plus Jakarta Sans + Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
       --bg-pill: #F0F0EE;
       
       --border-hairline: rgba(0, 0, 0, 0.08);
-      --border-medium: rgba(0, 0, 0, 0.14);
+      --border-medium: rgba(0, 0, 0, 0.15);
       --border-dark: #111111;
       
       --text-main: #0E0E10;
@@ -100,7 +100,7 @@
       .container { padding: 0 20px; }
     }
 
-    /* --- TOP SYSTEM HUD BAR (Clean Gallery Style) --- */
+    /* --- TOP SYSTEM HUD BAR --- */
     .top-system-bar {
       border-bottom: 1px solid var(--border-hairline);
       background: var(--bg-alt);
@@ -150,7 +150,7 @@
       .system-location { display: none; }
     }
 
-    /* --- CLEAN WHITE NAVIGATION --- */
+    /* --- NAVIGATION HEADER --- */
     header {
       position: sticky;
       top: 0;
@@ -264,7 +264,7 @@
       .nav-actions li:not(:last-child) { display: none; }
     }
 
-    /* --- HERO EDITORIAL (Ragged Edge / Gregor Collienne Clean White) --- */
+    /* --- HERO EDITORIAL --- */
     .hero-editorial {
       padding: 96px 0 64px 0;
       border-bottom: 1px solid var(--border-hairline);
@@ -364,7 +364,7 @@
       }
     }
 
-    /* --- TICKER RIBBON (Clean White Minimalist Horizon) --- */
+    /* --- TICKER RIBBON --- */
     .ticker-ribbon {
       border-bottom: 1px solid var(--border-hairline);
       background: var(--bg-alt);
@@ -401,7 +401,7 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* --- CATALOGUE / SHOWCASE (Gregor Collienne Asymmetric Architecture) --- */
+    /* --- CATALOGUE / SHOWCASE --- */
     .catalogue-section {
       padding: 72px 0 110px 0;
     }
@@ -487,11 +487,12 @@
       display: flex;
       flex-direction: column;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
 
     .project-card:hover {
       border-color: var(--border-medium);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
     }
 
     /* Card Viewport */
@@ -499,7 +500,7 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      background: #F0F0EE;
+      background: #F4F4F2;
     }
 
     .card-img {
@@ -512,6 +513,52 @@
 
     .project-card:hover .card-img {
       transform: scale(1.02);
+    }
+
+    /* Arrow Buttons Directly on Cards */
+    .card-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: #0E0E10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 15;
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-viewport:hover .card-arrow {
+      opacity: 1;
+    }
+
+    .card-arrow:hover {
+      background: #0E0E10;
+      color: #FFFFFF;
+      transform: translateY(-50%) scale(1.08);
+      border-color: #0E0E10;
+    }
+
+    .card-arrow.card-prev { left: 14px; }
+    .card-arrow.card-next { right: 14px; }
+
+    @media (max-width: 768px) {
+      .card-arrow {
+        opacity: 0.9;
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+      }
     }
 
     /* Overlay HUD */
@@ -768,7 +815,7 @@
       }
     }
 
-    /* --- PHILOSOPHY / MANIFESTO (Clean White Editorial) --- */
+    /* --- PHILOSOPHY / MANIFESTO --- */
     .manifesto-section {
       padding: 100px 0;
       border-top: 1px solid var(--border-hairline);
@@ -1032,12 +1079,12 @@
       }
     }
 
-    /* --- LIGHTBOX MODAL --- */
+    /* --- LIGHTBOX MODAL (CLEAN WHITE GALLERY THEME) --- */
     .lightbox-modal {
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: rgba(14, 16, 24, 0.94);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(24px);
       display: flex;
       align-items: center;
@@ -1055,13 +1102,13 @@
 
     .lightbox-dialog {
       position: relative;
-      max-width: 1140px;
+      max-width: 1160px;
       width: 100%;
-      background: #111422;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.12);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
       display: flex;
       flex-direction: column;
       max-height: 92vh;
@@ -1072,8 +1119,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 16px 24px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: #0A0C16;
+      border-bottom: 1px solid var(--border-hairline);
+      background: var(--bg-alt);
     }
 
     .lightbox-index-badge {
@@ -1081,16 +1128,25 @@
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent-volt);
+      color: var(--text-main);
+      font-weight: 700;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
+    .lightbox-index-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+    }
+
     .lightbox-btn-close {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #FFFFFF;
+      background: #F0F0EE;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--text-main);
       width: 34px;
       height: 34px;
       border-radius: 50%;
@@ -1103,25 +1159,25 @@
     }
 
     .lightbox-btn-close:hover {
-      background: #FF5555;
-      border-color: #FF5555;
+      background: var(--text-main);
+      color: #FFFFFF;
     }
 
     .lightbox-stage {
       position: relative;
-      background: #060810;
+      background: #F4F4F2;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 340px;
-      max-height: 64vh;
+      min-height: 380px;
+      max-height: 66vh;
       overflow: hidden;
     }
 
     .lightbox-img-full {
       width: 100%;
       height: 100%;
-      max-height: 64vh;
+      max-height: 66vh;
       object-fit: contain;
       display: block;
     }
@@ -1130,25 +1186,27 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(10, 12, 20, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #FFFFFF;
-      width: 48px;
-      height: 48px;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: var(--text-main);
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: 24px;
       cursor: pointer;
-      z-index: 10;
-      transition: all 0.2s;
+      z-index: 20;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .lightbox-arrow:hover {
-      background: #FFFFFF;
-      color: #000000;
-      border-color: #FFFFFF;
+      background: var(--text-main);
+      color: #FFFFFF;
+      transform: translateY(-50%) scale(1.08);
+      border-color: var(--text-main);
     }
 
     .lb-left { left: 20px; }
@@ -1156,8 +1214,8 @@
 
     .lightbox-info {
       padding: 22px 28px;
-      background: #111422;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-hairline);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1166,24 +1224,24 @@
 
     .lb-title {
       font-family: var(--font-display);
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 700;
-      color: #EDEAE2;
+      color: var(--text-main);
       margin-bottom: 4px;
     }
 
     .lb-desc {
       font-size: 14px;
-      color: #A3A8BC;
+      color: var(--text-secondary);
       line-height: 1.5;
     }
 
     .lb-counter-pill {
       font-family: var(--font-mono);
       font-size: 12px;
-      color: var(--accent-volt);
-      background: rgba(153, 204, 0, 0.12);
-      border: 1px solid rgba(153, 204, 0, 0.3);
+      font-weight: 700;
+      color: #FFFFFF;
+      background: var(--text-main);
       padding: 6px 14px;
       border-radius: var(--radius-pill);
       white-space: nowrap;
@@ -1252,7 +1310,7 @@
     </div>
   </header>
 
-  <!-- HERO EDITORIAL (Ragged Edge / Gregor Collienne Clean White Style) -->
+  <!-- HERO EDITORIAL -->
   <section class="hero-editorial">
     <div class="container">
       <div class="hero-eyebrow">Athenaeum // Independent Software &amp; Digital Atelier</div>
@@ -1282,7 +1340,7 @@
     </div>
   </section>
 
-  <!-- TICKER RIBBON (Ragged Edge Clean Moving Horizon) -->
+  <!-- TICKER RIBBON -->
   <div class="ticker-ribbon" aria-hidden="true">
     <div class="ticker-track">
       <div class="ticker-item"><span>MOSH MOSH MOSH</span> <span class="ticker-bullet">―</span></div>
@@ -1308,7 +1366,7 @@
     </div>
   </div>
 
-  <!-- CATALOGUE / ASYMMETRIC GALLERY (Gregor Collienne Architecture) -->
+  <!-- CATALOGUE / ASYMMETRIC GALLERY -->
   <section class="catalogue-section" id="catalogo">
     <div class="container">
       <div class="catalogue-header">
@@ -1329,20 +1387,25 @@
 
       <div class="gallery-layout" id="galleryContainer">
 
-        <!-- 1. FEATURE HERO SHOWCASE (MOSH MOSH MOSH - Wide Panoramic) -->
+        <!-- 1. FEATURE HERO SHOWCASE (MOSH MOSH MOSH) -->
         <article class="project-card card-feature-panoramic" data-cat="tool" data-status="dev">
           <div class="card-viewport" onclick="openLightbox('mosh', currentIndices['mosh'] || 0)">
             <img id="img-mosh" src="assets/gallery/mosh-1-app.png" alt="MOSH MOSH MOSH" class="card-img" />
+            
+            <!-- Direct Navigation Arrows on Card -->
+            <button class="card-arrow card-prev" onclick="stepCardImage('mosh', -1, event)" aria-label="Foto anterior">&#8249;</button>
+            <button class="card-arrow card-next" onclick="stepCardImage('mosh', 1, event)" aria-label="Próxima foto">&#8250;</button>
+            
             <div class="viewport-hud-top">
               <span class="hud-tag">01 // Audio &amp; Video Lab</span>
               <span class="hud-counter" id="counter-mosh">01 / 04</span>
             </div>
             <div class="carousel-bar" onclick="event.stopPropagation()">
               <div class="dots-container">
-                <button class="c-dot active" onclick="setAppImage('mosh', 0, this)" title="Interface"></button>
-                <button class="c-dot" onclick="setAppImage('mosh', 1, this)" title="Estúdio"></button>
-                <button class="c-dot" onclick="setAppImage('mosh', 2, this)" title="Performance"></button>
-                <button class="c-dot" onclick="setAppImage('mosh', 3, this)" title="Datamosh"></button>
+                <button class="c-dot active" onclick="setAppImage('mosh', 0, this, event)" title="Interface"></button>
+                <button class="c-dot" onclick="setAppImage('mosh', 1, this, event)" title="Estúdio"></button>
+                <button class="c-dot" onclick="setAppImage('mosh', 2, this, event)" title="Performance"></button>
+                <button class="c-dot" onclick="setAppImage('mosh', 3, this, event)" title="Datamosh"></button>
               </div>
               <div class="hud-zoom-hint" onclick="openLightbox('mosh', currentIndices['mosh'] || 0)">
                 <span>⤢</span> Ampliar
@@ -1384,16 +1447,20 @@
           <article class="project-card" data-cat="game" data-status="dev">
             <div class="card-viewport" onclick="openLightbox('leonida', currentIndices['leonida'] || 0)">
               <img id="img-leonida" src="assets/gallery/leonida-1-menu.png" alt="Escape From Leonida" class="card-img" />
+              
+              <button class="card-arrow card-prev" onclick="stepCardImage('leonida', -1, event)" aria-label="Foto anterior">&#8249;</button>
+              <button class="card-arrow card-next" onclick="stepCardImage('leonida', 1, event)" aria-label="Próxima foto">&#8250;</button>
+
               <div class="viewport-hud-top">
                 <span class="hud-tag">02 // Arcade Racer</span>
                 <span class="hud-counter" id="counter-leonida">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('leonida', 0, this)" title="Menu"></button>
-                  <button class="c-dot" onclick="setAppImage('leonida', 1, this)" title="Fuga"></button>
-                  <button class="c-dot" onclick="setAppImage('leonida', 2, this)" title="Jogador"></button>
-                  <button class="c-dot" onclick="setAppImage('leonida', 3, this)" title="HUD"></button>
+                  <button class="c-dot active" onclick="setAppImage('leonida', 0, this, event)" title="Menu"></button>
+                  <button class="c-dot" onclick="setAppImage('leonida', 1, this, event)" title="Fuga"></button>
+                  <button class="c-dot" onclick="setAppImage('leonida', 2, this, event)" title="Jogador"></button>
+                  <button class="c-dot" onclick="setAppImage('leonida', 3, this, event)" title="HUD"></button>
                 </div>
                 <div class="hud-zoom-hint" onclick="openLightbox('leonida', currentIndices['leonida'] || 0)">
                   <span>⤢</span> Ampliar
@@ -1428,16 +1495,20 @@
           <article class="project-card" data-cat="tool" data-status="ready">
             <div class="card-viewport" onclick="openLightbox('picote', currentIndices['picote'] || 0)">
               <img id="img-picote" src="assets/gallery/picote-1-full.jpg" alt="picote" class="card-img" />
+              
+              <button class="card-arrow card-prev" onclick="stepCardImage('picote', -1, event)" aria-label="Foto anterior">&#8249;</button>
+              <button class="card-arrow card-next" onclick="stepCardImage('picote', 1, event)" aria-label="Próxima foto">&#8250;</button>
+
               <div class="viewport-hud-top">
                 <span class="hud-tag">03 // Vídeo Sampler</span>
                 <span class="hud-counter" id="counter-picote">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('picote', 0, this)" title="Visão Geral"></button>
-                  <button class="c-dot" onclick="setAppImage('picote', 1, this)" title="Pads"></button>
-                  <button class="c-dot" onclick="setAppImage('picote', 2, this)" title="Passos"></button>
-                  <button class="c-dot" onclick="setAppImage('picote', 3, this)" title="Estúdio"></button>
+                  <button class="c-dot active" onclick="setAppImage('picote', 0, this, event)" title="Visão Geral"></button>
+                  <button class="c-dot" onclick="setAppImage('picote', 1, this, event)" title="Pads"></button>
+                  <button class="c-dot" onclick="setAppImage('picote', 2, this, event)" title="Passos"></button>
+                  <button class="c-dot" onclick="setAppImage('picote', 3, this, event)" title="Estúdio"></button>
                 </div>
                 <div class="hud-zoom-hint" onclick="openLightbox('picote', currentIndices['picote'] || 0)">
                   <span>⤢</span> Ampliar
@@ -1477,16 +1548,20 @@
           <article class="project-card" data-cat="game" data-status="ready">
             <div class="card-viewport" onclick="openLightbox('kush', currentIndices['kush'] || 0)">
               <img id="img-kush" src="assets/gallery/kush-1-menu.png" alt="Kush Drop" class="card-img" />
+              
+              <button class="card-arrow card-prev" onclick="stepCardImage('kush', -1, event)" aria-label="Foto anterior">&#8249;</button>
+              <button class="card-arrow card-next" onclick="stepCardImage('kush', 1, event)" aria-label="Próxima foto">&#8250;</button>
+
               <div class="viewport-hud-top">
                 <span class="hud-tag">04 // Físico Suika</span>
                 <span class="hud-counter" id="counter-kush">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('kush', 0, this)" title="Menu"></button>
-                  <button class="c-dot" onclick="setAppImage('kush', 1, this)" title="Fusão"></button>
-                  <button class="c-dot" onclick="setAppImage('kush', 2, this)" title="Mobile"></button>
-                  <button class="c-dot" onclick="setAppImage('kush', 3, this)" title="Arena"></button>
+                  <button class="c-dot active" onclick="setAppImage('kush', 0, this, event)" title="Menu"></button>
+                  <button class="c-dot" onclick="setAppImage('kush', 1, this, event)" title="Fusão"></button>
+                  <button class="c-dot" onclick="setAppImage('kush', 2, this, event)" title="Mobile"></button>
+                  <button class="c-dot" onclick="setAppImage('kush', 3, this, event)" title="Arena"></button>
                 </div>
                 <div class="hud-zoom-hint" onclick="openLightbox('kush', currentIndices['kush'] || 0)">
                   <span>⤢</span> Ampliar
@@ -1521,16 +1596,20 @@
           <article class="project-card" data-cat="tool" data-status="dev">
             <div class="card-viewport" onclick="openLightbox('diydj', currentIndices['diydj'] || 0)">
               <img id="img-diydj" src="assets/gallery/diydj-1-pro.png" alt="DIY-dj" class="card-img" />
+              
+              <button class="card-arrow card-prev" onclick="stepCardImage('diydj', -1, event)" aria-label="Foto anterior">&#8249;</button>
+              <button class="card-arrow card-next" onclick="stepCardImage('diydj', 1, event)" aria-label="Próxima foto">&#8250;</button>
+
               <div class="viewport-hud-top">
                 <span class="hud-tag">05 // Live DJ Console</span>
                 <span class="hud-counter" id="counter-diydj">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('diydj', 0, this)" title="Console"></button>
-                  <button class="c-dot" onclick="setAppImage('diydj', 1, this)" title="Decks"></button>
-                  <button class="c-dot" onclick="setAppImage('diydj', 2, this)" title="Mixer"></button>
-                  <button class="c-dot" onclick="setAppImage('diydj', 3, this)" title="Stems"></button>
+                  <button class="c-dot active" onclick="setAppImage('diydj', 0, this, event)" title="Console"></button>
+                  <button class="c-dot" onclick="setAppImage('diydj', 1, this, event)" title="Decks"></button>
+                  <button class="c-dot" onclick="setAppImage('diydj', 2, this, event)" title="Mixer"></button>
+                  <button class="c-dot" onclick="setAppImage('diydj', 3, this, event)" title="Stems"></button>
                 </div>
                 <div class="hud-zoom-hint" onclick="openLightbox('diydj', currentIndices['diydj'] || 0)">
                   <span>⤢</span> Ampliar
@@ -1565,16 +1644,20 @@
           <article class="project-card" data-cat="game" data-status="ready">
             <div class="card-viewport" onclick="openLightbox('crente', currentIndices['crente'] || 0)">
               <img id="img-crente" src="assets/gallery/crente-1-menu.png" alt="Crente Quiz" class="card-img" />
+              
+              <button class="card-arrow card-prev" onclick="stepCardImage('crente', -1, event)" aria-label="Foto anterior">&#8249;</button>
+              <button class="card-arrow card-next" onclick="stepCardImage('crente', 1, event)" aria-label="Próxima foto">&#8250;</button>
+
               <div class="viewport-hud-top">
                 <span class="hud-tag">06 // Trivia Bíblico</span>
                 <span class="hud-counter" id="counter-crente">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('crente', 0, this)" title="Abertura"></button>
-                  <button class="c-dot" onclick="setAppImage('crente', 1, this)" title="Perguntas"></button>
-                  <button class="c-dot" onclick="setAppImage('crente', 2, this)" title="Jogador"></button>
-                  <button class="c-dot" onclick="setAppImage('crente', 3, this)" title="Feedback"></button>
+                  <button class="c-dot active" onclick="setAppImage('crente', 0, this, event)" title="Abertura"></button>
+                  <button class="c-dot" onclick="setAppImage('crente', 1, this, event)" title="Perguntas"></button>
+                  <button class="c-dot" onclick="setAppImage('crente', 2, this, event)" title="Jogador"></button>
+                  <button class="c-dot" onclick="setAppImage('crente', 3, this, event)" title="Feedback"></button>
                 </div>
                 <div class="hud-zoom-hint" onclick="openLightbox('crente', currentIndices['crente'] || 0)">
                   <span>⤢</span> Ampliar
@@ -1609,16 +1692,20 @@
           <article class="project-card" data-cat="game" data-status="dev">
             <div class="card-viewport" onclick="openLightbox('creditos', currentIndices['creditos'] || 0)">
               <img id="img-creditos" src="assets/gallery/creditos-1-menu.png" alt="170 Créditos" class="card-img" />
+              
+              <button class="card-arrow card-prev" onclick="stepCardImage('creditos', -1, event)" aria-label="Foto anterior">&#8249;</button>
+              <button class="card-arrow card-next" onclick="stepCardImage('creditos', 1, event)" aria-label="Próxima foto">&#8250;</button>
+
               <div class="viewport-hud-top">
                 <span class="hud-tag">07 // GB Pocket RPG</span>
                 <span class="hud-counter" id="counter-creditos">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('creditos', 0, this)" title="Menu GB"></button>
-                  <button class="c-dot" onclick="setAppImage('creditos', 1, this)" title="Campus"></button>
-                  <button class="c-dot" onclick="setAppImage('creditos', 2, this)" title="Jogador"></button>
-                  <button class="c-dot" onclick="setAppImage('creditos', 3, this)" title="Batalha"></button>
+                  <button class="c-dot active" onclick="setAppImage('creditos', 0, this, event)" title="Menu GB"></button>
+                  <button class="c-dot" onclick="setAppImage('creditos', 1, this, event)" title="Campus"></button>
+                  <button class="c-dot" onclick="setAppImage('creditos', 2, this, event)" title="Jogador"></button>
+                  <button class="c-dot" onclick="setAppImage('creditos', 3, this, event)" title="Batalha"></button>
                 </div>
                 <div class="hud-zoom-hint" onclick="openLightbox('creditos', currentIndices['creditos'] || 0)">
                   <span>⤢</span> Ampliar
@@ -1655,7 +1742,7 @@
     </div>
   </section>
 
-  <!-- PHILOSOPHY / MANIFESTO (Clean Editorial Brutalism) -->
+  <!-- PHILOSOPHY / MANIFESTO -->
   <section class="manifesto-section" id="manifesto">
     <div class="container">
       <div class="manifesto-quote-wrap">
@@ -1748,12 +1835,11 @@
     </div>
   </footer>
 
-  <!-- LIGHTBOX MODAL -->
+  <!-- LIGHTBOX MODAL (CLEAN WHITE GALLERY THEME) -->
   <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
     <div class="lightbox-dialog" onclick="event.stopPropagation()">
       <div class="lightbox-topbar">
         <div class="lightbox-index-badge">
-          <span>●</span>
           <span id="lbArtifactKey">WAYS OF SEEING // ARTIFACT VIEW</span>
         </div>
         <button class="lightbox-btn-close" onclick="closeLightbox()" title="Fechar (Esc)">&times;</button>
@@ -1833,8 +1919,18 @@
       creditos: 0
     };
 
-    // Altera imagem do card e atualiza os dots
-    function setAppImage(appKey, index, dotBtn) {
+    // Navega pelas fotos diretamente no Card com as setas
+    function stepCardImage(appKey, delta, event) {
+      if (event) event.stopPropagation();
+      if (!galleries[appKey]) return;
+      const total = galleries[appKey].length;
+      const nextIndex = (currentIndices[appKey] + delta + total) % total;
+      setAppImage(appKey, nextIndex);
+    }
+
+    // Altera imagem do card e sincroniza dots e contador
+    function setAppImage(appKey, index, dotBtn, event) {
+      if (event) event.stopPropagation();
       currentIndices[appKey] = index;
       const imgEl = document.getElementById('img-' + appKey);
       if (imgEl && galleries[appKey] && galleries[appKey][index]) {
@@ -1846,8 +1942,9 @@
         counterEl.textContent = `0${index + 1} / 04`;
       }
 
-      if (dotBtn && dotBtn.parentElement) {
-        dotBtn.parentElement.querySelectorAll('.c-dot').forEach((d, i) => {
+      const cardViewport = imgEl?.closest('.card-viewport');
+      if (cardViewport) {
+        cardViewport.querySelectorAll('.c-dot').forEach((d, i) => {
           d.classList.toggle('active', i === index);
         });
       }
@@ -1914,13 +2011,7 @@
       updateLightboxModal();
       
       // Sincroniza card do fundo
-      const cardViewport = document.getElementById('img-' + activeLbApp)?.closest('.card-viewport');
-      if (cardViewport) {
-        const dots = cardViewport.querySelectorAll('.c-dot');
-        if (dots[activeLbIndex]) {
-          setAppImage(activeLbApp, activeLbIndex, dots[activeLbIndex]);
-        }
-      }
+      setAppImage(activeLbApp, activeLbIndex);
     }
 
     function updateLightboxModal() {
