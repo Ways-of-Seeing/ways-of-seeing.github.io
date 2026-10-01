@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ways of Seeing — Independent Publisher &amp; Digital Labs</title>
-  <meta name="description" content="Estúdio autoral e publisher independente. Jogos com alma retrô, ferramentas criativas em Rust e Flutter, e artefatos digitais de alto impacto visual.">
+  <meta name="description" content="Estúdio autoral e publisher independente. Jogos com alma retrô, instrumentos criativos para som e imagem, e artefatos digitais de alto impacto visual.">
   
   <!-- OpenGraph / Social Meta -->
   <meta property="og:type" content="website">
@@ -510,54 +510,72 @@
     .card-viewport {
       position: relative;
       overflow: hidden;
-      cursor: pointer;
       background: #F4F4F2;
+      border-bottom: 1px solid var(--border-hairline);
+      user-select: none;
+      touch-action: pan-y;
     }
 
-    .card-img {
+    .carousel-slider {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
     }
 
-    .project-card:hover .card-img {
-      transform: scale(1.02);
-    }
-
-    /* Arrow Buttons Directly on Cards */
+    /* Arrow Buttons Directly on Cards - Always Visible, High Contrast */
     .card-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.94);
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      color: #0E0E10;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+      color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 22px;
       line-height: 1;
       cursor: pointer;
-      z-index: 15;
-      opacity: 0;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    }
-
-    .card-viewport:hover .card-arrow {
-      opacity: 1;
+      z-index: 25;
+      opacity: 0.94;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
     }
 
     .card-arrow:hover {
-      background: #0E0E10;
+      background: #000000;
       color: #FFFFFF;
+      opacity: 1;
       transform: translateY(-50%) scale(1.08);
-      border-color: #0E0E10;
+      border-color: #000000;
     }
 
     .card-arrow.card-prev { left: 14px; }
@@ -565,10 +583,10 @@
 
     @media (max-width: 768px) {
       .card-arrow {
-        opacity: 0.9;
-        width: 34px;
-        height: 34px;
-        font-size: 18px;
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+        opacity: 0.98;
       }
     }
 
@@ -581,7 +599,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
+      z-index: 20;
       pointer-events: none;
     }
 
@@ -1334,14 +1352,14 @@
   <!-- HERO EDITORIAL -->
   <section class="hero-editorial">
     <div class="container">
-      <div class="hero-eyebrow">Athenaeum // Independent Software &amp; Digital Atelier</div>
+      <div class="hero-eyebrow">Estúdio Criativo Independente // Jogos, Som &amp; Arte Digital</div>
       <h1 class="hero-headline">
         Criamos jogos autorais, instrumentos sonoros e artefatos digitais.
       </h1>
       
       <div class="hero-bottom-grid">
         <p class="hero-standfirst">
-          Inspirada pela reflexão de John Berger, a <strong>Ways of Seeing</strong> rejeita a mesmice de templates e dependências inchadas. Publicamos obras autorais com arquitetura ultraleve em Rust e Flutter, estética retrô-moderna e respeito radical à autonomia de quem usa.
+          Inspirada pela reflexão de John Berger, a <strong>Ways of Seeing</strong> cria experiências digitais autênticas e envolventes. Publicamos jogos autorais, ferramentas criativas para vídeo e som e artefatos que aliam estética retrô-moderna, leveza e respeito radical a quem joga e cria.
         </p>
         <div class="hero-stats-strip">
           <div class="stat-box">
@@ -1371,8 +1389,9 @@
       <div class="ticker-item"><span>DIY-DJ CONSOLE</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>CRENTE QUIZ</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>170 CRÉDITOS GAME BOY RPG</span> <span class="ticker-bullet">―</span></div>
-      <div class="ticker-item"><span>RADICAL LIGHTNESS &amp; ZERO BLOAT</span> <span class="ticker-bullet">―</span></div>
-      <div class="ticker-item"><span>RUST + FLUTTER + CANVAS</span> <span class="ticker-bullet">―</span></div>
+      <div class="ticker-item"><span>EXPERIÊNCIAS AUTORAIS</span> <span class="ticker-bullet">―</span></div>
+      <div class="ticker-item"><span>MÚSICA &amp; VÍDEO</span> <span class="ticker-bullet">―</span></div>
+      <div class="ticker-item"><span>ARTE DIGITAL</span> <span class="ticker-bullet">―</span></div>
 
       <!-- Duplicate for seamless roll -->
       <div class="ticker-item"><span>MOSH MOSH MOSH</span> <span class="ticker-bullet">―</span></div>
@@ -1382,8 +1401,9 @@
       <div class="ticker-item"><span>DIY-DJ CONSOLE</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>CRENTE QUIZ</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>170 CRÉDITOS GAME BOY RPG</span> <span class="ticker-bullet">―</span></div>
-      <div class="ticker-item"><span>RADICAL LIGHTNESS &amp; ZERO BLOAT</span> <span class="ticker-bullet">―</span></div>
-      <div class="ticker-item"><span>RUST + FLUTTER + CANVAS</span> <span class="ticker-bullet">―</span></div>
+      <div class="ticker-item"><span>EXPERIÊNCIAS AUTORAIS</span> <span class="ticker-bullet">―</span></div>
+      <div class="ticker-item"><span>MÚSICA &amp; VÍDEO</span> <span class="ticker-bullet">―</span></div>
+      <div class="ticker-item"><span>ARTE DIGITAL</span> <span class="ticker-bullet">―</span></div>
     </div>
   </div>
 
@@ -1398,11 +1418,11 @@
         
         <!-- Filter Switcher -->
         <div class="filter-pills">
-          <button class="filter-btn active" onclick="applyFilter('all', this)">Todos [07]</button>
-          <button class="filter-btn" onclick="applyFilter('ready', this)">🟢 Jogáveis [03]</button>
-          <button class="filter-btn" onclick="applyFilter('dev', this)">🟡 Em Desenvolvimento [04]</button>
+          <button class="filter-btn active" onclick="applyFilter('all', this)">Todas as Obras [07]</button>
+          <button class="filter-btn" onclick="applyFilter('ready', this)">🟢 Prontos para Jogar [03]</button>
+          <button class="filter-btn" onclick="applyFilter('dev', this)">🟡 Em Breve [04]</button>
           <button class="filter-btn" onclick="applyFilter('game', this)">🎮 Jogos [04]</button>
-          <button class="filter-btn" onclick="applyFilter('tool', this)">🎛️ Audiovisual &amp; Som [03]</button>
+          <button class="filter-btn" onclick="applyFilter('tool', this)">🎛️ Música &amp; Vídeo [03]</button>
         </div>
       </div>
 
@@ -1410,52 +1430,59 @@
 
         <!-- 1. FEATURE HERO SHOWCASE (MOSH MOSH MOSH) -->
         <article class="project-card card-feature-panoramic" data-cat="tool" data-status="dev">
-          <div class="card-viewport" onclick="openLightbox('mosh', currentIndices['mosh'] || 0)">
-            <img id="img-mosh" src="assets/gallery/mosh-1-app.png" alt="MOSH MOSH MOSH" class="card-img" />
+          <div class="card-viewport" data-app="mosh">
+            <div class="carousel-slider">
+              <div class="carousel-track" id="track-mosh">
+                <div class="carousel-slide"><img src="assets/gallery/mosh-1-app.png" alt="MOSH MOSH MOSH — Interface de Edição" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-2-workstation.jpg" alt="MOSH MOSH MOSH — Estúdio Audiovisual" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-3-artist.jpg" alt="MOSH MOSH MOSH — Performance ao Vivo" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-4-glitch.jpg" alt="MOSH MOSH MOSH — Arte Glitch em Alta Resolução" loading="lazy" /></div>
+              </div>
+            </div>
             
             <!-- Direct Navigation Arrows on Card -->
             <button class="card-arrow card-prev" onclick="stepCardImage('mosh', -1, event)" aria-label="Foto anterior">&#8249;</button>
             <button class="card-arrow card-next" onclick="stepCardImage('mosh', 1, event)" aria-label="Próxima foto">&#8250;</button>
             
             <div class="viewport-hud-top">
-              <span class="hud-tag">01 // Audio &amp; Video Lab</span>
+              <span class="hud-tag">01 // Efeitos Visuais &amp; Vídeo</span>
               <span class="hud-counter" id="counter-mosh">01 / 04</span>
             </div>
             <div class="carousel-bar" onclick="event.stopPropagation()">
               <div class="dots-container">
-                <button class="c-dot active" onclick="setAppImage('mosh', 0, this, event)" title="Interface"></button>
-                <button class="c-dot" onclick="setAppImage('mosh', 1, this, event)" title="Estúdio"></button>
-                <button class="c-dot" onclick="setAppImage('mosh', 2, this, event)" title="Performance"></button>
-                <button class="c-dot" onclick="setAppImage('mosh', 3, this, event)" title="Datamosh"></button>
+                <button class="c-dot active" onclick="setAppImage('mosh', 0, event)" aria-label="Interface"></button>
+                <button class="c-dot" onclick="setAppImage('mosh', 1, event)" aria-label="Estúdio"></button>
+                <button class="c-dot" onclick="setAppImage('mosh', 2, event)" aria-label="Performance"></button>
+                <button class="c-dot" onclick="setAppImage('mosh', 3, event)" aria-label="Glitch"></button>
               </div>
-              <div class="hud-zoom-hint" onclick="openLightbox('mosh', currentIndices['mosh'] || 0)">
+              <button class="hud-zoom-hint" onclick="openLightbox('mosh', currentIndices['mosh'] || 0, event)">
                 <span>⤢</span> Ampliar
-              </div>
+              </button>
             </div>
           </div>
           <div class="card-body">
             <div>
               <div class="card-meta-row">
-                <span>Discipline: Glitch Art Engine</span>
-                <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Desenvolvimento</span>
+                <span>Categoria: Criação Visual</span>
+                <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Breve</span>
               </div>
               <h3 class="card-title">MOSH MOSH MOSH</h3>
               <p class="card-desc">
-                Editor profissional de datamosh e destruição estética de vídeo. Permite manipulação cirúrgica em tempo real de frames I/P/B e vetores de movimento, aliando interface reativa moderna em Flutter a um motor de processamento nativo de altíssima performance em Rust.
+                Um estúdio criativo para transformar vídeos em peças visuais impactantes com estética glitch art. Crie distorções futuristas, transições marcantes e efeitos psicodélicos em tempo real, com total liberdade criativa para artistas, videomakers e músicos.
               </p>
             </div>
             <div class="card-specs-table">
               <div class="spec-item">
-                <span class="spec-label">Arquitetura</span>
-                <span class="spec-val">Flutter + Rust FFI</span>
+                <span class="spec-label">Experiência</span>
+                <span class="spec-val">Distorção Visual em Tempo Real</span>
               </div>
               <div class="spec-item">
-                <span class="spec-label">Processamento</span>
-                <span class="spec-val">I/P/B Frame Mosh</span>
+                <span class="spec-label">Aplicação</span>
+                <span class="spec-val">Videoclipes, Redes &amp; Shows</span>
               </div>
               <div class="spec-item">
-                <span class="spec-label">Fotografias</span>
-                <span class="spec-val">4 Capturas (App &amp; Setup)</span>
+                <span class="spec-label">Galeria</span>
+                <span class="spec-val">4 Fotos da Interface &amp; Estúdio</span>
               </div>
             </div>
           </div>
@@ -1466,47 +1493,54 @@
 
           <!-- Escape From Leonida -->
           <article class="project-card" data-cat="game" data-status="dev">
-            <div class="card-viewport" onclick="openLightbox('leonida', currentIndices['leonida'] || 0)">
-              <img id="img-leonida" src="assets/gallery/leonida-1-menu.png" alt="Escape From Leonida" class="card-img" />
+            <div class="card-viewport" data-app="leonida">
+              <div class="carousel-slider">
+                <div class="carousel-track" id="track-leonida">
+                  <div class="carousel-slide"><img src="assets/gallery/leonida-1-menu.png" alt="Escape From Leonida — Menu Arcade" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/leonida-2-gameplay.jpg" alt="Escape From Leonida — Perseguição Policial" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/leonida-3-player.jpg" alt="Escape From Leonida — Jogador em Ação" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/leonida-4-mobile.png" alt="Escape From Leonida — HUD Retrô" loading="lazy" /></div>
+                </div>
+              </div>
               
               <button class="card-arrow card-prev" onclick="stepCardImage('leonida', -1, event)" aria-label="Foto anterior">&#8249;</button>
               <button class="card-arrow card-next" onclick="stepCardImage('leonida', 1, event)" aria-label="Próxima foto">&#8250;</button>
 
               <div class="viewport-hud-top">
-                <span class="hud-tag">02 // Arcade Racer</span>
+                <span class="hud-tag">02 // Corrida Arcade</span>
                 <span class="hud-counter" id="counter-leonida">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('leonida', 0, this, event)" title="Menu"></button>
-                  <button class="c-dot" onclick="setAppImage('leonida', 1, this, event)" title="Fuga"></button>
-                  <button class="c-dot" onclick="setAppImage('leonida', 2, this, event)" title="Jogador"></button>
-                  <button class="c-dot" onclick="setAppImage('leonida', 3, this, event)" title="HUD"></button>
+                  <button class="c-dot active" onclick="setAppImage('leonida', 0, event)" aria-label="Menu"></button>
+                  <button class="c-dot" onclick="setAppImage('leonida', 1, event)" aria-label="Fuga"></button>
+                  <button class="c-dot" onclick="setAppImage('leonida', 2, event)" aria-label="Setup"></button>
+                  <button class="c-dot" onclick="setAppImage('leonida', 3, event)" aria-label="Painel"></button>
                 </div>
-                <div class="hud-zoom-hint" onclick="openLightbox('leonida', currentIndices['leonida'] || 0)">
+                <button class="hud-zoom-hint" onclick="openLightbox('leonida', currentIndices['leonida'] || 0, event)">
                   <span>⤢</span> Ampliar
-                </div>
+                </button>
               </div>
             </div>
             <div class="card-body">
               <div>
                 <div class="card-meta-row">
-                  <span>Discipline: Pseudo-3D Racer</span>
-                  <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Desenvolvimento</span>
+                  <span>Categoria: Ação &amp; Corrida</span>
+                  <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Breve</span>
                 </div>
                 <h3 class="card-title">Escape From Leonida</h3>
                 <p class="card-desc">
-                  Racer pseudo-3D no espírito imortal de OutRun com clima neon de Vice City. Jason e Lucia aceleram em seis pistas com tempo-limite, bônus e trilha sonora própria composta sob medida.
+                  Sinta a adrenalina dos fliperamas clássicos em uma perseguição policial implacável pelas avenidas e orlas ensolaradas de Leonida. Desvie do tráfego intenso, ultrapasse viaturas e alcance o refúgio antes que o tempo se esgote.
                 </p>
               </div>
               <div class="card-specs-table">
                 <div class="spec-item">
-                  <span class="spec-label">Tecnologia</span>
-                  <span class="spec-val">Web Canvas / Pure JS</span>
+                  <span class="spec-label">Estilo</span>
+                  <span class="spec-val">Fuga Policial Retrô 3D</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">Conteúdo</span>
-                  <span class="spec-val">6 Fases Independentes</span>
+                  <span class="spec-label">Desafio</span>
+                  <span class="spec-val">6 Pistas &amp; Trilha Eletrizante</span>
                 </div>
               </div>
             </div>
@@ -1514,47 +1548,54 @@
 
           <!-- picote -->
           <article class="project-card" data-cat="tool" data-status="ready">
-            <div class="card-viewport" onclick="openLightbox('picote', currentIndices['picote'] || 0)">
-              <img id="img-picote" src="assets/gallery/picote-1-full.jpg" alt="picote" class="card-img" />
+            <div class="card-viewport" data-app="picote">
+              <div class="carousel-slider">
+                <div class="carousel-track" id="track-picote">
+                  <div class="carousel-slide"><img src="assets/gallery/picote-1-full.jpg" alt="picote — Instrumento Audiovisual" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-2-mpc.jpg" alt="picote — Pads Táteis" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-3-808.jpg" alt="picote — Sequenciador de Passos" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-4-producer.jpg" alt="picote — Produtor em Performance" loading="lazy" /></div>
+                </div>
+              </div>
               
               <button class="card-arrow card-prev" onclick="stepCardImage('picote', -1, event)" aria-label="Foto anterior">&#8249;</button>
               <button class="card-arrow card-next" onclick="stepCardImage('picote', 1, event)" aria-label="Próxima foto">&#8250;</button>
 
               <div class="viewport-hud-top">
-                <span class="hud-tag">03 // Vídeo Sampler</span>
+                <span class="hud-tag">03 // Instrumento Audiovisual</span>
                 <span class="hud-counter" id="counter-picote">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('picote', 0, this, event)" title="Visão Geral"></button>
-                  <button class="c-dot" onclick="setAppImage('picote', 1, this, event)" title="Pads"></button>
-                  <button class="c-dot" onclick="setAppImage('picote', 2, this, event)" title="Passos"></button>
-                  <button class="c-dot" onclick="setAppImage('picote', 3, this, event)" title="Estúdio"></button>
+                  <button class="c-dot active" onclick="setAppImage('picote', 0, event)" aria-label="Visão Geral"></button>
+                  <button class="c-dot" onclick="setAppImage('picote', 1, event)" aria-label="Pads"></button>
+                  <button class="c-dot" onclick="setAppImage('picote', 2, event)" aria-label="Ritmo"></button>
+                  <button class="c-dot" onclick="setAppImage('picote', 3, event)" aria-label="Estúdio"></button>
                 </div>
-                <div class="hud-zoom-hint" onclick="openLightbox('picote', currentIndices['picote'] || 0)">
+                <button class="hud-zoom-hint" onclick="openLightbox('picote', currentIndices['picote'] || 0, event)">
                   <span>⤢</span> Ampliar
-                </div>
+                </button>
               </div>
             </div>
             <div class="card-body">
               <div>
                 <div class="card-meta-row">
-                  <span>Discipline: Tactile Instrument</span>
-                  <span class="status-badge playable"><span class="status-dot-mini"></span> Pronto / Jogável</span>
+                  <span>Categoria: Música &amp; Imagem</span>
+                  <span class="status-badge playable"><span class="status-dot-mini"></span> Pronto para Usar</span>
                 </div>
                 <h3 class="card-title">picote</h3>
                 <p class="card-desc">
-                  Sampler audiovisual no espírito clássico das MPCs com sequenciador rítmico estilo TR-808. Disparo de loops em tempo real, fatiamento de frames e performance direta via teclado e pads MIDI.
+                  Crie batidas musicais recortando imagens e sons no mesmo instante. Toque nos pads para disparar loops visuais, monte sequências rítmicas envolventes e faça apresentações audiovisuais marcantes direto no navegador ou controlador.
                 </p>
               </div>
               <div class="card-specs-table">
                 <div class="spec-item">
                   <span class="spec-label">Controle</span>
-                  <span class="spec-val">Pads Táteis + MIDI</span>
+                  <span class="spec-val">Pads Táteis &amp; Teclado</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">Sequenciador</span>
-                  <span class="spec-val">16-Step Audiovisual</span>
+                  <span class="spec-label">Ritmo</span>
+                  <span class="spec-val">Sequenciador de 16 Compassos</span>
                 </div>
               </div>
             </div>
@@ -1567,47 +1608,54 @@
 
           <!-- Kush Drop -->
           <article class="project-card" data-cat="game" data-status="ready">
-            <div class="card-viewport" onclick="openLightbox('kush', currentIndices['kush'] || 0)">
-              <img id="img-kush" src="assets/gallery/kush-1-menu.png" alt="Kush Drop" class="card-img" />
+            <div class="card-viewport" data-app="kush">
+              <div class="carousel-slider">
+                <div class="carousel-track" id="track-kush">
+                  <div class="carousel-slide"><img src="assets/gallery/kush-1-menu.png" alt="Kush Drop — Menu Aconchegante" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/kush-2-gameplay.jpg" alt="Kush Drop — Dinâmica de Fusão" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/kush-3-player.jpg" alt="Kush Drop — Partida Casual Mobile" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/kush-4-mobile.png" alt="Kush Drop — Arena &amp; Pontuação" loading="lazy" /></div>
+                </div>
+              </div>
               
               <button class="card-arrow card-prev" onclick="stepCardImage('kush', -1, event)" aria-label="Foto anterior">&#8249;</button>
               <button class="card-arrow card-next" onclick="stepCardImage('kush', 1, event)" aria-label="Próxima foto">&#8250;</button>
 
               <div class="viewport-hud-top">
-                <span class="hud-tag">04 // Físico Suika</span>
+                <span class="hud-tag">04 // Puzzle &amp; Física</span>
                 <span class="hud-counter" id="counter-kush">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('kush', 0, this, event)" title="Menu"></button>
-                  <button class="c-dot" onclick="setAppImage('kush', 1, this, event)" title="Fusão"></button>
-                  <button class="c-dot" onclick="setAppImage('kush', 2, this, event)" title="Mobile"></button>
-                  <button class="c-dot" onclick="setAppImage('kush', 3, this, event)" title="Arena"></button>
+                  <button class="c-dot active" onclick="setAppImage('kush', 0, event)" aria-label="Menu"></button>
+                  <button class="c-dot" onclick="setAppImage('kush', 1, event)" aria-label="Fusão"></button>
+                  <button class="c-dot" onclick="setAppImage('kush', 2, event)" aria-label="Mobile"></button>
+                  <button class="c-dot" onclick="setAppImage('kush', 3, event)" aria-label="Arena"></button>
                 </div>
-                <div class="hud-zoom-hint" onclick="openLightbox('kush', currentIndices['kush'] || 0)">
+                <button class="hud-zoom-hint" onclick="openLightbox('kush', currentIndices['kush'] || 0, event)">
                   <span>⤢</span> Ampliar
-                </div>
+                </button>
               </div>
             </div>
             <div class="card-body">
               <div>
                 <div class="card-meta-row">
-                  <span>Discipline: 2D Physics Puzzle</span>
+                  <span>Categoria: Quebra-Cabeça Casual</span>
                   <span class="status-badge playable"><span class="status-dot-mini"></span> Pronto / Jogável</span>
                 </div>
                 <h3 class="card-title">Kush Drop</h3>
                 <p class="card-desc">
-                  Puzzle de combinação e fusão no estilo Suika com simulação de física rígida, arte kawaii refinada, 33 troféus desbloqueáveis, placar local persistente e suporte completo a 3 idiomas.
+                  Um quebra-cabeça aconchegante e viciante onde elementos iguais se combinam para criar versões maiores e especiais. Com física suave e arte acolhedora, equilibre suas jogadas para não transbordar a arena e desbloquear conquistas secretas.
                 </p>
               </div>
               <div class="card-specs-table">
                 <div class="spec-item">
-                  <span class="spec-label">Física</span>
-                  <span class="spec-val">Verlet / Rigid Body 2D</span>
+                  <span class="spec-label">Dinâmica</span>
+                  <span class="spec-val">Fusão Suave &amp; Gravidade</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">Progressão</span>
-                  <span class="spec-val">33 Troféus Autônomos</span>
+                  <span class="spec-label">Conquistas</span>
+                  <span class="spec-val">33 Troféus Colecionáveis</span>
                 </div>
               </div>
             </div>
@@ -1615,47 +1663,54 @@
 
           <!-- DIY-dj -->
           <article class="project-card" data-cat="tool" data-status="dev">
-            <div class="card-viewport" onclick="openLightbox('diydj', currentIndices['diydj'] || 0)">
-              <img id="img-diydj" src="assets/gallery/diydj-1-pro.png" alt="DIY-dj" class="card-img" />
+            <div class="card-viewport" data-app="diydj">
+              <div class="carousel-slider">
+                <div class="carousel-track" id="track-diydj">
+                  <div class="carousel-slide"><img src="assets/gallery/diydj-1-pro.png" alt="DIY-dj — Console Virtual" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/diydj-2-decks.png" alt="DIY-dj — Dois Decks de Mixagem" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/diydj-3-mixer.png" alt="DIY-dj — Mixer e Equalizador" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/diydj-4-stems.png" alt="DIY-dj — Isolamento de Elementos" loading="lazy" /></div>
+                </div>
+              </div>
               
               <button class="card-arrow card-prev" onclick="stepCardImage('diydj', -1, event)" aria-label="Foto anterior">&#8249;</button>
               <button class="card-arrow card-next" onclick="stepCardImage('diydj', 1, event)" aria-label="Próxima foto">&#8250;</button>
 
               <div class="viewport-hud-top">
-                <span class="hud-tag">05 // Live DJ Console</span>
+                <span class="hud-tag">05 // Mesa de DJ Virtual</span>
                 <span class="hud-counter" id="counter-diydj">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('diydj', 0, this, event)" title="Console"></button>
-                  <button class="c-dot" onclick="setAppImage('diydj', 1, this, event)" title="Decks"></button>
-                  <button class="c-dot" onclick="setAppImage('diydj', 2, this, event)" title="Mixer"></button>
-                  <button class="c-dot" onclick="setAppImage('diydj', 3, this, event)" title="Stems"></button>
+                  <button class="c-dot active" onclick="setAppImage('diydj', 0, event)" aria-label="Console"></button>
+                  <button class="c-dot" onclick="setAppImage('diydj', 1, event)" aria-label="Decks"></button>
+                  <button class="c-dot" onclick="setAppImage('diydj', 2, event)" aria-label="Mixer"></button>
+                  <button class="c-dot" onclick="setAppImage('diydj', 3, event)" aria-label="Stems"></button>
                 </div>
-                <div class="hud-zoom-hint" onclick="openLightbox('diydj', currentIndices['diydj'] || 0)">
+                <button class="hud-zoom-hint" onclick="openLightbox('diydj', currentIndices['diydj'] || 0, event)">
                   <span>⤢</span> Ampliar
-                </div>
+                </button>
               </div>
             </div>
             <div class="card-body">
               <div>
                 <div class="card-meta-row">
-                  <span>Discipline: Rust Audio Engine</span>
-                  <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Desenvolvimento</span>
+                  <span>Categoria: Discotecagem &amp; Som</span>
+                  <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Breve</span>
                 </div>
                 <h3 class="card-title">DIY-dj</h3>
                 <p class="card-desc">
-                  Console sonoro autônomo e instrumento minimalista para discotecagem e manipulação de beats. Arquitetura de processamento em tempo real com sub-milissegundo de latência para sets analógico-digitais.
+                  Uma estação de som intuitiva para tocar, mixar e manipular faixas musicais ao vivo. Transições perfeitas entre dois toca-discos virtuais, equalização nítida de graves e agudos e corte de elementos para transformar qualquer ambiente em pista de dança.
                 </p>
               </div>
               <div class="card-specs-table">
                 <div class="spec-item">
-                  <span class="spec-label">Engine</span>
-                  <span class="spec-val">Rust Native Audio Core</span>
+                  <span class="spec-label">Recursos</span>
+                  <span class="spec-val">Dois Decks Virtuais &amp; Equalizador</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">Recursos</span>
-                  <span class="spec-val">Dual Decks &amp; Stem Cuts</span>
+                  <span class="spec-label">Resposta</span>
+                  <span class="spec-val">Sem Atraso no Toque ou Fone</span>
                 </div>
               </div>
             </div>
@@ -1663,47 +1718,54 @@
 
           <!-- Crente Quiz -->
           <article class="project-card" data-cat="game" data-status="ready">
-            <div class="card-viewport" onclick="openLightbox('crente', currentIndices['crente'] || 0)">
-              <img id="img-crente" src="assets/gallery/crente-1-menu.png" alt="Crente Quiz" class="card-img" />
+            <div class="card-viewport" data-app="crente">
+              <div class="carousel-slider">
+                <div class="carousel-track" id="track-crente">
+                  <div class="carousel-slide"><img src="assets/gallery/crente-1-menu.png" alt="Crente Quiz — Interface de Abertura" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/crente-2-gameplay.jpg" alt="Crente Quiz — Rodada de Perguntas" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/crente-3-player.jpg" alt="Crente Quiz — Jogador em Ação" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/crente-4-mobile.png" alt="Crente Quiz — Resultados e Curiosidades" loading="lazy" /></div>
+                </div>
+              </div>
               
               <button class="card-arrow card-prev" onclick="stepCardImage('crente', -1, event)" aria-label="Foto anterior">&#8249;</button>
               <button class="card-arrow card-next" onclick="stepCardImage('crente', 1, event)" aria-label="Próxima foto">&#8250;</button>
 
               <div class="viewport-hud-top">
-                <span class="hud-tag">06 // Trivia Bíblico</span>
+                <span class="hud-tag">06 // Perguntas &amp; Respostas</span>
                 <span class="hud-counter" id="counter-crente">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('crente', 0, this, event)" title="Abertura"></button>
-                  <button class="c-dot" onclick="setAppImage('crente', 1, this, event)" title="Perguntas"></button>
-                  <button class="c-dot" onclick="setAppImage('crente', 2, this, event)" title="Jogador"></button>
-                  <button class="c-dot" onclick="setAppImage('crente', 3, this, event)" title="Feedback"></button>
+                  <button class="c-dot active" onclick="setAppImage('crente', 0, event)" aria-label="Abertura"></button>
+                  <button class="c-dot" onclick="setAppImage('crente', 1, event)" aria-label="Perguntas"></button>
+                  <button class="c-dot" onclick="setAppImage('crente', 2, event)" aria-label="Jogador"></button>
+                  <button class="c-dot" onclick="setAppImage('crente', 3, event)" aria-label="Resultados"></button>
                 </div>
-                <div class="hud-zoom-hint" onclick="openLightbox('crente', currentIndices['crente'] || 0)">
+                <button class="hud-zoom-hint" onclick="openLightbox('crente', currentIndices['crente'] || 0, event)">
                   <span>⤢</span> Ampliar
-                </div>
+                </button>
               </div>
             </div>
             <div class="card-body">
               <div>
                 <div class="card-meta-row">
-                  <span>Discipline: Cross-Platform Trivia</span>
-                  <span class="status-badge playable"><span class="status-dot-mini"></span> Pronto / Jogável</span>
+                  <span>Categoria: Quiz &amp; Conhecimento</span>
+                  <span class="status-badge playable"><span class="status-dot-mini"></span> Pronto para Jogar</span>
                 </div>
                 <h3 class="card-title">Crente Quiz</h3>
                 <p class="card-desc">
-                  Quiz bíblico com 200 questões de Antigo e Novo Testamento, cronômetro regressivo e bônus por reflexo. Mesma base de dados e regras rodando de forma idêntica na Web e em Godot 4.
+                  Teste seus reflexos e seus conhecimentos sobre histórias, personagens e ensinamentos marcantes da Bíblia. Perguntas rápidas contra o relógio, pontuações cumulativas e rodadas leves e divertidas para jogar sozinho ou competir com amigos e família.
                 </p>
               </div>
               <div class="card-specs-table">
                 <div class="spec-item">
-                  <span class="spec-label">Perguntas</span>
-                  <span class="spec-val">200 Questões Bíblicas</span>
+                  <span class="spec-label">Conteúdo</span>
+                  <span class="spec-val">200 Questões Temáticas</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">Targets</span>
-                  <span class="spec-val">Web Single-File / Godot 4</span>
+                  <span class="spec-label">Modos</span>
+                  <span class="spec-val">Partidas Rápidas &amp; Cronômetro</span>
                 </div>
               </div>
             </div>
@@ -1711,47 +1773,54 @@
 
           <!-- 170 Créditos -->
           <article class="project-card" data-cat="game" data-status="dev">
-            <div class="card-viewport" onclick="openLightbox('creditos', currentIndices['creditos'] || 0)">
-              <img id="img-creditos" src="assets/gallery/creditos-1-menu.png" alt="170 Créditos" class="card-img" />
+            <div class="card-viewport" data-app="creditos">
+              <div class="carousel-slider">
+                <div class="carousel-track" id="track-creditos">
+                  <div class="carousel-slide"><img src="assets/gallery/creditos-1-menu.png" alt="170 Créditos — Abertura Clássica" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/creditos-2-gameplay.jpg" alt="170 Créditos — Exploração do Campus" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/creditos-3-player.jpg" alt="170 Créditos — Jogador no Console Portátil" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/creditos-4-mobile.png" alt="170 Créditos — Batalhas Acadêmicas" loading="lazy" /></div>
+                </div>
+              </div>
               
               <button class="card-arrow card-prev" onclick="stepCardImage('creditos', -1, event)" aria-label="Foto anterior">&#8249;</button>
               <button class="card-arrow card-next" onclick="stepCardImage('creditos', 1, event)" aria-label="Próxima foto">&#8250;</button>
 
               <div class="viewport-hud-top">
-                <span class="hud-tag">07 // GB Pocket RPG</span>
+                <span class="hud-tag">07 // Aventura Retrô</span>
                 <span class="hud-counter" id="counter-creditos">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
                 <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('creditos', 0, this, event)" title="Menu GB"></button>
-                  <button class="c-dot" onclick="setAppImage('creditos', 1, this, event)" title="Campus"></button>
-                  <button class="c-dot" onclick="setAppImage('creditos', 2, this, event)" title="Jogador"></button>
-                  <button class="c-dot" onclick="setAppImage('creditos', 3, this, event)" title="Batalha"></button>
+                  <button class="c-dot active" onclick="setAppImage('creditos', 0, event)" aria-label="Abertura"></button>
+                  <button class="c-dot" onclick="setAppImage('creditos', 1, event)" aria-label="Campus"></button>
+                  <button class="c-dot" onclick="setAppImage('creditos', 2, event)" aria-label="Jogador"></button>
+                  <button class="c-dot" onclick="setAppImage('creditos', 3, event)" aria-label="Batalha"></button>
                 </div>
-                <div class="hud-zoom-hint" onclick="openLightbox('creditos', currentIndices['creditos'] || 0)">
+                <button class="hud-zoom-hint" onclick="openLightbox('creditos', currentIndices['creditos'] || 0, event)">
                   <span>⤢</span> Ampliar
-                </div>
+                </button>
               </div>
             </div>
             <div class="card-body">
               <div>
                 <div class="card-meta-row">
-                  <span>Discipline: Authentic 4-Tone RPG</span>
-                  <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Desenvolvimento</span>
+                  <span>Categoria: RPG Portátil Nostálgico</span>
+                  <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Breve</span>
                 </div>
                 <h3 class="card-title">170 Créditos</h3>
                 <p class="card-desc">
-                  RPG de campus universitário fiel às restrições de hardware do Game Boy de 1989. Movimentação por grid, coleta de Saberes, encontros acadêmicos por turnos e paleta verde clássica de 4 tons.
+                  Reviva o charme inesquecível dos videogames portáteis do final dos anos 80 em uma jornada divertida pela vida universitária. Explore o campus, converse com colegas peculiares e vença provas surpresa em batalhas por turnos para conquistar o tão esperado diploma.
                 </p>
               </div>
               <div class="card-specs-table">
                 <div class="spec-item">
-                  <span class="spec-label">Estética</span>
-                  <span class="spec-val">Game Boy 4-Greens</span>
+                  <span class="spec-label">Visual</span>
+                  <span class="spec-val">Estética Clássica Verde 4-Tons</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">Arquitetura</span>
-                  <span class="spec-val">Zero Dependências / Canvas</span>
+                  <span class="spec-label">Aventura</span>
+                  <span class="spec-val">Exploração de Campus &amp; Turnos</span>
                 </div>
               </div>
             </div>
@@ -1783,10 +1852,10 @@
         </div>
 
         <div class="pillar-card">
-          <span class="pillar-index">[02 // LEVEZA TÉCNICA]</span>
-          <h4 class="pillar-title">Construção Sem Inflação</h4>
+          <span class="pillar-index">[02 // EFICIÊNCIA REAL]</span>
+          <h4 class="pillar-title">Leveza e Respeito</h4>
           <p class="pillar-desc">
-            Código enxuto, arquivos únicos e motores de alto desempenho compilados em Rust e Canvas puro. Respeito pelo hardware, pela bateria e pelo tempo.
+            Experiências que abrem instantaneamente, consomem o mínimo de bateria e rodam sem lentidão ou telas infinitas de espera. Respeito genuíno pelo seu tempo e pelo seu aparelho.
           </p>
         </div>
 
@@ -1794,7 +1863,7 @@
           <span class="pillar-index">[03 // ESTÉTICA TÁTIL]</span>
           <h4 class="pillar-title">Nostalgia Retrô-Moderna</h4>
           <p class="pillar-desc">
-            O calor das telas de tubo dos anos 90 aliado à clareza do design editorial contemporâneo. Cada obra possui identidade e alma artística própria.
+            O calor dos clássicos dos anos 90 aliado à elegância do design contemporâneo. Cada produção possui identidade visual marcante e alma artística autêntica.
           </p>
         </div>
       </div>
@@ -1807,7 +1876,7 @@
       <span class="banner-badge">Experiência Cinematográfica</span>
       <h3 class="banner-title">Conheça a identidade sonora e visual da Ways of Seeing</h3>
       <p class="banner-desc">
-        Desenvolvemos uma introdução estúdio com acorde analógico A Maj9, sub-bass 48Hz e o isotipo orbital vetorial animado em vinheta Obsidian.
+        Uma vinheta audiovisual imersiva que sintetiza a identidade do estúdio: design limpo, harmonia sonora envolvente e o olhar orbital que guia nossas produções.
       </p>
       <div class="banner-cta-group">
         <a href="assets/brand/v3/studio-intro.html" target="_blank" class="btn-dark">
@@ -1884,49 +1953,49 @@
 
   <!-- INTERACTIVE LOGIC & GALLERY ENGINE -->
   <script>
-    // 28 High-Resolution Artifact Screenshots
+    // 28 High-Resolution Artifact Screenshots with End-User Descriptions
     const galleries = {
       mosh: [
-        { src: 'assets/gallery/mosh-1-app.png', title: 'MOSH MOSH MOSH — Interface Flutter Pro', desc: 'Estação de trabalho moderna com timeline responsiva e controle de frames I/P/B.' },
-        { src: 'assets/gallery/mosh-2-workstation.jpg', title: 'MOSH MOSH MOSH — Estúdio Audiovisual', desc: 'Playback em tempo real com exportação nativa e descarte de quadros-chave.' },
-        { src: 'assets/gallery/mosh-3-artist.jpg', title: 'MOSH MOSH MOSH — Performance de Glitch Art', desc: 'Artista manipulando em tempo real os vetores de movimento com motor em Rust.' },
-        { src: 'assets/gallery/mosh-4-glitch.jpg', title: 'MOSH MOSH MOSH — Renderização Macro', desc: 'Destruição estética de artefatos de compressão em resolução máxima.' }
+        { src: 'assets/gallery/mosh-1-app.png', title: 'MOSH MOSH MOSH — Estúdio de Criação', desc: 'Interface visual moderna para manipulação e distorção estética em tempo real.' },
+        { src: 'assets/gallery/mosh-2-workstation.jpg', title: 'MOSH MOSH MOSH — Estúdio Audiovisual', desc: 'Visualização contínua com exportação rápida para clipes e apresentações.' },
+        { src: 'assets/gallery/mosh-3-artist.jpg', title: 'MOSH MOSH MOSH — Performance ao Vivo', desc: 'Criação de transições e texturas visuais marcantes para palcos e festivais.' },
+        { src: 'assets/gallery/mosh-4-glitch.jpg', title: 'MOSH MOSH MOSH — Arte Glitch em Alta Resolução', desc: 'Texturas estéticas únicas em alta definição para produções autorais.' }
       ],
       leonida: [
-        { src: 'assets/gallery/leonida-1-menu.png', title: 'Escape From Leonida — Menu Arcade', desc: 'Seleção de fases retrô, ajustes de volume e modos arcade com Jason e Lucia.' },
-        { src: 'assets/gallery/leonida-2-gameplay.jpg', title: 'Escape From Leonida — Perseguição Policial', desc: 'Gameplay pseudo-3D com curvas dinâmicas, desvio de viaturas e velocidade extrema.' },
-        { src: 'assets/gallery/leonida-3-player.jpg', title: 'Escape From Leonida — Jogador no Setup', desc: 'Experiência fluida em tela cheia com resposta analógica imediata.' },
-        { src: 'assets/gallery/leonida-4-mobile.png', title: 'Escape From Leonida — HUD e Dashboard', desc: 'Velocímetro digital retrô, tempo regressivo e multiplicador de pontuação.' }
+        { src: 'assets/gallery/leonida-1-menu.png', title: 'Escape From Leonida — Menu Arcade', desc: 'Apresentação retrô vibrante para entrar direto na corrida com Jason e Lucia.' },
+        { src: 'assets/gallery/leonida-2-gameplay.jpg', title: 'Escape From Leonida — Perseguição Policial', desc: 'Curvas dinâmicas, desvio de viaturas e sensação inebriante de velocidade.' },
+        { src: 'assets/gallery/leonida-3-player.jpg', title: 'Escape From Leonida — Jogador no Setup', desc: 'Jogabilidade fluida com resposta imediata e trilha sonora envolvente.' },
+        { src: 'assets/gallery/leonida-4-mobile.png', title: 'Escape From Leonida — Painel e Recordes', desc: 'Velocímetro retrô, cronômetro regressivo e busca pelo melhor tempo.' }
       ],
       picote: [
-        { src: 'assets/gallery/picote-1-full.jpg', title: 'picote — Sampler de Vídeo MPC + 808', desc: 'Interface híbrida com pads de disparo audiovisual e sequenciador analógico.' },
-        { src: 'assets/gallery/picote-2-mpc.jpg', title: 'picote — Grade de Pads Táteis', desc: 'Mapeamento simultâneo de som e vídeo com resposta tátil e MIDI.' },
-        { src: 'assets/gallery/picote-3-808.jpg', title: 'picote — Sequenciador Rítmico de 16 Steps', desc: 'Compassos musicais sincronizados com cortes de vídeo ao vivo.' },
-        { src: 'assets/gallery/picote-4-producer.jpg', title: 'picote — Produtor no Estúdio de Criação', desc: 'Construção tátil de beats visuais para apresentações ao vivo.' }
+        { src: 'assets/gallery/picote-1-full.jpg', title: 'picote — Sampler de Vídeo e Áudio', desc: 'Interface tátil para criar batidas sincronizadas a recortes visuais.' },
+        { src: 'assets/gallery/picote-2-mpc.jpg', title: 'picote — Pads Táteis', desc: 'Disparo simultâneo de som e imagem na ponta dos dedos.' },
+        { src: 'assets/gallery/picote-3-808.jpg', title: 'picote — Sequenciador Rítmico de 16 Passos', desc: 'Montagem de compassos e grooves com cortes de vídeo ao vivo.' },
+        { src: 'assets/gallery/picote-4-producer.jpg', title: 'picote — Produtor no Estúdio de Criação', desc: 'Criação musical e visual para apresentações e gravações autorais.' }
       ],
       kush: [
-        { src: 'assets/gallery/kush-1-menu.png', title: 'Kush Drop — Menu & Visual Kawaii', desc: 'Apresentação temática com estética aconchegante, trilha chill e múltiplos idiomas.' },
-        { src: 'assets/gallery/kush-2-gameplay.jpg', title: 'Kush Drop — Física 2D e Fusão Suika', desc: 'Fusão progressiva de buds com física realista de impacto e rotação.' },
-        { src: 'assets/gallery/kush-3-player.jpg', title: 'Kush Drop — Partida Casual Mobile', desc: 'Jogabilidade tátil otimizada para smartphones, tablets e desktop.' },
-        { src: 'assets/gallery/kush-4-mobile.png', title: 'Kush Drop — Arena & Sistema de Pontuação', desc: 'Arena de jogo com pontuação contínua, troféus e detecção de topo.' }
+        { src: 'assets/gallery/kush-1-menu.png', title: 'Kush Drop — Menu & Visual Acolhedor', desc: 'Estética aconchegante, trilha relaxante e múltiplos idiomas.' },
+        { src: 'assets/gallery/kush-2-gameplay.jpg', title: 'Kush Drop — Dinâmica de Fusão', desc: 'Encaixe e combinação com física suave e prazerosa.' },
+        { src: 'assets/gallery/kush-3-player.jpg', title: 'Kush Drop — Partida Casual', desc: 'Jogabilidade tátil pensada para jogar no celular, tablet ou computador.' },
+        { src: 'assets/gallery/kush-4-mobile.png', title: 'Kush Drop — Arena & Pontuação', desc: 'Desafios progressivos, busca pela pontuação máxima e 33 troféus.' }
       ],
       diydj: [
-        { src: 'assets/gallery/diydj-1-pro.png', title: 'DIY-dj — Console Live Performance', desc: 'Instrumento minimalista e autônomo para DJs e performances de live coding.' },
-        { src: 'assets/gallery/diydj-2-decks.png', title: 'DIY-dj — Decks Duplos e Pitch Control', desc: 'Manipulação de formas de onda e transições sonoras sem latência perceptível.' },
-        { src: 'assets/gallery/diydj-3-mixer.png', title: 'DIY-dj — Mixer de 3 Bandas & Filtros', desc: 'Processamento puro em Rust nativo para controle total de equalização.' },
-        { src: 'assets/gallery/diydj-4-stems.png', title: 'DIY-dj — Isolamento de Stems e Loops', desc: 'Filtros em tempo real para graves, médios, vocais e elementos rítmicos.' }
+        { src: 'assets/gallery/diydj-1-pro.png', title: 'DIY-dj — Console Live Performance', desc: 'Mesa de mixagem digital intuitiva para tocar suas músicas favoritas.' },
+        { src: 'assets/gallery/diydj-2-decks.png', title: 'DIY-dj — Dois Decks Virtuais', desc: 'Transições suaves de áudio e controle de pitch sem atraso.' },
+        { src: 'assets/gallery/diydj-3-mixer.png', title: 'DIY-dj — Equalizador e Filtros', desc: 'Ajuste fácil de graves, médios e agudos para animar qualquer espaço.' },
+        { src: 'assets/gallery/diydj-4-stems.png', title: 'DIY-dj — Loops e Cortes', desc: 'Experimentação musical prática para criar seus próprios sets.' }
       ],
       crente: [
-        { src: 'assets/gallery/crente-1-menu.png', title: 'Crente Quiz — Interface de Abertura', desc: 'Design clean e direto com categorias de Antigo e Novo Testamento.' },
-        { src: 'assets/gallery/crente-2-gameplay.jpg', title: 'Crente Quiz — Rodada de Questões', desc: 'Timer por pergunta, bônus de velocidade e 200 questões selecionadas.' },
-        { src: 'assets/gallery/crente-3-player.jpg', title: 'Crente Quiz — Jogadora em Dispositivo Móvel', desc: 'Interface responsiva para partidas individuais ou disputas em grupo.' },
-        { src: 'assets/gallery/crente-4-mobile.png', title: 'Crente Quiz — Painel de Respostas e Feedback', desc: 'Validação instantânea com referências bíblicas e pontuação cumulativa.' }
+        { src: 'assets/gallery/crente-1-menu.png', title: 'Crente Quiz — Interface de Abertura', desc: 'Visual limpo e direto com seleção de perguntas do Antigo e Novo Testamento.' },
+        { src: 'assets/gallery/crente-2-gameplay.jpg', title: 'Crente Quiz — Rodada de Perguntas', desc: 'Perguntas rápidas contra o relógio e pontuações cumulativas.' },
+        { src: 'assets/gallery/crente-3-player.jpg', title: 'Crente Quiz — Jogador em Ação', desc: 'Perfeito para jogar no celular ou projetar para a família e amigos.' },
+        { src: 'assets/gallery/crente-4-mobile.png', title: 'Crente Quiz — Resultados e Curiosidades', desc: 'Feedback imediato com explicações claras para cada resposta.' }
       ],
       creditos: [
-        { src: 'assets/gallery/creditos-1-menu.png', title: '170 Créditos — Tela Inicial Game Boy', desc: 'Paleta verde 4-tons autêntica de 1989 e zero dependências externas.' },
-        { src: 'assets/gallery/creditos-2-gameplay.jpg', title: '170 Créditos — Exploração do Campus', desc: 'Navegação por grid 2D, coleta de Saberes e interação com estudantes.' },
-        { src: 'assets/gallery/creditos-3-player.jpg', title: '170 Créditos — Jogador no Console Portátil', desc: 'Experiência nostálgica de RPG de bolso em qualquer dispositivo.' },
-        { src: 'assets/gallery/creditos-4-mobile.png', title: '170 Créditos — Batalha por Turnos', desc: 'Combates temáticos contra prazos acadêmicos, seminários e provas.' }
+        { src: 'assets/gallery/creditos-1-menu.png', title: '170 Créditos — Abertura Clássica', desc: 'Paleta verde autêntica dos videogames de bolso clássicos.' },
+        { src: 'assets/gallery/creditos-2-gameplay.jpg', title: '170 Créditos — Exploração do Campus', desc: 'Caminhe por prédios, pátios e corredores conhecendo personagens curiosos.' },
+        { src: 'assets/gallery/creditos-3-player.jpg', title: '170 Créditos — Jogador no Console Portátil', desc: 'Nostalgia pura de RPG de bolso em qualquer tela moderna.' },
+        { src: 'assets/gallery/creditos-4-mobile.png', title: '170 Créditos — Batalhas Acadêmicas', desc: 'Enfrente provas surpresa, trabalhos em grupo e seminários por turnos.' }
       ]
     };
 
@@ -1940,38 +2009,70 @@
       creditos: 0
     };
 
-    // Navega pelas fotos diretamente no Card com as setas
+    // Navega pelas fotos diretamente no Card com transição suave no trilho
     function stepCardImage(appKey, delta, event) {
       if (event) event.stopPropagation();
       if (!galleries[appKey]) return;
       const total = galleries[appKey].length;
       const nextIndex = (currentIndices[appKey] + delta + total) % total;
-      setAppImage(appKey, nextIndex);
+      setAppImage(appKey, nextIndex, event);
     }
 
-    // Altera imagem do card e sincroniza dots e contador
-    function setAppImage(appKey, index, dotBtn, event) {
+    // Altera slide do trilho via CSS transform e sincroniza dots e contador
+    function setAppImage(appKey, index, event) {
       if (event) event.stopPropagation();
-      currentIndices[appKey] = index;
-      const imgEl = document.getElementById('img-' + appKey);
-      if (imgEl && galleries[appKey] && galleries[appKey][index]) {
-        imgEl.src = galleries[appKey][index].src;
+      if (!galleries[appKey]) return;
+      const total = galleries[appKey].length;
+      currentIndices[appKey] = (index + total) % total;
+      const activeIdx = currentIndices[appKey];
+      
+      const trackEl = document.getElementById('track-' + appKey);
+      if (trackEl) {
+        trackEl.style.transform = `translateX(-${activeIdx * 100}%)`;
       }
       
       const counterEl = document.getElementById('counter-' + appKey);
       if (counterEl) {
-        counterEl.textContent = `0${index + 1} / 04`;
+        counterEl.textContent = `0${activeIdx + 1} / 0${total}`;
       }
 
-      const cardViewport = imgEl?.closest('.card-viewport');
+      const cardViewport = trackEl ? trackEl.closest('.card-viewport') : null;
       if (cardViewport) {
         cardViewport.querySelectorAll('.c-dot').forEach((d, i) => {
-          d.classList.toggle('active', i === index);
+          d.classList.toggle('active', i === activeIdx);
         });
       }
     }
 
-    // Filtragem por status ou disciplina
+    // Suporte a swipe por toque (touch gestures) nos cards
+    document.querySelectorAll('.card-viewport').forEach(vp => {
+      let startX = 0;
+      let startY = 0;
+      const appKey = vp.getAttribute('data-app');
+      if (!appKey) return;
+
+      vp.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+
+      vp.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+        const diffX = endX - startX;
+        const diffY = endY - startY;
+
+        if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+          if (diffX < 0) {
+            stepCardImage(appKey, 1);
+          } else {
+            stepCardImage(appKey, -1);
+          }
+        }
+      }, { passive: true });
+    });
+
+    // Filtragem por status ou categoria
     function applyFilter(filter, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -2003,14 +2104,15 @@
       });
     }
 
-    // Lightbox Controls
+    // Lightbox Controls (Galeria Ampliada)
     let activeLbApp = null;
     let activeLbIndex = 0;
 
-    function openLightbox(appKey, index) {
+    function openLightbox(appKey, index, event) {
+      if (event) event.stopPropagation();
       if (!galleries[appKey]) return;
       activeLbApp = appKey;
-      activeLbIndex = index || 0;
+      activeLbIndex = (typeof index === 'number') ? index : (currentIndices[appKey] || 0);
       updateLightboxModal();
       document.getElementById('lightboxModal').classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -2031,7 +2133,7 @@
       activeLbIndex = (activeLbIndex + delta + total) % total;
       updateLightboxModal();
       
-      // Sincroniza card do fundo
+      // Sincroniza o carrossel do card no fundo
       setAppImage(activeLbApp, activeLbIndex);
     }
 
@@ -2047,7 +2149,7 @@
       document.getElementById('lbArtifactKey').textContent = `WAYS OF SEEING // ${activeLbApp.toUpperCase()} [${activeLbIndex + 1}/${total}]`;
     }
 
-    // Teclado
+    // Navegação por teclado no modal
     document.addEventListener('keydown', (e) => {
       const modal = document.getElementById('lightboxModal');
       if (modal && modal.classList.contains('active')) {
