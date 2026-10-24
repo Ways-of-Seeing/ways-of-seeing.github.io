@@ -830,7 +830,7 @@
       }
     }
 
-    /* 3. Staggered Quad Grid (Kush Drop, DIY-dj, Crente Quiz, 170 Créditos) */
+    /* 3. Staggered Quad Grid (Kush Drop, Crente Quiz, 170 Créditos) */
     .staggered-quad-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -839,6 +839,28 @@
 
     .staggered-quad-grid .card-viewport {
       height: 340px;
+    }
+
+    /* Número ímpar de cartões: o último ocupa a linha toda, no formato
+       panorâmico, em vez de ficar sozinho com um buraco ao lado. */
+    .staggered-quad-grid > .project-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+    }
+    .staggered-quad-grid > .project-card:last-child:nth-child(odd) .card-viewport {
+      height: 100%;
+      min-height: 380px;
+      border-bottom: 0;
+    }
+    @media (max-width: 960px) {
+      .staggered-quad-grid > .project-card:last-child:nth-child(odd) {
+        grid-template-columns: 1fr;
+      }
+      .staggered-quad-grid > .project-card:last-child:nth-child(odd) .card-viewport {
+        height: 340px;
+        min-height: 0;
+      }
     }
 
     @media (max-width: 800px) {
@@ -1386,7 +1408,6 @@
       <div class="ticker-item"><span>ESCAPE FROM CORAL KEYS</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>PICOTE MPC SAMPLER</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>SUIKA KUSH DROP</span> <span class="ticker-bullet">―</span></div>
-      <div class="ticker-item"><span>DIY-DJ CONSOLE</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>CRENTE QUIZ</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>170 CRÉDITOS GAME BOY RPG</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>EXPERIÊNCIAS AUTORAIS</span> <span class="ticker-bullet">―</span></div>
@@ -1398,7 +1419,6 @@
       <div class="ticker-item"><span>ESCAPE FROM CORAL KEYS</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>PICOTE MPC SAMPLER</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>SUIKA KUSH DROP</span> <span class="ticker-bullet">―</span></div>
-      <div class="ticker-item"><span>DIY-DJ CONSOLE</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>CRENTE QUIZ</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>170 CRÉDITOS GAME BOY RPG</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>EXPERIÊNCIAS AUTORAIS</span> <span class="ticker-bullet">―</span></div>
@@ -1418,11 +1438,11 @@
         
         <!-- Filter Switcher -->
         <div class="filter-pills">
-          <button class="filter-btn active" onclick="applyFilter('all', this)">Todas as Obras [07]</button>
+          <button class="filter-btn active" onclick="applyFilter('all', this)">Todas as Obras [06]</button>
           <button class="filter-btn" onclick="applyFilter('ready', this)">🟢 Prontos para Jogar [03]</button>
-          <button class="filter-btn" onclick="applyFilter('dev', this)">🟡 Em Breve [04]</button>
+          <button class="filter-btn" onclick="applyFilter('dev', this)">🟡 Em Breve [03]</button>
           <button class="filter-btn" onclick="applyFilter('game', this)">🎮 Jogos [04]</button>
-          <button class="filter-btn" onclick="applyFilter('tool', this)">🎛️ Música &amp; Vídeo [03]</button>
+          <button class="filter-btn" onclick="applyFilter('tool', this)">🎛️ Música &amp; Vídeo [02]</button>
         </div>
       </div>
 
@@ -1603,7 +1623,7 @@
 
         </div>
 
-        <!-- 3. STAGGERED QUAD GRID (Kush Drop, DIY-dj, Crente Quiz, 170 Créditos) -->
+        <!-- 3. STAGGERED QUAD GRID (Kush Drop, Crente Quiz, 170 Créditos) -->
         <div class="staggered-quad-grid">
 
           <!-- Kush Drop -->
@@ -1661,60 +1681,6 @@
             </div>
           </article>
 
-          <!-- DIY-dj -->
-          <article class="project-card" data-cat="tool" data-status="dev">
-            <div class="card-viewport" data-app="diydj">
-              <div class="carousel-slider">
-                <div class="carousel-track" id="track-diydj">
-                  <div class="carousel-slide"><img src="assets/gallery/diydj-1-pro.png" alt="DIY-dj — Console Virtual" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/diydj-2-decks.png" alt="DIY-dj — Dois Decks de Mixagem" loading="lazy" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/diydj-3-mixer.png" alt="DIY-dj — Mixer e Equalizador" loading="lazy" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/diydj-4-stems.png" alt="DIY-dj — Isolamento de Elementos" loading="lazy" /></div>
-                </div>
-              </div>
-              
-              <button class="card-arrow card-prev" onclick="stepCardImage('diydj', -1, event)" aria-label="Foto anterior">&#8249;</button>
-              <button class="card-arrow card-next" onclick="stepCardImage('diydj', 1, event)" aria-label="Próxima foto">&#8250;</button>
-
-              <div class="viewport-hud-top">
-                <span class="hud-tag">05 // Mesa de DJ Virtual</span>
-                <span class="hud-counter" id="counter-diydj">01 / 04</span>
-              </div>
-              <div class="carousel-bar" onclick="event.stopPropagation()">
-                <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('diydj', 0, event)" aria-label="Console"></button>
-                  <button class="c-dot" onclick="setAppImage('diydj', 1, event)" aria-label="Decks"></button>
-                  <button class="c-dot" onclick="setAppImage('diydj', 2, event)" aria-label="Mixer"></button>
-                  <button class="c-dot" onclick="setAppImage('diydj', 3, event)" aria-label="Stems"></button>
-                </div>
-                <button class="hud-zoom-hint" onclick="openLightbox('diydj', currentIndices['diydj'] || 0, event)">
-                  <span>⤢</span> Ampliar
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div>
-                <div class="card-meta-row">
-                  <span>Categoria: Discotecagem &amp; Som</span>
-                  <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Breve</span>
-                </div>
-                <h3 class="card-title">DIY-dj</h3>
-                <p class="card-desc">
-                  Uma estação de som intuitiva para tocar, mixar e manipular faixas musicais ao vivo. Transições perfeitas entre dois toca-discos virtuais, equalização nítida de graves e agudos e corte de elementos para transformar qualquer ambiente em pista de dança.
-                </p>
-              </div>
-              <div class="card-specs-table">
-                <div class="spec-item">
-                  <span class="spec-label">Recursos</span>
-                  <span class="spec-val">Dois Decks Virtuais &amp; Equalizador</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Resposta</span>
-                  <span class="spec-val">Sem Atraso no Toque ou Fone</span>
-                </div>
-              </div>
-            </div>
-          </article>
 
           <!-- Crente Quiz -->
           <article class="project-card" data-cat="game" data-status="ready">
@@ -1732,7 +1698,7 @@
               <button class="card-arrow card-next" onclick="stepCardImage('crente', 1, event)" aria-label="Próxima foto">&#8250;</button>
 
               <div class="viewport-hud-top">
-                <span class="hud-tag">06 // Perguntas &amp; Respostas</span>
+                <span class="hud-tag">05 // Perguntas &amp; Respostas</span>
                 <span class="hud-counter" id="counter-crente">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
@@ -1787,7 +1753,7 @@
               <button class="card-arrow card-next" onclick="stepCardImage('creditos', 1, event)" aria-label="Próxima foto">&#8250;</button>
 
               <div class="viewport-hud-top">
-                <span class="hud-tag">07 // Aventura Retrô</span>
+                <span class="hud-tag">06 // Aventura Retrô</span>
                 <span class="hud-counter" id="counter-creditos">01 / 04</span>
               </div>
               <div class="carousel-bar" onclick="event.stopPropagation()">
@@ -1953,7 +1919,7 @@
 
   <!-- INTERACTIVE LOGIC & GALLERY ENGINE -->
   <script>
-    // 28 High-Resolution Artifact Screenshots with End-User Descriptions
+    // 24 High-Resolution Artifact Screenshots with End-User Descriptions
     const galleries = {
       mosh: [
         { src: 'assets/gallery/mosh-1-app.png', title: 'MOSH MOSH MOSH — Estúdio de Criação', desc: 'Interface visual moderna para manipulação e distorção estética em tempo real.' },
@@ -1979,12 +1945,6 @@
         { src: 'assets/gallery/kush-3-loja.jpg', title: 'Suika Kush Drop — Loja', desc: 'Personagens, arenas, itens e tesouras compradas com as moedas da partida.' },
         { src: 'assets/gallery/kush-4-menu.jpg', title: 'Suika Kush Drop — Menu', desc: 'Três idiomas, recorde, 33 troféus e a trilha do próprio estúdio.' }
       ],
-      diydj: [
-        { src: 'assets/gallery/diydj-1-pro.png', title: 'DIY-dj — Console Live Performance', desc: 'Mesa de mixagem digital intuitiva para tocar suas músicas favoritas.' },
-        { src: 'assets/gallery/diydj-2-decks.png', title: 'DIY-dj — Dois Decks Virtuais', desc: 'Transições suaves de áudio e controle de pitch sem atraso.' },
-        { src: 'assets/gallery/diydj-3-mixer.png', title: 'DIY-dj — Equalizador e Filtros', desc: 'Ajuste fácil de graves, médios e agudos para animar qualquer espaço.' },
-        { src: 'assets/gallery/diydj-4-stems.png', title: 'DIY-dj — Loops e Cortes', desc: 'Experimentação musical prática para criar seus próprios sets.' }
-      ],
       crente: [
         { src: 'assets/gallery/crente-1-telas.jpg', title: 'Crente Quiz — Início, histórias e nota', desc: 'Gênesis e Vida de Jesus vêm abertas; as outras cinco histórias se abrem com maná. Depois de cada resposta, uma nota explica.' },
         { src: 'assets/gallery/crente-2-ajudas.jpg', title: 'Crente Quiz — Ajudas', desc: 'O pergaminho risca duas respostas erradas; a lâmpada ilumina a certa.' },
@@ -2004,7 +1964,6 @@
       coral: 0,
       picote: 0,
       kush: 0,
-      diydj: 0,
       crente: 0,
       creditos: 0
     };
