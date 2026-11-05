@@ -61,7 +61,7 @@
       font: 400 17px/1.6 var(--body);
       -webkit-font-smoothing: antialiased;
     }
-    img { max-width: 100%; display: block; }
+    img { max-width: 100%; height: auto; display: block; }
     a { color: var(--brilho); }
     :focus-visible { outline: 2px solid var(--brilho); outline-offset: 3px; border-radius: 6px; }
     .wrap {
@@ -146,6 +146,25 @@
     .panel.hl .hud { color: rgba(255,255,255,.8); }
     .panel ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 8px; }
     @media (max-width: 760px) { .split { grid-template-columns: 1fr; } }
+
+
+    /* Baixar */
+    .dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .dl .panel { gap: 14px; }
+    .dl .os { display: flex; align-items: center; gap: 12px; }
+    .dl .os svg { width: 30px; height: 30px; fill: var(--polpa); flex: none; }
+    .dl .req { color: var(--muted); font-size: 14.5px; line-height: 1.45; margin: 0; }
+    .dl .btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .dl .file { font: 400 12.5px/1.3 var(--mono); color: var(--muted); word-break: break-all; }
+    .howto { display: grid; gap: 10px; margin-top: 26px; }
+    .howto details { background: var(--casca-2); border: 1px solid var(--linha); border-radius: 16px; padding: 4px 22px; }
+    .howto summary { cursor: pointer; padding: 16px 0; font: 700 17px/1.3 var(--display); list-style-position: outside; }
+    .howto details[open] summary { border-bottom: 1px solid var(--linha); margin-bottom: 12px; }
+    .howto ol, .howto ul { margin: 0 0 18px; padding-left: 20px; display: grid; gap: 8px; color: var(--muted); }
+    .howto b { color: var(--polpa); }
+    .howto code { font: 400 13.5px/1.5 var(--mono); background: rgba(255,255,255,.06); padding: 2px 7px; border-radius: 6px; color: var(--polpa); word-break: break-all; }
+    .note { margin-top: 18px; color: var(--muted); font-size: 15px; }
+    @media (max-width: 900px) { .dl { grid-template-columns: 1fr; } }
 
     /* Redes */
     .nets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -232,6 +251,7 @@
     <div class="wrap">
       <a class="wordmark" href="#topo"><img src="img/logo.svg" alt="">jabuticaba</a>
       <div class="links">
+        <a href="#baixar">Baixar</a>
         <a href="#redes">Redes</a>
         <a href="#recursos">Recursos</a>
         <a href="#temas">Temas</a>
@@ -248,12 +268,13 @@
         <h1>Todas as redes abertas. <em>Um lugar só.</em></h1>
         <p class="lead">O jabuticaba junta vídeos curtos, fotos, conversas, comunidades, música e podcasts das redes abertas do fediverso — Mastodon, Bluesky, Pixelfed, Loops, PeerTube, Lemmy, Funkwhale e Castopod — num app bonito, em português, que dá para explorar sem conta.</p>
         <div class="badges">
-          <span class="badge live">● Em desenvolvimento</span>
+          <span class="badge live">● v0.1.0 · pré-lançamento</span>
           <span class="badge">iOS · Android · macOS · Windows · Linux</span>
           <span class="badge">Sem anúncios</span>
         </div>
         <div class="cta">
-          <a class="btn" href="https://github.com/Ways-of-Seeing/jabuticaba" target="_blank" rel="noopener">Ver o código</a>
+          <a class="btn" href="#baixar">Baixar grátis</a>
+          <a class="btn ghost" href="https://github.com/Ways-of-Seeing/jabuticaba" target="_blank" rel="noopener">Ver o código</a>
           <a class="btn ghost" href="brandbook.html">Brandbook</a>
           <a class="btn ghost" href="https://github.com/Ways-of-Seeing/jabuticaba/tree/main/brand/media-kit" target="_blank" rel="noopener">Media kit</a>
         </div>
@@ -266,6 +287,78 @@
   </header>
 
   <main>
+    <section id="baixar">
+      <div class="wrap">
+        <div class="head">
+          <p class="hud">↓ // Baixar</p>
+          <h2>Baixe e use hoje, de graça</h2>
+          <p class="lead">Versão 0.1.0, um pré-lançamento para computador. Código aberto (AGPL-3.0), sem anúncios e sem conta obrigatória. iOS e Android vêm depois.</p>
+        </div>
+        <div class="dl">
+          <div class="panel">
+            <div class="os"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><h3>macOS</h3></div>
+            <p class="req">macOS 12 (Monterey) ou mais novo. Apple Silicon e Intel no mesmo arquivo.</p>
+            <div class="btns"><a class="btn" href="https://github.com/Ways-of-Seeing/jabuticaba/releases/download/v0.1.0/jabuticaba-macos.dmg">Baixar para Mac</a></div>
+            <span class="file">jabuticaba-macos.dmg · 25 MB</span>
+          </div>
+          <div class="panel">
+            <div class="os"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.1 10.4 4v7.2H3zm0 13.8 7.4 1.1v-7.1H3zM11.3 3.9 21 2.5v8.7h-9.7zm0 16.2 9.7 1.4v-8.6h-9.7z"/></svg><h3>Windows</h3></div>
+            <p class="req">Windows 10 ou 11, 64 bits. Instalador sem senha de administrador, ou versão portátil.</p>
+            <div class="btns"><a class="btn" href="https://github.com/Ways-of-Seeing/jabuticaba/releases/download/v0.1.0/jabuticaba-windows-instalador.exe">Baixar instalador</a><a class="btn ghost" href="https://github.com/Ways-of-Seeing/jabuticaba/releases/download/v0.1.0/jabuticaba-windows-x64.zip">Portátil (.zip)</a></div>
+            <span class="file">instalador.exe · 12,6 MB · portátil .zip · 14,8 MB</span>
+          </div>
+          <div class="panel">
+            <div class="os"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-2.2 0-3.6 1.8-3.6 4.4 0 1.3.3 2.2-.4 3.6-.9 1.6-3 3.9-3 6.6 0 .8.2 1.5.6 2.1-.6.4-1.4.6-1.4 1.4 0 1 1.4 1.1 2.6 1.4 1.2.3 1.9.9 2.8.9.8 0 1.2-.5 1.6-.8h1.6c.4.3.8.8 1.6.8.9 0 1.6-.6 2.8-.9 1.2-.3 2.6-.4 2.6-1.4 0-.8-.8-1-1.4-1.4.4-.6.6-1.3.6-2.1 0-2.7-2.1-5-3-6.6-.7-1.4-.4-2.3-.4-3.6C15.6 3.8 14.2 2 12 2zm-1.4 4.2c.4 0 .7.5.7 1.1 0 .3-.1.6-.2.8l-.5-.2c.1-.1.1-.3.1-.5 0-.3-.1-.5-.2-.5s-.2.2-.2.5v.2l-.4-.2v-.1c0-.6.3-1.1.7-1.1zm2.8 0c.4 0 .8.5.8 1.1v.3l-.5.1v-.4c0-.3-.1-.6-.3-.6-.1 0-.3.3-.3.6v.2l-.4.1-.1-.3c0-.6.4-1.1.8-1.1zM12 8.5c.6 0 1.6.4 1.9.6.2.1.2.3 0 .5-.6.5-1.2.9-1.9.9s-1.3-.4-1.9-.9c-.2-.2-.2-.4 0-.5.3-.2 1.3-.6 1.9-.6z"/></svg><h3>Linux</h3></div>
+            <p class="req">64 bits, Ubuntu 22.04 ou mais novo (ou equivalente). Instala só para o seu usuário, sem sudo.</p>
+            <div class="btns"><a class="btn" href="https://github.com/Ways-of-Seeing/jabuticaba/releases/download/v0.1.0/jabuticaba-linux-x64.tar.gz">Baixar para Linux</a></div>
+            <span class="file">jabuticaba-linux-x64.tar.gz · 13,1 MB</span>
+          </div>
+        </div>
+
+        <div class="howto">
+          <details>
+            <summary>Instalar no macOS</summary>
+            <ol>
+              <li>Abra o <b>jabuticaba-macos.dmg</b> e arraste o jabuticaba para a pasta <b>Aplicativos</b>.</li>
+              <li>Abra o app pela pasta Aplicativos ou pelo Launchpad.</li>
+              <li>Se aparecer <b>"a Apple não pôde verificá-lo"</b>: o app ainda não tem a assinatura paga da Apple, mas o código está todo aberto. Feche o aviso, vá em <b>Ajustes do Sistema → Privacidade e Segurança</b>, role até o jabuticaba e clique em <b>Abrir Mesmo Assim</b>. Só é preciso fazer isso uma vez.</li>
+              <li>Se aparecer <b>"está danificado"</b>, abra o Terminal e rode <code>xattr -dr com.apple.quarantine /Applications/jabuticaba.app</code>.</li>
+            </ol>
+          </details>
+          <details>
+            <summary>Instalar no Windows</summary>
+            <ol>
+              <li>Abra o <b>jabuticaba-windows-instalador.exe</b>.</li>
+              <li>Se o Windows mostrar <b>"O Windows protegeu o computador"</b>, clique em <b>Mais informações → Executar assim mesmo</b>. O aviso aparece porque o instalador ainda não tem assinatura digital paga.</li>
+              <li>Siga os passos. O atalho fica no menu Iniciar (e na área de trabalho, se você marcar).</li>
+              <li>Versão portátil: extraia o .zip e abra o <b>jabuticaba.exe</b>. Para desinstalar a versão instalada: Configurações → Aplicativos → jabuticaba.</li>
+            </ol>
+          </details>
+          <details>
+            <summary>Instalar no Linux</summary>
+            <ol>
+              <li>Extraia o arquivo: <code>tar -xzf jabuticaba-linux-x64.tar.gz</code></li>
+              <li>Entre na pasta e rode <code>./instalar.sh</code>. O app vai para o menu de aplicativos, só para o seu usuário.</li>
+              <li>Para usar sem instalar, abra <code>./jabuticaba</code> direto da pasta.</li>
+              <li>Se o login das contas não ficar salvo, instale o <b>gnome-keyring</b> (ou o kwallet): é nele que o app guarda os códigos de acesso.</li>
+            </ol>
+          </details>
+          <details>
+            <summary>Primeiro uso e contas</summary>
+            <ol>
+              <li><b>Boas-vindas, interesses e tema:</b> escolha alguns assuntos para montar o Explorar e a cara do app. Dá para mudar tudo depois.</li>
+              <li><b>Criar, conectar ou só explorar:</b> explorar não pede nada. Você segue perfis, hashtags, comunidades e podcasts, e tudo fica salvo no aparelho.</li>
+              <li><b>Mastodon, Pixelfed e compatíveis:</b> digite seu endereço (<code>@voce@mastodon.social</code>). O login abre no navegador, no site do seu servidor; a senha nunca passa pelo app.</li>
+              <li><b>Bluesky:</b> use uma <b>senha de app</b> (Configurações → Privacidade e segurança → Senhas de app), nunca a senha principal.</li>
+              <li><b>Lemmy:</b> servidor, usuário e senha. <b>Funkwhale:</b> endereço do servidor de música e login no navegador.</li>
+              <li><b>Ainda não tem conta?</b> Toque em <b>Criar uma conta</b>: o app sugere servidores abertos em português e, no Mastodon e no Funkwhale, faz o cadastro ali mesmo.</li>
+            </ol>
+          </details>
+        </div>
+        <p class="note">Vídeo e áudio ainda tocam só no macOS; no Windows e no Linux o botão "Abrir" leva para o navegador. Guia completo: <a href="https://github.com/Ways-of-Seeing/jabuticaba/blob/main/docs/INSTALAR.md" target="_blank" rel="noopener" style="color:var(--brilho)">docs/INSTALAR.md</a> · <a href="https://github.com/Ways-of-Seeing/jabuticaba/releases" target="_blank" rel="noopener" style="color:var(--brilho)">todas as versões</a></p>
+      </div>
+    </section>
+
     <section id="proposta">
       <div class="wrap">
         <div class="head">
@@ -361,8 +454,8 @@
             </ul>
           </div>
           <div class="shot-pair">
-            <div class="shot"><img src="img/musica.jpg" width="1440" height="900" loading="lazy" alt="Aba Música com álbuns recentes e faixas novas"></div>
-            <div class="shot"><img src="img/podcasts.jpg" width="1440" height="900" loading="lazy" alt="Aba Podcasts com programas em alta e filtros"></div>
+            <div class="shot"><img src="img/celular-musica.jpg" width="390" height="844" loading="lazy" alt="Aba Música no celular com álbuns recentes e faixas novas"></div>
+            <div class="shot"><img src="img/celular-podcasts.jpg" width="390" height="844" loading="lazy" alt="Aba Podcasts no celular com programas em alta e filtros"></div>
           </div>
         </div>
 
@@ -428,7 +521,7 @@
           <div class="fact"><span class="n">1.769</span><span class="l">podcasts no catálogo</span><span class="src">fonte: Castopod Index, lido em 05/11/2026</span></div>
           <div class="fact"><span class="n">5</span><span class="l">plataformas no mesmo código</span><span class="src">fonte: projeto Flutter (iOS, Android, macOS, Windows, Linux)</span></div>
           <div class="fact"><span class="n">8</span><span class="l">temas visuais</span><span class="src">fonte: código do app</span></div>
-          <div class="fact blank"><span class="n">—</span><span class="l">pessoas usando</span><span class="src">ainda não medido: o app não foi lançado</span></div>
+          <div class="fact blank"><span class="n">—</span><span class="l">pessoas usando</span><span class="src">ainda não medido: a v0.1.0 acabou de sair</span></div>
           <div class="fact blank"><span class="n">—</span><span class="l">retenção</span><span class="src">ainda não medido</span></div>
           <div class="fact blank"><span class="n">—</span><span class="l">contas criadas pelo app</span><span class="src">ainda não medido</span></div>
           <div class="fact blank"><span class="n">—</span><span class="l">modelo de receita</span><span class="src">em definição; hoje é gratuito e sem anúncios</span></div>
@@ -461,6 +554,7 @@
               <li>Login e cadastro guiados; várias contas</li>
               <li>Curtir, compartilhar, seguir e publicar em várias redes</li>
               <li>Oito temas, identidade visual e media kit</li>
+              <li>Instaladores para macOS, Windows e Linux (v0.1.0)</li>
             </ul>
           </div>
           <div class="panel">
@@ -468,7 +562,7 @@
             <ul>
               <li>Responder posts e anexar mídia ao publicar</li>
               <li>Login no celular sem colar código</li>
-              <li>Vídeo no Windows e no Linux</li>
+              <li>Vídeo e áudio no Windows e no Linux</li>
               <li>Denunciar, bloquear e silenciar</li>
             </ul>
           </div>
