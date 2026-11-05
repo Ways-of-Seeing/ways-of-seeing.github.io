@@ -1410,6 +1410,7 @@
       <div class="ticker-item"><span>SUIKA KUSH DROP</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>CRENTE QUIZ</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>170 CRÉDITOS GAME BOY RPG</span> <span class="ticker-bullet">―</span></div>
+      <div class="ticker-item"><span>JABUTICABA FEDIVERSO</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>EXPERIÊNCIAS AUTORAIS</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>MÚSICA &amp; VÍDEO</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>ARTE DIGITAL</span> <span class="ticker-bullet">―</span></div>
@@ -1421,6 +1422,7 @@
       <div class="ticker-item"><span>SUIKA KUSH DROP</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>CRENTE QUIZ</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>170 CRÉDITOS GAME BOY RPG</span> <span class="ticker-bullet">―</span></div>
+      <div class="ticker-item"><span>JABUTICABA FEDIVERSO</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>EXPERIÊNCIAS AUTORAIS</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>MÚSICA &amp; VÍDEO</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>ARTE DIGITAL</span> <span class="ticker-bullet">―</span></div>
@@ -1438,11 +1440,12 @@
         
         <!-- Filter Switcher -->
         <div class="filter-pills">
-          <button class="filter-btn active" onclick="applyFilter('all', this)">Todas as Obras [06]</button>
+          <button class="filter-btn active" onclick="applyFilter('all', this)">Todas as Obras [07]</button>
           <button class="filter-btn" onclick="applyFilter('ready', this)">🟢 Prontos para Jogar [03]</button>
-          <button class="filter-btn" onclick="applyFilter('dev', this)">🟡 Em Breve [03]</button>
+          <button class="filter-btn" onclick="applyFilter('dev', this)">🟡 Em Breve [04]</button>
           <button class="filter-btn" onclick="applyFilter('game', this)">🎮 Jogos [04]</button>
           <button class="filter-btn" onclick="applyFilter('tool', this)">🎛️ Música &amp; Vídeo [02]</button>
+          <button class="filter-btn" onclick="applyFilter('app', this)">📱 Apps [01]</button>
         </div>
       </div>
 
@@ -1794,6 +1797,68 @@
 
         </div>
 
+        <!-- 4. FEATURE PANORAMIC (jabuticaba) -->
+        <article class="project-card card-feature-panoramic" data-cat="app" data-status="dev">
+          <div class="card-viewport" data-app="jabuticaba">
+            <div class="carousel-slider">
+              <div class="carousel-track" id="track-jabuticaba">
+                <div class="carousel-slide"><img src="assets/gallery/jabuticaba-1-explorar.jpg" alt="jabuticaba — Explorar o fediverso" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/jabuticaba-2-clipes.jpg" alt="jabuticaba — Clipes em tela cheia" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/jabuticaba-3-musica.jpg" alt="jabuticaba — Música do Funkwhale" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/jabuticaba-4-temas.jpg" alt="jabuticaba — Contas e temas" loading="lazy" /></div>
+              </div>
+            </div>
+
+            <button class="card-arrow card-prev" onclick="stepCardImage('jabuticaba', -1, event)" aria-label="Foto anterior">&#8249;</button>
+            <button class="card-arrow card-next" onclick="stepCardImage('jabuticaba', 1, event)" aria-label="Próxima foto">&#8250;</button>
+
+            <div class="viewport-hud-top">
+              <span class="hud-tag">07 // App do Fediverso</span>
+              <span class="hud-counter" id="counter-jabuticaba">01 / 04</span>
+            </div>
+            <div class="carousel-bar" onclick="event.stopPropagation()">
+              <div class="dots-container">
+                <button class="c-dot active" onclick="setAppImage('jabuticaba', 0, event)" aria-label="Explorar"></button>
+                <button class="c-dot" onclick="setAppImage('jabuticaba', 1, event)" aria-label="Clipes"></button>
+                <button class="c-dot" onclick="setAppImage('jabuticaba', 2, event)" aria-label="Música"></button>
+                <button class="c-dot" onclick="setAppImage('jabuticaba', 3, event)" aria-label="Contas e temas"></button>
+              </div>
+              <button class="hud-zoom-hint" onclick="openLightbox('jabuticaba', currentIndices['jabuticaba'] || 0, event)">
+                <span>⤢</span> Ampliar
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-meta-row">
+                <span>Categoria: App Social</span>
+                <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Breve</span>
+              </div>
+              <h3 class="card-title">jabuticaba</h3>
+              <p class="card-desc">
+                Todas as redes abertas do fediverso num app só: vídeos curtos, fotos, conversas, comunidades, música e podcasts de Mastodon, Threads, Bluesky, Pixelfed, Loops, PeerTube, Lemmy, Funkwhale e Castopod. Dá para explorar sem conta, e um passo a passo ajuda a criar a primeira.
+              </p>
+              <p class="card-desc" style="margin-top:14px">
+                <a href="jabuticaba/" style="font-weight:700;color:inherit">Ver a apresentação completa →</a>
+              </p>
+            </div>
+            <div class="card-specs-table">
+              <div class="spec-item">
+                <span class="spec-label">Redes</span>
+                <span class="spec-val">9 Redes Abertas do Fediverso</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Plataformas</span>
+                <span class="spec-val">iOS, Android, macOS, Windows &amp; Linux</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Galeria</span>
+                <span class="spec-val">4 Telas do App</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -1956,6 +2021,12 @@
         { src: 'assets/gallery/creditos-2-gameplay.jpg', title: '170 Créditos — Exploração do Campus', desc: 'Caminhe por prédios, pátios e corredores conhecendo personagens curiosos.' },
         { src: 'assets/gallery/creditos-3-player.jpg', title: '170 Créditos — Jogador no Console Portátil', desc: 'Nostalgia pura de RPG de bolso em qualquer tela moderna.' },
         { src: 'assets/gallery/creditos-4-mobile.png', title: '170 Créditos — Batalhas Acadêmicas', desc: 'Enfrente provas surpresa, trabalhos em grupo e seminários por turnos.' }
+      ],
+      jabuticaba: [
+        { src: 'assets/gallery/jabuticaba-1-explorar.jpg', title: 'jabuticaba — Explorar', desc: 'Tópicos em alta, clipes, fotos, conversas, música e podcasts de nove redes abertas, sem precisar de conta.' },
+        { src: 'assets/gallery/jabuticaba-2-clipes.jpg', title: 'jabuticaba — Clipes', desc: 'Vídeo curto vertical de Loops, PeerTube, Bluesky e Mastodon no mesmo deslizar.' },
+        { src: 'assets/gallery/jabuticaba-3-musica.jpg', title: 'jabuticaba — Música', desc: 'Álbuns e faixas do Funkwhale com player que acompanha o app inteiro.' },
+        { src: 'assets/gallery/jabuticaba-4-temas.jpg', title: 'jabuticaba — Contas e Temas', desc: 'Entrada guiada no fediverso e oito temas, do Paperwhite ao Windows 95.' }
       ]
     };
 
@@ -1965,7 +2036,8 @@
       picote: 0,
       kush: 0,
       crente: 0,
-      creditos: 0
+      creditos: 0,
+      jabuticaba: 0
     };
 
     // Navega pelas fotos diretamente no Card com transição suave no trilho
@@ -2051,6 +2123,8 @@
           show = (cat === 'game');
         } else if (filter === 'tool') {
           show = (cat === 'tool');
+        } else if (filter === 'app') {
+          show = (cat === 'app');
         }
 
         card.style.display = show ? '' : 'none';
