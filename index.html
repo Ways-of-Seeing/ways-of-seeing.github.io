@@ -460,6 +460,32 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
 
+    .filter-count {
+      opacity: 0.5;
+      font-weight: 500;
+    }
+
+    /* Em tela estreita a cápsula não quebra em várias linhas (virava um
+       bloco torto de pílulas): vira uma faixa única que rola de lado. */
+    @media (max-width: 900px) {
+      .filter-pills {
+        display: flex;
+        flex-wrap: nowrap;
+        max-width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .filter-pills::-webkit-scrollbar { display: none; }
+      .filter-btn { flex: 0 0 auto; }
+    }
+
+    .launch-note {
+      margin-top: 12px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
     /* --- GALLERY CARDS SYSTEM --- */
     .gallery-layout {
       display: flex;
@@ -686,6 +712,8 @@
 
     .card-meta-row {
       display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
       justify-content: space-between;
       align-items: baseline;
       margin-bottom: 10px;
@@ -764,6 +792,14 @@
       height: 6px;
       border-radius: 50%;
       background: currentColor;
+    }
+
+    @media (max-width: 960px) {
+      .project-card .card-viewport:not([data-app="kush"]) {
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: 16 / 10;
+      }
     }
 
     /* --- ASYMMETRIC VARIATIONS --- */
@@ -1207,7 +1243,7 @@
         <span>Ways of Seeing // Independent Studio &amp; Publisher</span>
       </div>
       <div class="system-location">
-        <span>Catálogo Ativo: 07 Produções Autorais</span>
+        <span>Catálogo Ativo: 06 Produções Autorais</span>
         <span>•</span>
         <span>São Paulo &amp; Global</span>
         <span>•</span>
@@ -1262,7 +1298,7 @@
         </p>
         <div class="hero-stats-strip">
           <div class="stat-box">
-            <span class="stat-number">07</span>
+            <span class="stat-number">06</span>
             <span class="stat-label">Produções</span>
           </div>
           <div class="stat-box">
@@ -1314,13 +1350,13 @@
         </div>
         
         <!-- Filter Switcher -->
-        <div class="filter-pills">
-          <button class="filter-btn active" onclick="applyFilter('all', this)">Todas as Obras [07]</button>
-          <button class="filter-btn" onclick="applyFilter('ready', this)">🟢 Prontos para Jogar [03]</button>
-          <button class="filter-btn" onclick="applyFilter('dev', this)">🟡 Em Breve [04]</button>
-          <button class="filter-btn" onclick="applyFilter('game', this)">🎮 Jogos [04]</button>
-          <button class="filter-btn" onclick="applyFilter('tool', this)">🎛️ Música &amp; Vídeo [02]</button>
-          <button class="filter-btn" onclick="applyFilter('app', this)">📱 Apps [01]</button>
+        <div class="filter-pills" role="group" aria-label="Filtrar obras">
+          <button class="filter-btn active" data-filter="all" onclick="applyFilter('all', this)">Todas</button>
+          <button class="filter-btn" data-filter="ready" onclick="applyFilter('ready', this)">Disponíveis</button>
+          <button class="filter-btn" data-filter="dev" onclick="applyFilter('dev', this)">Em breve</button>
+          <button class="filter-btn" data-filter="game" onclick="applyFilter('game', this)">Jogos</button>
+          <button class="filter-btn" data-filter="tool" onclick="applyFilter('tool', this)">Música &amp; Vídeo</button>
+          <button class="filter-btn" data-filter="app" onclick="applyFilter('app', this)">Apps</button>
         </div>
       </div>
 
@@ -1331,10 +1367,10 @@
           <div class="card-viewport" data-app="mosh">
             <div class="carousel-slider">
               <div class="carousel-track" id="track-mosh">
-                <div class="carousel-slide"><img src="assets/gallery/mosh-1-psicodelia.jpg" alt="MOSH MOSH MOSH — Interface de Edição" /></div>
-                <div class="carousel-slide"><img src="assets/gallery/mosh-2-pixel-sort.jpg" alt="MOSH MOSH MOSH — Estúdio Audiovisual" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/gallery/mosh-3-vhs.jpg" alt="MOSH MOSH MOSH — Performance ao Vivo" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/gallery/mosh-4-coral.jpg" alt="MOSH MOSH MOSH — Arte Glitch em Alta Resolução" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-1-psicodelia.jpg" alt="MOSH MOSH MOSH — Posterize e fluido" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-2-pixel-sort.jpg" alt="MOSH MOSH MOSH — Pixel sort" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-3-vhs.jpg" alt="MOSH MOSH MOSH — VHS" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-4-coral.jpg" alt="MOSH MOSH MOSH — Slice shift" loading="lazy" /></div>
               </div>
             </div>
             
@@ -1362,12 +1398,13 @@
             <div>
               <div class="card-meta-row">
                 <span>Categoria: Criação Visual</span>
-                <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Breve</span>
+                <span class="status-badge in-build"><span class="status-dot-mini"></span> Lançamento jan. 2027</span>
               </div>
               <h3 class="card-title">MOSH MOSH MOSH</h3>
               <p class="card-desc">
                 Um estúdio criativo para transformar vídeos em peças visuais impactantes com estética glitch art. Crie distorções futuristas, transições marcantes e efeitos psicodélicos em tempo real, com total liberdade criativa para artistas, videomakers e músicos.
               </p>
+              <p class="card-desc launch-note">Lançamento em janeiro de 2027, com builds otimizados para todas as plataformas.</p>
             </div>
             <div class="card-specs-table">
               <div class="spec-item">
@@ -1380,7 +1417,7 @@
               </div>
               <div class="spec-item">
                 <span class="spec-label">Galeria</span>
-                <span class="spec-val">4 Fotos da Interface &amp; Estúdio</span>
+                <span class="spec-val">4 Telas do App</span>
               </div>
             </div>
           </div>
@@ -1445,14 +1482,14 @@
           </article>
 
           <!-- picote -->
-          <article class="project-card" data-cat="tool" data-status="ready">
+          <article class="project-card" data-cat="tool" data-status="dev">
             <div class="card-viewport" data-app="picote">
               <div class="carousel-slider">
                 <div class="carousel-track" id="track-picote">
-                  <div class="carousel-slide"><img src="assets/gallery/picote-1-live.jpg" alt="picote — Instrumento Audiovisual" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/picote-2-temas.jpg" alt="picote — Pads Táteis" loading="lazy" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/picote-3-mpc.jpg" alt="picote — Sequenciador de Passos" loading="lazy" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/picote-4-bateria.jpg" alt="picote — Produtor em Performance" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-1-live.jpg" alt="picote — Tema Live" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-2-temas.jpg" alt="picote — Nove temas" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-3-mpc.jpg" alt="picote — MPC" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-4-bateria.jpg" alt="picote — Bateria 808" loading="lazy" /></div>
                 </div>
               </div>
               
@@ -1479,12 +1516,13 @@
               <div>
                 <div class="card-meta-row">
                   <span>Categoria: Música &amp; Imagem</span>
-                  <span class="status-badge playable"><span class="status-dot-mini"></span> Pronto para Usar</span>
+                  <span class="status-badge in-build"><span class="status-dot-mini"></span> Lançamento jan. 2027</span>
                 </div>
                 <h3 class="card-title">picote</h3>
                 <p class="card-desc">
                   Crie batidas musicais recortando imagens e sons no mesmo instante. Toque nos pads para disparar loops visuais, monte sequências rítmicas envolventes e faça apresentações audiovisuais marcantes direto no navegador ou controlador.
                 </p>
+                <p class="card-desc launch-note">Lançamento em janeiro de 2027, com builds otimizados para todas as plataformas.</p>
               </div>
               <div class="card-specs-table">
                 <div class="spec-item">
@@ -1633,7 +1671,7 @@
             <button class="card-arrow card-next" onclick="stepCardImage('jabuticaba', 1, event)" aria-label="Próxima foto">&#8250;</button>
 
             <div class="viewport-hud-top">
-              <span class="hud-tag">07 // App do Fediverso</span>
+              <span class="hud-tag">06 // App do Fediverso</span>
               <span class="hud-counter" id="counter-jabuticaba">01 / 04</span>
             </div>
             <div class="carousel-bar" onclick="event.stopPropagation()">
@@ -1789,10 +1827,10 @@
     // 24 High-Resolution Artifact Screenshots with End-User Descriptions
     const galleries = {
       mosh: [
-        { src: 'assets/gallery/mosh-1-psicodelia.jpg', title: 'MOSH MOSH MOSH — Estúdio de Criação', desc: 'Interface visual moderna para manipulação e distorção estética em tempo real.' },
-        { src: 'assets/gallery/mosh-2-pixel-sort.jpg', title: 'MOSH MOSH MOSH — Estúdio Audiovisual', desc: 'Visualização contínua com exportação rápida para clipes e apresentações.' },
-        { src: 'assets/gallery/mosh-3-vhs.jpg', title: 'MOSH MOSH MOSH — Performance ao Vivo', desc: 'Criação de transições e texturas visuais marcantes para palcos e festivais.' },
-        { src: 'assets/gallery/mosh-4-coral.jpg', title: 'MOSH MOSH MOSH — Arte Glitch em Alta Resolução', desc: 'Texturas estéticas únicas em alta definição para produções autorais.' }
+        { src: 'assets/gallery/mosh-1-psicodelia.jpg', title: 'MOSH MOSH MOSH — Posterize e fluido', desc: 'Efeitos de bitmap empilhados numa tela do Crente Quiz: posterize, RGB shift e fluido, com a prévia ao vivo.' },
+        { src: 'assets/gallery/mosh-2-pixel-sort.jpg', title: 'MOSH MOSH MOSH — Pixel sort', desc: 'Pixels reordenados por matiz, com aberração cromática e scanlines por cima.' },
+        { src: 'assets/gallery/mosh-3-vhs.jpg', title: 'MOSH MOSH MOSH — VHS', desc: 'Sangria de cor, tracking, blocos deslocados e ruído sobre o Kush Drop.' },
+        { src: 'assets/gallery/mosh-4-coral.jpg', title: 'MOSH MOSH MOSH — Slice shift', desc: 'Fatias deslocadas, RGB shift e scanlines no menu do Escape From Coral Keys.' }
       ],
       coral: [
         { src: 'assets/gallery/coral-1-menu.jpg', title: 'Escape From Coral Keys — Menu', desc: 'O nível do piloto e a barra de experiência ficam no menu; cada nível destrava uma vantagem permanente.' },
@@ -1801,10 +1839,10 @@
         { src: 'assets/gallery/coral-4-celular.jpg', title: 'Escape From Coral Keys — No celular', desc: 'Em pé ou deitado: a metade da tela é o volante, o acelerador é automático e os botões ficam nos cantos.' }
       ],
       picote: [
-        { src: 'assets/gallery/picote-1-live.jpg', title: 'picote — Sampler de Vídeo e Áudio', desc: 'Interface tátil para criar batidas sincronizadas a recortes visuais.' },
-        { src: 'assets/gallery/picote-2-temas.jpg', title: 'picote — Pads Táteis', desc: 'Disparo simultâneo de som e imagem na ponta dos dedos.' },
-        { src: 'assets/gallery/picote-3-mpc.jpg', title: 'picote — Sequenciador Rítmico de 16 Passos', desc: 'Montagem de compassos e grooves com cortes de vídeo ao vivo.' },
-        { src: 'assets/gallery/picote-4-bateria.jpg', title: 'picote — Produtor no Estúdio de Criação', desc: 'Criação musical e visual para apresentações e gravações autorais.' }
+        { src: 'assets/gallery/picote-1-live.jpg', title: 'picote — Tema Live', desc: 'Cabeçalho com tempo e efeitos master, a entrada de vídeo e o MPC lado a lado.' },
+        { src: 'assets/gallery/picote-2-temas.jpg', title: 'picote — Nove temas', desc: 'Live, 2000XL, Monitor âmbar e Portátil 4 tons: quatro dos nove temas do app.' },
+        { src: 'assets/gallery/picote-3-mpc.jpg', title: 'picote — MPC', desc: 'Dezesseis pads por página, cada um com seu corte do vídeo, e os efeitos de imagem ao lado.' },
+        { src: 'assets/gallery/picote-4-bateria.jpg', title: 'picote — Bateria 808', desc: 'Onze vozes, 48 kits, 40 ritmos prontos e um sequenciador de 16 passos.' }
       ],
       kush: [
         { src: 'assets/gallery/kush-1-telas.jpg', title: 'Suika Kush Drop — No celular', desc: 'Menu, partida e loja na mesma tela que cabe na mão.' },
@@ -1899,29 +1937,29 @@
     });
 
     // Filtragem por status ou categoria
+    function cardMatches(card, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'ready' || filter === 'dev') return card.getAttribute('data-status') === filter;
+      return card.getAttribute('data-cat') === filter;
+    }
+
+    // A contagem de cada filtro sai dos cards: escrita à mão, ficava errada a
+    // cada obra que entrava ou saía do catálogo.
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      const f = btn.getAttribute('data-filter');
+      const n = [...document.querySelectorAll('.project-card')].filter(c => cardMatches(c, f)).length;
+      const tag = document.createElement('span');
+      tag.className = 'filter-count';
+      tag.textContent = String(n).padStart(2, '0');
+      btn.append(' ', tag);
+    });
+
     function applyFilter(filter, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       document.querySelectorAll('.project-card').forEach(card => {
-        const cat = card.getAttribute('data-cat') || '';
-        const status = card.getAttribute('data-status') || '';
-
-        let show = false;
-        if (filter === 'all') {
-          show = true;
-        } else if (filter === 'ready') {
-          show = (status === 'ready');
-        } else if (filter === 'dev') {
-          show = (status === 'dev');
-        } else if (filter === 'game') {
-          show = (cat === 'game');
-        } else if (filter === 'tool') {
-          show = (cat === 'tool');
-        } else if (filter === 'app') {
-          show = (cat === 'app');
-        }
-
+        const show = cardMatches(card, filter);
         card.style.display = show ? '' : 'none';
       });
 
