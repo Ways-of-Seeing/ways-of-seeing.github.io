@@ -242,29 +242,6 @@
       font-weight: 700;
     }
 
-    .btn-intro-launch {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--text-main);
-      border: 1px solid var(--text-main);
-      color: #FFFFFF;
-      padding: 9px 18px;
-      border-radius: var(--radius-pill);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-
-    .btn-intro-launch:hover {
-      background: #222222;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    }
-
     @media (max-width: 768px) {
       .nav-actions li:not(:last-child) { display: none; }
     }
@@ -830,7 +807,7 @@
       }
     }
 
-    /* 3. Staggered Quad Grid (Kush Drop, Crente Quiz, 170 Créditos) */
+    /* 3. Staggered Quad Grid (Kush Drop, Crente Quiz) */
     .staggered-quad-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -961,101 +938,6 @@
         grid-template-columns: 1fr;
         gap: 24px;
       }
-    }
-
-    /* --- STUDIO INTRO CALLOUT BANNER --- */
-    .intro-banner {
-      padding: 80px 0;
-      background: #FFFFFF;
-      border-bottom: 1px solid var(--border-hairline);
-      text-align: center;
-    }
-
-    .intro-banner-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .banner-badge {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent-ultraviolet);
-      background: rgba(94, 70, 255, 0.08);
-      border: 1px solid rgba(94, 70, 255, 0.2);
-      padding: 5px 14px;
-      border-radius: var(--radius-pill);
-      font-weight: 700;
-    }
-
-    .banner-title {
-      font-family: var(--font-display);
-      font-size: clamp(26px, 3.2vw, 38px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text-main);
-    }
-
-    .banner-desc {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .banner-cta-group {
-      display: flex;
-      gap: 14px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn-dark {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--text-main);
-      color: #FFFFFF;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      padding: 13px 26px;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-
-    .btn-dark:hover {
-      background: #222222;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-light {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-alt);
-      border: 1px solid var(--border-medium);
-      color: var(--text-main);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 13px 24px;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .btn-light:hover {
-      background: #EAEAE8;
     }
 
     /* --- CLEAN FOOTER --- */
@@ -1362,11 +1244,6 @@
         <li><a href="#catalogo" class="nav-link"><span class="nav-index">[01]</span> Obras</a></li>
         <li><a href="#manifesto" class="nav-link"><span class="nav-index">[02]</span> Filosofia</a></li>
         <li><a href="https://github.com/Ways-of-Seeing" target="_blank" class="nav-link"><span class="nav-index">[03]</span> GitHub ↗</a></li>
-        <li>
-          <a href="assets/brand/v3/studio-intro.html" target="_blank" class="btn-intro-launch">
-            <span>▶</span> Assistir Abertura v3
-          </a>
-        </li>
       </ul>
     </div>
   </header>
@@ -1409,7 +1286,6 @@
       <div class="ticker-item"><span>PICOTE MPC SAMPLER</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>SUIKA KUSH DROP</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>CRENTE QUIZ</span> <span class="ticker-bullet">―</span></div>
-      <div class="ticker-item"><span>170 CRÉDITOS GAME BOY RPG</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>JABUTICABA FEDIVERSO</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>EXPERIÊNCIAS AUTORAIS</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>MÚSICA &amp; VÍDEO</span> <span class="ticker-bullet">―</span></div>
@@ -1421,7 +1297,6 @@
       <div class="ticker-item"><span>PICOTE MPC SAMPLER</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>SUIKA KUSH DROP</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>CRENTE QUIZ</span> <span class="ticker-bullet">―</span></div>
-      <div class="ticker-item"><span>170 CRÉDITOS GAME BOY RPG</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>JABUTICABA FEDIVERSO</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>EXPERIÊNCIAS AUTORAIS</span> <span class="ticker-bullet">―</span></div>
       <div class="ticker-item"><span>MÚSICA &amp; VÍDEO</span> <span class="ticker-bullet">―</span></div>
@@ -1456,10 +1331,10 @@
           <div class="card-viewport" data-app="mosh">
             <div class="carousel-slider">
               <div class="carousel-track" id="track-mosh">
-                <div class="carousel-slide"><img src="assets/gallery/mosh-1-app.png" alt="MOSH MOSH MOSH — Interface de Edição" /></div>
-                <div class="carousel-slide"><img src="assets/gallery/mosh-2-workstation.jpg" alt="MOSH MOSH MOSH — Estúdio Audiovisual" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/gallery/mosh-3-artist.jpg" alt="MOSH MOSH MOSH — Performance ao Vivo" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/gallery/mosh-4-glitch.jpg" alt="MOSH MOSH MOSH — Arte Glitch em Alta Resolução" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-1-psicodelia.jpg" alt="MOSH MOSH MOSH — Interface de Edição" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-2-pixel-sort.jpg" alt="MOSH MOSH MOSH — Estúdio Audiovisual" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-3-vhs.jpg" alt="MOSH MOSH MOSH — Performance ao Vivo" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/gallery/mosh-4-coral.jpg" alt="MOSH MOSH MOSH — Arte Glitch em Alta Resolução" loading="lazy" /></div>
               </div>
             </div>
             
@@ -1574,10 +1449,10 @@
             <div class="card-viewport" data-app="picote">
               <div class="carousel-slider">
                 <div class="carousel-track" id="track-picote">
-                  <div class="carousel-slide"><img src="assets/gallery/picote-1-full.jpg" alt="picote — Instrumento Audiovisual" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/picote-2-mpc.jpg" alt="picote — Pads Táteis" loading="lazy" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/picote-3-808.jpg" alt="picote — Sequenciador de Passos" loading="lazy" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/picote-4-producer.jpg" alt="picote — Produtor em Performance" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-1-live.jpg" alt="picote — Instrumento Audiovisual" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-2-temas.jpg" alt="picote — Pads Táteis" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-3-mpc.jpg" alt="picote — Sequenciador de Passos" loading="lazy" /></div>
+                  <div class="carousel-slide"><img src="assets/gallery/picote-4-bateria.jpg" alt="picote — Produtor em Performance" loading="lazy" /></div>
                 </div>
               </div>
               
@@ -1626,7 +1501,7 @@
 
         </div>
 
-        <!-- 3. STAGGERED QUAD GRID (Kush Drop, Crente Quiz, 170 Créditos) -->
+        <!-- 3. STAGGERED QUAD GRID (Kush Drop, Crente Quiz) -->
         <div class="staggered-quad-grid">
 
           <!-- Kush Drop -->
@@ -1740,61 +1615,6 @@
             </div>
           </article>
 
-          <!-- 170 Créditos -->
-          <article class="project-card" data-cat="game" data-status="dev">
-            <div class="card-viewport" data-app="creditos">
-              <div class="carousel-slider">
-                <div class="carousel-track" id="track-creditos">
-                  <div class="carousel-slide"><img src="assets/gallery/creditos-1-menu.png" alt="170 Créditos — Abertura Clássica" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/creditos-2-gameplay.jpg" alt="170 Créditos — Exploração do Campus" loading="lazy" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/creditos-3-player.jpg" alt="170 Créditos — Jogador no Console Portátil" loading="lazy" /></div>
-                  <div class="carousel-slide"><img src="assets/gallery/creditos-4-mobile.png" alt="170 Créditos — Batalhas Acadêmicas" loading="lazy" /></div>
-                </div>
-              </div>
-              
-              <button class="card-arrow card-prev" onclick="stepCardImage('creditos', -1, event)" aria-label="Foto anterior">&#8249;</button>
-              <button class="card-arrow card-next" onclick="stepCardImage('creditos', 1, event)" aria-label="Próxima foto">&#8250;</button>
-
-              <div class="viewport-hud-top">
-                <span class="hud-tag">06 // Aventura Retrô</span>
-                <span class="hud-counter" id="counter-creditos">01 / 04</span>
-              </div>
-              <div class="carousel-bar" onclick="event.stopPropagation()">
-                <div class="dots-container">
-                  <button class="c-dot active" onclick="setAppImage('creditos', 0, event)" aria-label="Abertura"></button>
-                  <button class="c-dot" onclick="setAppImage('creditos', 1, event)" aria-label="Campus"></button>
-                  <button class="c-dot" onclick="setAppImage('creditos', 2, event)" aria-label="Jogador"></button>
-                  <button class="c-dot" onclick="setAppImage('creditos', 3, event)" aria-label="Batalha"></button>
-                </div>
-                <button class="hud-zoom-hint" onclick="openLightbox('creditos', currentIndices['creditos'] || 0, event)">
-                  <span>⤢</span> Ampliar
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div>
-                <div class="card-meta-row">
-                  <span>Categoria: RPG Portátil Nostálgico</span>
-                  <span class="status-badge in-build"><span class="status-dot-mini"></span> Em Breve</span>
-                </div>
-                <h3 class="card-title">170 Créditos</h3>
-                <p class="card-desc">
-                  Reviva o charme inesquecível dos videogames portáteis do final dos anos 80 em uma jornada divertida pela vida universitária. Explore o campus, converse com colegas peculiares e vença provas surpresa em batalhas por turnos para conquistar o tão esperado diploma.
-                </p>
-              </div>
-              <div class="card-specs-table">
-                <div class="spec-item">
-                  <span class="spec-label">Visual</span>
-                  <span class="spec-val">Estética Clássica Verde 4-Tons</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Aventura</span>
-                  <span class="spec-val">Exploração de Campus &amp; Turnos</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
         </div>
 
         <!-- 4. FEATURE PANORAMIC (jabuticaba) -->
@@ -1902,23 +1722,6 @@
   </section>
 
   <!-- STUDIO INTRO CALLOUT BANNER -->
-  <section class="intro-banner">
-    <div class="container intro-banner-inner">
-      <span class="banner-badge">Experiência Cinematográfica</span>
-      <h3 class="banner-title">Conheça a identidade sonora e visual da Ways of Seeing</h3>
-      <p class="banner-desc">
-        Uma vinheta audiovisual imersiva que sintetiza a identidade do estúdio: design limpo, harmonia sonora envolvente e o olhar orbital que guia nossas produções.
-      </p>
-      <div class="banner-cta-group">
-        <a href="assets/brand/v3/studio-intro.html" target="_blank" class="btn-dark">
-          <span>▶</span> Reproduzir Studio Intro v3
-        </a>
-        <a href="https://github.com/Ways-of-Seeing" target="_blank" class="btn-light">
-          Organização no GitHub ↗
-        </a>
-      </div>
-    </div>
-  </section>
 
   <!-- CLEAN WHITE FOOTER -->
   <footer>
@@ -1936,7 +1739,6 @@
             <ul>
               <li><a href="#catalogo">Catálogo de Obras</a></li>
               <li><a href="#manifesto">Manifesto &amp; Filosofia</a></li>
-              <li><a href="assets/brand/v3/studio-intro.html" target="_blank">Abertura v3</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -1987,10 +1789,10 @@
     // 24 High-Resolution Artifact Screenshots with End-User Descriptions
     const galleries = {
       mosh: [
-        { src: 'assets/gallery/mosh-1-app.png', title: 'MOSH MOSH MOSH — Estúdio de Criação', desc: 'Interface visual moderna para manipulação e distorção estética em tempo real.' },
-        { src: 'assets/gallery/mosh-2-workstation.jpg', title: 'MOSH MOSH MOSH — Estúdio Audiovisual', desc: 'Visualização contínua com exportação rápida para clipes e apresentações.' },
-        { src: 'assets/gallery/mosh-3-artist.jpg', title: 'MOSH MOSH MOSH — Performance ao Vivo', desc: 'Criação de transições e texturas visuais marcantes para palcos e festivais.' },
-        { src: 'assets/gallery/mosh-4-glitch.jpg', title: 'MOSH MOSH MOSH — Arte Glitch em Alta Resolução', desc: 'Texturas estéticas únicas em alta definição para produções autorais.' }
+        { src: 'assets/gallery/mosh-1-psicodelia.jpg', title: 'MOSH MOSH MOSH — Estúdio de Criação', desc: 'Interface visual moderna para manipulação e distorção estética em tempo real.' },
+        { src: 'assets/gallery/mosh-2-pixel-sort.jpg', title: 'MOSH MOSH MOSH — Estúdio Audiovisual', desc: 'Visualização contínua com exportação rápida para clipes e apresentações.' },
+        { src: 'assets/gallery/mosh-3-vhs.jpg', title: 'MOSH MOSH MOSH — Performance ao Vivo', desc: 'Criação de transições e texturas visuais marcantes para palcos e festivais.' },
+        { src: 'assets/gallery/mosh-4-coral.jpg', title: 'MOSH MOSH MOSH — Arte Glitch em Alta Resolução', desc: 'Texturas estéticas únicas em alta definição para produções autorais.' }
       ],
       coral: [
         { src: 'assets/gallery/coral-1-menu.jpg', title: 'Escape From Coral Keys — Menu', desc: 'O nível do piloto e a barra de experiência ficam no menu; cada nível destrava uma vantagem permanente.' },
@@ -1999,10 +1801,10 @@
         { src: 'assets/gallery/coral-4-celular.jpg', title: 'Escape From Coral Keys — No celular', desc: 'Em pé ou deitado: a metade da tela é o volante, o acelerador é automático e os botões ficam nos cantos.' }
       ],
       picote: [
-        { src: 'assets/gallery/picote-1-full.jpg', title: 'picote — Sampler de Vídeo e Áudio', desc: 'Interface tátil para criar batidas sincronizadas a recortes visuais.' },
-        { src: 'assets/gallery/picote-2-mpc.jpg', title: 'picote — Pads Táteis', desc: 'Disparo simultâneo de som e imagem na ponta dos dedos.' },
-        { src: 'assets/gallery/picote-3-808.jpg', title: 'picote — Sequenciador Rítmico de 16 Passos', desc: 'Montagem de compassos e grooves com cortes de vídeo ao vivo.' },
-        { src: 'assets/gallery/picote-4-producer.jpg', title: 'picote — Produtor no Estúdio de Criação', desc: 'Criação musical e visual para apresentações e gravações autorais.' }
+        { src: 'assets/gallery/picote-1-live.jpg', title: 'picote — Sampler de Vídeo e Áudio', desc: 'Interface tátil para criar batidas sincronizadas a recortes visuais.' },
+        { src: 'assets/gallery/picote-2-temas.jpg', title: 'picote — Pads Táteis', desc: 'Disparo simultâneo de som e imagem na ponta dos dedos.' },
+        { src: 'assets/gallery/picote-3-mpc.jpg', title: 'picote — Sequenciador Rítmico de 16 Passos', desc: 'Montagem de compassos e grooves com cortes de vídeo ao vivo.' },
+        { src: 'assets/gallery/picote-4-bateria.jpg', title: 'picote — Produtor no Estúdio de Criação', desc: 'Criação musical e visual para apresentações e gravações autorais.' }
       ],
       kush: [
         { src: 'assets/gallery/kush-1-telas.jpg', title: 'Suika Kush Drop — No celular', desc: 'Menu, partida e loja na mesma tela que cabe na mão.' },
@@ -2015,12 +1817,6 @@
         { src: 'assets/gallery/crente-2-ajudas.jpg', title: 'Crente Quiz — Ajudas', desc: 'O pergaminho risca duas respostas erradas; a lâmpada ilumina a certa.' },
         { src: 'assets/gallery/crente-3-loja.jpg', title: 'Crente Quiz — Loja e resultado', desc: 'Acertos, respostas rápidas, sequências e rodadas perfeitas rendem maná.' },
         { src: 'assets/gallery/crente-4-desktop.jpg', title: 'Crente Quiz — No computador', desc: 'O mesmo jogo no navegador do computador.' }
-      ],
-      creditos: [
-        { src: 'assets/gallery/creditos-1-menu.png', title: '170 Créditos — Abertura Clássica', desc: 'Paleta verde autêntica dos videogames de bolso clássicos.' },
-        { src: 'assets/gallery/creditos-2-gameplay.jpg', title: '170 Créditos — Exploração do Campus', desc: 'Caminhe por prédios, pátios e corredores conhecendo personagens curiosos.' },
-        { src: 'assets/gallery/creditos-3-player.jpg', title: '170 Créditos — Jogador no Console Portátil', desc: 'Nostalgia pura de RPG de bolso em qualquer tela moderna.' },
-        { src: 'assets/gallery/creditos-4-mobile.png', title: '170 Créditos — Batalhas Acadêmicas', desc: 'Enfrente provas surpresa, trabalhos em grupo e seminários por turnos.' }
       ],
       jabuticaba: [
         { src: 'assets/gallery/jabuticaba-1-explorar.jpg', title: 'jabuticaba — Explorar', desc: 'Tópicos em alta, clipes, fotos, conversas, música e podcasts de oito redes abertas, sem precisar de conta.' },
@@ -2036,7 +1832,6 @@
       picote: 0,
       kush: 0,
       crente: 0,
-      creditos: 0,
       jabuticaba: 0
     };
 
